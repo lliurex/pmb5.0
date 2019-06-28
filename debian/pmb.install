@@ -1,0 +1,3 @@
+debian/lintian/override/pmb 	/usr/share/lintian/overrides
+pmb/*				/usr/share/pmb/www/
+pmb.install-files/*		/

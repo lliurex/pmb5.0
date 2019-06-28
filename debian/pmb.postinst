@@ -1,0 +1,85 @@
+#!/bin/sh
+
+set -e
+
+
+case $1 in 
+	
+	configure)
+		# temp dirs permissions
+		chown root:www-data /var/lib/pmb/backup
+		chown root:www-data /var/lib/pmb/backup/backups
+		chown root:www-data /var/lib/pmb/temp
+		chmod 2775 /var/lib/pmb/backup
+		chmod 2775 /var/lib/pmb/backup/backups
+		chmod 2775 /var/lib/pmb/temp
+
+		# Settings for PMB UPLOAD MAX Size
+
+		mkdir -p /etc/lliurex-tokens/
+
+		if [ ! -e /etc/lliurex-tokens/pmb5.0_rev_phpsize ]; then
+			
+			# Setting the lliurex-token for pmb
+			echo " [ PMB 5.0 ] : PHP Upload size fixed to 200MB "
+			echo "PHP Size fixed to 200MB " > /etc/lliurex-tokens/pmb5.0_rev_phpsize
+			date >> /etc/lliurex-tokens/pmb5.0_rev_phpsize
+			
+			# Calling utility
+			bash /usr/share/pmb/www/lliurex/utilidades/phpiniconf.sh --pmb || true
+
+		else
+
+			echo " [ PMB 5.0 ] : PHP Upload has been already set...nothing to do "
+
+		fi
+		
+		if [ ! -e /etc/lliurex-tokens/pmb4.2_javascript ]; then
+			
+			# Setting the lliurex-token for pmb
+			echo " [ PMB 5.0 ] : Disable Javascript Common "
+			echo "Disabled Javascript Common " > /etc/lliurex-tokens/pmb5.0_javascript
+			date >> /etc/lliurex-tokens/pmb5.0_javascript
+			
+			# Calling utility
+			#a2disconf javascript-common || true
+			 
+			DISCONF="/usr/local/sbin/a2disconf-lliurex"
+			${DISCONF} javascript-common || true	
+		else
+
+			echo " [ PMB 5.0 ] : Javascript Common has been already disabled...nothing to do "
+
+		fi
+
+		
+		# Reloading apache
+		systemctl restart apache2-lliurex
+
+	# Updated some tables
+		# Settings the lliurex-token for pmb
+		echo "######" >> /etc/lliurex-tokens/pmb4.2_updatedtables
+		echo "Updated some tables " >> /etc/lliurex-tokens/pmb5.0_updatedtables
+		date >> /etc/lliurex-tokens/pmb5.0_updatedtables
+		dpkg -s pmb | grep Version >> /etc/lliurex-tokens/pmb5.0_updatedtables	
+		echo "######" >> /etc/lliurex-tokens/pmb5.0_updatedtables	
+
+		# Calling utility		
+		bash /usr/share/pmb/www/lliurex/utilidades/updatedtables || true
+	;;
+		
+        abort-upgrade|abort-remove|abort-deconfigure)
+                echo "postinst called with argument \`$1'" >&2
+                exit 1
+        ;;
+
+        *)
+                echo "postinst called with unknown argument \`$1'" >&2
+                exit 1
+        ;;
+esac	
+
+
+
+#DEBHELPER#
+exit 0

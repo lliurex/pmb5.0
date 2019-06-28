@@ -1,0 +1,4 @@
+var/lib/pmb/backup 			usr/share/pmb/www/admin/backup
+var/lib/pmb/temp 			usr/share/pmb/www/temp
+usr/share/pmb/www			var/www/pmb
+usr/share/pmb/www/opac_css              var/www/opac

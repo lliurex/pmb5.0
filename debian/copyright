@@ -1,0 +1,46 @@
+This package was debianized by Miguel Gea Milvaques <gea_mig@gva.es> on
+Fri,  9 Nov 2007 16:53:44 +0100.
+
+It was downloaded from http://www.sigb.net/
+
+Upstream Author: PMB Services <pmb@sigb.net>
+
+Copyright: 2002-2004 PMB Services 
+
+Licenses:
+------------
+The files under usr/share/pmb/www/classes/writeexcel are licensed under LGPL license.
+
+PMB est diffusé suivant les termes de la Licence Publique Générale GNU (GPL) version 2.0.
+
+Ce logiciel est régi par la licence CeCILL, Licence française de logiciel libre soumise au droit français et respectant les principes de diffusion des logiciels libres.
+
+Cette licence vous garantit des droits don t les principaux sont :
+
+    Liberté d'utilisation de ce programme.
+    Liberté de modifier ce programme.
+    Liberté de redistribuer ce programme modifié ou non.
+
+    Ces droits sont exerçables sous les conditions de la licence CeCILL telle que diffusée par le CEA, le CNRS et l'INRIA sur le site http://www.cecill.info. Vous pouvez lire le texte complet de la licence maintenant en cliquant ici. 
+
+Cette licence implique des obligations don t les principales sont :
+
+    Toute redistribution de ce programme modifié ou non doit être soumis à cette licence et doit comporter une information claire sur les restrictions de garanties.
+
+    Toute intégration de tout ou partie du programme dans un autre logiciel a pour effet de d'appliquer cette licence à ce nouveau logiciel. Aucune autre licence ne peut être utilisée.
+
+    Toute redistribution de ce programme modifié ou non doit être accompagnée des codes source ou tout au moins des moyens d'accès à ces codes sources.
+
+Restriction de garantie :
+
+    En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée. Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire des droits patrimoniaux et les concédants successifs.
+
+    A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve donc à des développeurs et des professionnels avertis possédant des connaissances informatiques approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et, plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité. 
+
+Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence CeCILL, et que vous en avez accepté les termes.
+------------
+On Debian systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+The Debian packaging is (C) 2007, Miguel Gea Milvaques <gea_mig@gva.es> and
+is licensed under the GPL, see above.

@@ -1,0 +1,609 @@
+pmb (5.0.4+lliurex5) xenial; urgency=medium
+
+  * Fixed the generation of 'tejuelos'
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 27 Mar 2019 17:13:00 +0100
+
+pmb (5.0.4+lliurex4) xenial; urgency=medium
+
+  * Fixed the generation of the 'tejuelos' to avoid duplicates
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 26 Oct 2018 13:36:32 +0200
+
+pmb (5.0.4+lliurex3) xenial; urgency=medium
+
+  * Fixed generation of 'tejuelos' by category
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 25 Oct 2018 13:21:01 +0200
+
+pmb (5.0.4+lliurex2) xenial; urgency=medium
+
+  * Added functionality to launch indexing automatically after importing a backup
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 01 Oct 2018 12:17:05 +0200
+
+pmb (5.0.4+lliurex1) xenial; urgency=medium
+
+  * Initial release of pmb5.0.4
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 06 Jun 2018 08:10:40 +0200
+
+pmb (4.2.6+lliurex21) xenial; urgency=medium
+
+  * Add user xml file validation
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 26 Oct 2017 12:37:25 +0200
+
+pmb (4.2.6+lliurex20) xenial; urgency=medium
+
+  * Set default language for thesaurus
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 26 Sep 2017 12:25:25 +0200
+
+pmb (4.2.6+lliurex19) xenial; urgency=medium
+
+  * Add method for fix indexation bug when import corrupt  bbdd backups
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 12 Jun 2017 14:37:41 +0200
+
+pmb (4.2.6+lliurex18) xenial; urgency=medium
+
+  * Fix bug in bbdd indexation process
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 09 Jun 2017 12:28:17 +0200
+
+pmb (4.2.6+lliurex17) xenial; urgency=medium
+
+  * Fix some files
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 12 May 2017 09:39:47 +0200
+
+pmb (4.2.6+lliurex16) xenial; urgency=medium
+
+  * Add valencian translation to import from Abies feature
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 26 Apr 2017 12:32:32 +0200
+
+pmb (4.2.6+lliurex15) xenial; urgency=medium
+
+  * Add feature to import from Abies
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 20 Apr 2017 14:05:47 +0200
+
+pmb (4.2.6+lliurex14) xenial; urgency=medium
+
+  * Change opac main page
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 27 Feb 2017 11:10:11 +0100
+
+pmb (4.2.6+lliurex13) xenial; urgency=medium
+
+  * Add procedure to renew users
+  * Fix some files
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 01 Feb 2017 17:41:59 +0100
+
+pmb (4.2.6+lliurex12) xenial; urgency=medium
+
+  * Fix valencian translations
+  * Fix some files
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 14 Dec 2016 13:34:06 +0100
+
+pmb (4.2.6+lliurex11) xenial; urgency=medium
+
+  * Fix es_ES translations
+  * Add script to update settings of Rebeca z3950 during installation
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 17 Nov 2016 10:28:21 +0100
+
+pmb (4.2.6+lliurex10) xenial; urgency=medium
+
+  * Fix pre-depends
+
+ -- lliurex <lliurex@lliurexVirtualBox>  Wed, 11 May 2016 13:33:14 +0200
+
+pmb (4.2.6+lliurex9) xenial; urgency=medium
+
+  * Enabled compatibility with php5-lliurex
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 27 Apr 2016 11:32:44 +0200
+
+pmb (4.2.6+lliurex8) xenial; urgency=medium
+
+  * Fix pmb.dirs and postinst
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 20 Apr 2016 18:13:45 +0200
+
+pmb (4.2.6+lliurex7) xenial; urgency=medium
+
+  * Fix phpiniconf.sh
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 20 Apr 2016 13:55:40 +0200
+
+pmb (4.2.6+lliurex6) xenial; urgency=medium
+
+  * Remove depends with php7.0
+  * Fix depends with php5-lliurex
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 19 Apr 2016 12:52:25 +0200
+
+pmb (4.2.6+lliurex5) xenial; urgency=medium
+
+  * Fix bug in php7.0 depends
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 11 Apr 2016 17:31:19 +0200
+
+pmb (4.2.6+lliurex4) xenial; urgency=medium
+
+  * Fix phpini config to php7
+  * Fix yaz to php7
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 11 Apr 2016 16:56:49 +0200
+
+pmb (4.2.6+lliurex3) xenial; urgency=medium
+
+  * Fix depends with php7
+  * New migration db  process from Nemo, Pandora and Trusty to Xenial
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 11 Apr 2016 12:35:46 +0200
+
+pmb (4.2.6+lliurex2) xenial; urgency=medium
+
+  * Fix problem with 64 bits
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 29 Mar 2016 17:50:29 +0200
+
+pmb (4.2.6+lliurex1) xenial; urgency=medium
+
+  * Initial release
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 29 Mar 2016 16:31:48 +0200
+
+pmb (4.1.4+lliurex35) trusty; urgency=low
+
+  [ Juan Ramon Pelegrina ]
+  * Add new feature for migration user's id to NIA
+  * Add new reports
+
+  [ Juan Ramon Pelegrina ]
+  * Add generation students migrated license
+  * Review some translations files
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 06 Oct 2015 23:00:27 +0200
+
+pmb (4.1.4+lliurex34) trusty; urgency=high
+
+  * Fix a bug in automatic generation of book's code
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Tue, 06 Oct 2015 16:37:56 +0200
+
+pmb (4.1.4+lliurex33) trusty; urgency=high
+
+  * Updated with .dat files on selector 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Mon, 21 Sep 2015 13:19:53 +0200
+
+pmb (4.1.4+lliurex32) trusty; urgency=high
+
+  * Updated version 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Wed, 16 Sep 2015 16:39:20 +0200
+
+pmb (4.1.4+lliurex31) trusty; urgency=high
+
+  * Updated with disabled javascript 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Wed, 16 Sep 2015 16:21:28 +0200
+
+pmb (4.1.4+lliurex30) trusty; urgency=high
+
+  * Updated with php5-yaz 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Mon, 27 Jul 2015 12:56:18 +0200
+
+pmb (4.1.4+lliurex29) trusty; urgency=high
+
+  * Updated with a yaz enabled by default 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Mon, 27 Jul 2015 08:52:30 +0200
+
+pmb (4.1.4+lliurex28) trusty; urgency=high
+
+  * Updated traducciones_ES.sql
+  * Updated traducciones_VA.sql
+  * Updated va_ES.xml
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Fri, 17 Jul 2015 12:29:41 +0200
+
+pmb (4.1.4+lliurex27) trusty; urgency=high
+
+  * Add files to migrate from PMB3
+
+ -- Angel Berlanas <angel.berlanas@gmail.com>  Thu, 09 Jul 2015 15:00:05 +0200
+
+pmb (4.1.4+lliurex26) trusty; urgency=medium
+
+  * Updated traducciones_ES.sql
+  * Updated traducciones_VA.sql
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Fri, 19 Jun 2015 11:26:58 +0200
+
+pmb (4.1.4+lliurex26) trusty; urgency=high
+
+  * Updated version
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Fri, 19 Jun 2015 11:26:58 +0200
+
+pmb (4.1.4+lliurex25) trusty; urgency=high
+
+  * Fixed bug in copia_seg_importa.php
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmailcom>  Fri, 19 Jun 2015 10:00:10 +0200
+
+pmb (4.1.4+lliurex24) trusty; urgency=high
+
+  * Changed postinstall to be more polite
+  * Changed postinstall to call the pmb ini conf script
+  * Fixed phpSize to 20Mbs 
+  * Updated -f file 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Thu, 18 Jun 2015 08:59:22 +0200
+
+pmb (4.1.4+lliurex21) trusty; urgency=high
+
+  * Changes in pmb4.sql to install the last bbdd version
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Mon, 15 Jun 2015 09:41:57 +0200
+
+pmb (4.1.4+lliurex20) trusty; urgency=high
+
+  * Update some opac_css translation files
+   
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Fri, 05 Jun 2015 13:12:58 +0200
+
+pmb (4.1.4+lliurex19) trusty; urgency=high
+
+  * Removed some unused directories 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Thu, 28 May 2015 14:57:44 +0200
+
+pmb (4.1.4+lliurex18) trusty; urgency=high
+
+  * Added to amd64 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Thu, 28 May 2015 12:44:36 +0200
+
+pmb (4.1.4+lliurex17) trusty; urgency=high
+
+  * Removed amd64 problems
+  * Added any as architecture to build
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Thu, 28 May 2015 09:21:19 +0200
+
+pmb (4.1.4+lliurex16) trusty; urgency=high
+
+  * Fixed postinstall
+  * Encoding bugs fixed
+  * Add va_ES in OPAC parameters table
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Thu, 28 May 2015 08:35:16 +0200
+
+pmb (4.1.4+lliurex15) trusty; urgency=high
+
+  * Updated version
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Tue, 26 May 2015 13:57:32 +0200
+
+pmb (4.1.4+lliurex14) trusty; urgency=high
+
+  * Updated empty words 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Tue, 26 May 2015 13:44:54 +0200
+
+pmb (4.1.4+lliurex13) trusty; urgency=high
+
+  * Updated encoding 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Tue, 26 May 2015 13:28:25 +0200
+
+pmb (4.1.4+lliurex12) trusty; urgency=high
+
+  * Updated 32 bits 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Tue, 26 May 2015 11:48:01 +0200
+
+pmb (4.1.4+lliurex11) trusty; urgency=high
+
+  * Updated version 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Tue, 26 May 2015 11:37:08 +0200
+
+pmb (4.1.4+lliurex10) trusty; urgency=high
+
+  * Fixed date
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Fri, 22 May 2015 08:59:21 +0200
+
+pmb (4.1.4+lliurex9) trusty; urgency=high
+
+   * Inclusion of new features:
+   * Incorporation files with translations in Valenciano
+   * 64-bit bug correction
+
+ -- Juan Ramon Pelegrina <pelegrina_jua@externos.gva.es>  Fri, 21 May 2015 10:17:29 +0100
+
+pmb (4.1.4+lliurex8) trusty; urgency=low
+
+   * Inclusion of new features:
+   * Functionality translate tables parameters
+   * Resolve bug in copia_seg_importa.php
+
+ -- Juan Ramon Pelegrina <pelegrina_jua@externos.gva.es>  Fri, 15 Apr 2015 11:30:29 +0100
+
+pmb (4.1.4+lliurex7) trusty; urgency=high
+
+  * Restricted arch 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Tue, 17 Mar 2015 09:14:24 +0100
+
+pmb (4.1.4+lliurex6) trusty; urgency=high
+
+  * Upgrade version . Testing area 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Thu, 05 Mar 2015 13:14:18 +0100
+
+pmb (4.1.4+lliurex3) trusty; urgency=high
+
+  *  First release for trusty
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Thu, 26 Feb 2015 11:10:47 +0100
+
+pmb (4.1.4+lliurex2) trusty; urgency=low
+
+  * Inclusion of new functionalities:
+  	*Tejuelos
+        *Import from  GESCEN/ITACA
+        *Modifications for future incorporation of Valenciano
+
+ -- Juan Ramon Pelegrina <pelegrina_jua@externos.gva.es>  Fri, 13 Feb 2015 11:25:29 +0100
+
+pmb (4.1.4+lliurex1) trusty; urgency=low
+
+  * Initial import from 4.1.4
+
+ -- Juan Ramon Pelegrina <pelegrina_jua@externos.gva.es>  Tue, 10 Feb 2015 08:54:29 +0100
+
+pmb (4.0.3+lliurex37) precise; urgency=low
+
+  * Fixed po file and xml files 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Tue, 04 Mar 2014 09:45:29 +0100
+
+pmb (4.0.3+lliurex36) precise; urgency=low
+
+  * Added support to print tejuelos by other fields like cdu and categoria 
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Mon, 03 Mar 2014 12:57:58 +0100
+
+pmb (4.0.3+lliurex35) precise; urgency=low
+
+  * Modified es_ES.xml
+  * Modified file classes/iso2709.class.php to support Biblioteca Nacional with some codification problems
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Wed, 19 Feb 2014 09:39:22 +0100
+
+pmb (4.0.3+lliurex34) precise; urgency=low
+
+  * Modify convert_CSV message to allow relative path to files 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Mon, 10 Feb 2014 13:28:31 +0100
+
+pmb (4.0.3+lliurex33) precise; urgency=low
+
+  * Update parameter to enable extended edition of registers
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Wed, 11 Dec 2013 09:45:16 +0100
+
+pmb (4.0.3+lliurex32) precise; urgency=low
+
+  * Fixed character mistake 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Wed, 04 Dec 2013 09:31:53 +0100
+
+pmb (4.0.3+lliurex31) precise; urgency=low
+
+  * Fixed two steps convert and import modifing path to read-write file 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Tue, 03 Dec 2013 10:07:37 +0100
+
+pmb (4.0.3+lliurex30) precise; urgency=low
+
+  * Fixed codification problem with usmarc registers (z3950)
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Wed, 27 Nov 2013 11:56:44 +0100
+
+pmb (4.0.3+lliurex29) precise; urgency=low
+
+  * Moved files to www/images 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Thu, 14 Nov 2013 09:27:28 +0100
+
+pmb (4.0.3+lliurex28) precise; urgency=low
+
+  * Added uuencode files
+  * Fixed & character in xml file 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Wed, 13 Nov 2013 09:18:45 +0100
+
+pmb (4.0.3+lliurex27) precise; urgency=low
+
+  * Modified z3950_func.inc.php and search.inc.php to update z_attr table 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Mon, 04 Nov 2013 11:03:28 +0100
+
+pmb (4.0.3+lliurex26) precise; urgency=low
+
+  * Add updated z_attr table to solve problems with z39.50 
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Wed, 30 Oct 2013 13:17:37 +0100
+
+pmb (4.0.3+lliurex25) precise; urgency=low
+
+  * Fixed rebeca import 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Mon, 21 Oct 2013 10:18:17 +0200
+
+pmb (4.0.3+lliurex24) precise; urgency=low
+
+  * Some minor changes
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Thu, 10 Oct 2013 08:24:59 +0200
+
+pmb (4.0.3+lliurex23) precise; urgency=low
+
+  * Fixed test size 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Mon, 07 Oct 2013 12:01:08 +0200
+
+pmb (4.0.3+lliurex22) precise; urgency=low
+
+  * Added phpiniconf utility
+  * Testing php size format to import sql file
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Mon, 07 Oct 2013 11:37:39 +0200
+
+pmb (4.0.3+lliurex21) precise; urgency=low
+
+  * Fixed search by isbn 
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Thu, 03 Oct 2013 12:35:05 +0200
+
+pmb (4.0.3+lliurex20) precise; urgency=low
+
+  * Updated Translations
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Thu, 03 Oct 2013 10:47:54 +0200
+
+pmb (4.0.3+lliurex19) precise; urgency=low
+
+  * Fixed lost chains in translations
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Fri, 27 Sep 2013 08:19:19 +0200
+
+pmb (4.0.3+lliurex18) precise; urgency=low
+
+  * Fixed poToPmbXML to ransform multiline po translation in a single line with <br />
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Fri, 27 Sep 2013 08:12:07 +0200
+
+pmb (4.0.3+lliurex17) precise; urgency=low
+
+  * Changed variable name (userfile) 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Wed, 25 Sep 2013 12:26:50 +0200
+
+pmb (4.0.3+lliurex16) precise; urgency=low
+
+  * Fixed traslations in opac_css
+  * Added nivbiblio.xml in va_ES 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Wed, 25 Sep 2013 10:10:11 +0200
+
+pmb (4.0.3+lliurex15) precise; urgency=low
+
+  * Added barcode.php and barcode.z to install files 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Wed, 25 Sep 2013 09:12:16 +0200
+
+pmb (4.0.3+lliurex14) precise; urgency=low
+
+  * Fixed expl_create.inc.php
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Wed, 11 Sep 2013 10:09:45 +0200
+
+pmb (4.0.3+lliurex13) precise; urgency=low
+
+  * Fixed traslations
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Thu, 05 Sep 2013 14:37:20 +0200
+
+pmb (4.0.3+lliurex12) precise; urgency=low
+
+  * Added traslations 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Fri, 26 Jul 2013 12:06:11 +0200
+
+pmb (4.0.3+lliurex11) precise; urgency=low
+
+  * Added parameter for caddies and temporaly traslation to actualizate 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Wed, 24 Jul 2013 11:26:43 +0200
+
+pmb (4.0.3+lliurex10) precise; urgency=low
+
+  * Added some files
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Tue, 18 Jun 2013 10:12:59 +0200
+
+pmb (4.0.3+lliurex9) precise; urgency=low
+
+  * Updated python utilities, removed unused directory
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Tue, 11 Jun 2013 09:46:36 +0200
+
+pmb (4.0.3+lliurex8) precise; urgency=low
+
+  * Remove wrong apache2 configuration file
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Mon, 10 Jun 2013 10:56:28 +0200
+
+pmb (4.0.3+lliurex7) precise; urgency=low
+
+  * Updated architecture to 'any'
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Fri, 03 May 2013 10:13:00 +0200
+
+pmb (4.0.3+lliurex6) precise; urgency=low
+
+  * Fix version 
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Wed, 24 Apr 2013 15:00:12 +0200
+
+pmb (4.0.3+lliurex5ubuntu1) precise; urgency=low
+
+  * Added link to allow access to pmb without dns entry 
+
+ -- Vicente Balaguer Domenech <vbalaguer.gva@gmail.com>  Wed, 24 Apr 2013 14:57:48 +0200
+
+pmb (4.0.3+lliurex5) precise; urgency=low
+
+  * Added yaz dependences
+  * Enhanced sql files 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Tue, 09 Apr 2013 12:15:05 +0200
+
+pmb (4.0.3+lliurex4) precise; urgency=low
+
+  * Moved desktop to lliurex-pmb 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Wed, 27 Mar 2013 09:31:32 +0100
+
+pmb (4.0.3+lliurex3) precise; urgency=low
+
+  * Added virtualhost 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Tue, 26 Mar 2013 12:08:15 +0100
+
+pmb (4.0.3+lliurex2) precise; urgency=low
+
+  * Deleted yaz dependences 
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Fri, 15 Mar 2013 11:58:13 +0100
+
+pmb (4.0.3+lliurex1) precise; urgency=low
+
+  * Initial release
+
+ -- Jaime Munyoz Fayos <munyoz_jaifay@gva.es>  Tue, 19 Feb 2013 10:07:07 +0100

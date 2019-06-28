@@ -1,0 +1,9 @@
+usr/share/pmb
+usr/share/doc/pmb
+usr/share/pmb/www
+usr/share/pmb/content
+etc/pmb
+etc/apache2-lliurex/sites-available
+etc/apache2-lliurex/sites-enabled
+var/lib/pmb/backup/backups
+var/lib/pmb/temp

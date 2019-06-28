@@ -1,0 +1,8 @@
+pmb: arch-independent-package-contains-binary-or-object usr/share/pmb/www/classes/html2pdf/_tcpdf_5.0.002/fonts/utils/pfm2afm
+pmb: arch-dependent-file-in-usr-share usr/share/pmb/www/classes/html2pdf/_tcpdf_5.0.002/fonts/utils/pfm2afm
+pmb: unstripped-binary-or-object usr/share/pmb/www/classes/html2pdf/_tcpdf_5.0.002/fonts/utils/pfm2afm
+pmb: arch-independent-package-contains-binary-or-object usr/share/pmb/www/classes/html2pdf/_tcpdf_5.0.002/fonts/utils/ttf2ufm
+pmb: arch-dependent-file-in-usr-share usr/share/pmb/www/classes/html2pdf/_tcpdf_5.0.002/fonts/utils/ttf2ufm
+pmb: unstripped-binary-or-object usr/share/pmb/www/classes/html2pdf/_tcpdf_5.0.002/fonts/utils/ttf2ufm
+pmb: missing-dependency-on-libc needed by usr/share/pmb/www/classes/html2pdf/_tcpdf_5.0.002/fonts/utils/pfm2afm and 1 others
+pmb: missing-dependency-on-python-support python-support (>= 0.90)
