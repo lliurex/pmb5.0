@@ -1,0 +1,12 @@
+<h1>Administraci&oacute; dels exemplars</h1>
+
+<p>La secci&oacute; <b>Administraci&oacute; dels exemplars</b> permet definir els par&agrave;metres de l'aplicaci&oacute; per al pr&eacute;stec i les estad&iacute;stiques dels documents.
+<ul>
+<li><b>Tipus de documents</b> permet establir par&agrave;metres per a realitzar els pr&eacute;stecs i per a cada tipus de document establir una duraci&oacute; en dies.</li>
+<li><b>Codis estad&iacute;stics</b> este codi s'utilitza per a la creaci&oacute; de les estad&iacute;stiques de pr&eacute;stec i sobre els fons de la biblioteca.</li>
+<li><b>Seccions</b> la secci&oacute; &eacute;s la zona de la biblioteca o del centre de documentaci&oacute; on el document est&agrave; disponible (secci&oacute; adults, discoteca...). Este codi tamb&eacute; es t&eacute; en compte a l'hora d'elaborar les estad&iacute;stiques.</li>
+<li><b>Estats</b> la noci&oacute; d'estat s'utilitza per a especificar si el document es pot prestar o no.</li>
+<li><b>Localitzacions</b> la localitzaci&oacute; es pot utilitzar per a connectar el document a un lloc concret (p. ex.: en reserva).</li>
+<li><b>Propietaris</b> el propietari dels exemplars, BDP per exemple.</li>
+<li><b>Personalitzables</b> camps personalitzables dels exemplars.</li>
+</ul></p>

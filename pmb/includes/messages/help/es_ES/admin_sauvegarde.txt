@@ -1,0 +1,5 @@
+<h1>Copia de seguridad</h1>
+</p><p>
+<b>Copia de seguidad (LliureX):</b> Permite realizar una copia de seguridad de la base de datos<p><p>
+<b>Importar copia de seguridad (LliureX) :</b> Importa copias de seguridad realizadas
+</p><p>

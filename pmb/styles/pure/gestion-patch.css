@@ -1,0 +1,7 @@
+/* Catalogue
+ ========================================================================== */
+/*CRÉATION D'UN PÉRIODIQUE*/
+#contenu>form[class^='form']>h3>div.left{
+	float:none;
+	display:inline;
+}

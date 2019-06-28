@@ -1,0 +1,12 @@
+<p>Aquesta funció permet migrar el codi d'identificació de l'alumnat que actualment utilitza el número d'expedient al NIA. 
+</p>
+<h2>
+<p>Instruccions:</p>
+</h2>
+<p>1. Realitzeu una <b>còpia de seguretat</b> de la base de dades.</p>
+<p>2. Feu clic en <b>Iniciar Migració.</b></p>
+<p>3. Una vegada migrat el codi d'identificació, podreu imprimir els carnets amb l'identificador nou. (Abans d'imprimir recomanem que comproveu la data de validesa que figura en els carnets).</p>
+
+
+<p> A continuació es mostra el nombre de registres que es poden migrar junt amb la resta de registres que no es migraran.</p>
+

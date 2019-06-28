@@ -1,0 +1,11 @@
+<h1>Módulo de Fichas</h1>
+<p>Este módulo permite constituir una base de datos genérica (carnet, direcciones, etc, ...) a partir de los campos personalizados que se hayan definido.
+Las informaciones se guardan en forma de fichas.
+</p>
+
+<h2>Consulta</h2>
+Permite realizar búsquedas simples o multicriterios sobre los campos personalizados definidos y mostrar las fichas correspondientes a la búsqueda.<br />
+<h2>Recogida de datos</h2>
+Creación de una nueva ficha por medio de los campos personalizados.<br />
+<h2>Gestión</h2>
+Gestion de los campos personalizados, visualización de los campos, reindexación de las fichas<br />

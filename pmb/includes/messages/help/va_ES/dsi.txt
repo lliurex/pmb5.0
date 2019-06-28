@@ -1,0 +1,13 @@
+<h1>M&ograve;dul de Difusi&oacute; Selectiva de la Informaci&oacute;</h1>
+<p>La difusi&oacute; selectiva de la informaci&oacute; &eacute;s un servici que consistix a difondre entre els usuaris, de forma regular, els resultats d&apos;un perfil de busca.</p>
+
+<h2>Difusi&oacute;</h2>
+Permet iniciar els enviaments de correus electr&ograve;nics als abonats<br />
+<h2>Cistells</h2>
+Els cistells s&oacute;n dip&ograve;sits de novetats, &eacute;s el contingut d&apos;estos cistells el que s&apos;envia als usuaris durant la difusi&oacute;.<br />
+<h2>Equacions</h2>
+Les equacions permeten omplir els cistells.<br />
+<h2>Classificacions</h2>
+Les classes permeten organitzar els cistells i les equacions.<br />
+
+ 

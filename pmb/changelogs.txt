@@ -1,0 +1,904 @@
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+*                                    CHANGE_LOG_5.0.4                                                                  *
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+
+
+*******************
+ANOMALIES
+
+
+------------
+Acquisitions
+------------
+
+#40427 : Correction sur la génération d'un PDF de location
+Correction d'une anomalie à la génération du PDF de la facture de décomptes lorsqu'il a de nombreux décomptes (et que la facture ne tient pas sur une page).
+
+#40889 : Demandes de locations : Filtres sur les dates de fin
+Correction du filtre sur les dates de fin.
+Prise en compte de l'heure '23:59:59' (champs SQL au format datetime) pour inclure les lignes correspondantes à la date fin
+
+#42829 : Création d'une suggestion
+Correction du nom de l'utilisateur affiché lors de la création d'une suggestion côté gestion.
+
+--------------
+Administration
+--------------
+
+#40163 : Relations entre notices
+Prise en compte du paramétrage des fichiers de relations pour l'import des notices et la création par défaut de la relation associée.
+
+#43641 : Suppression de catégorie d'emprunteur
+Prise en compte des guillemets et apostrophes dans le message de confirmation.
+
+#39951 : Relations entre notices
+Correction du sens de la relation en base de données pour les relations descendantes des notices importées.
+
+#40482 : Nettoyage des doublons d'autorités
+Suppression des doublons d'autorités arrivées à la suite d'une mise à jour de base de données tardive.
+
+#40599 : La conversion "USMARC SPRINGER" ne fonctionne pas avec un PMB en utf-8
+Avec un PMB en utf-8 la conversion "USMARC SPRINGER -> UNIMARC ISO2709" posait des soucis d'encodage.
+
+#40936 : Option de champ personnalisable de type résolveur de lien
+Correction du formulaire bloquant la suppression d'options.
+
+#41145 : Encodage dans les rapports du tableau de bord
+Encodage dans les rapports du tableau de bord. En ajax on passe de l'utf-8
+
+#41331 : Message lors de la vérification des liens
+Ajout d'un nouveau message lors de la vérification des liens et si un panier est sélectionné pour récupérer les liens cassés.
+
+#41481 : Modification de paramétrage des transferts
+Quand le sélecteur de la localisation de retrait pour une réservation change pour être valorisé en choix libre pour l'emprunteur, mise à jour des réservations non validées avec la localisation du lecteur en localisation de retrait par défaut.
+
+#41664 : Gestionnaire de tâches : Variables globales manquantes pour les inclusions de fichiers
+Variables globales manquantes.
+
+#41746 : Description des tables : Possibilité de déplier la table visits_statistics
+Il est maintenant possible de déplier les informations de la table visits_statistics dans la page "Description des tables"
+
+#41905 : ArteVOD : Evolution du webservice
+Correction du choix des types d'enrichissements et suppression des avis lors de la récupération des notices.
+
+#41943 : Tâche de synchronisation externe
+Correction de la gestion du formulaire lorsqu'un entrepôt est sélectionné.
+
+#41969 : Tâche planifiée de sauvegarde
+Correction du nommage de fonction afin d'éviter une erreur fatale.
+
+#41983 : Fichier d'import modèle ENSAI/ENSAE
+Suppression des tabulations de fin de fichier générant des erreurs dans les entrepôts OAI.
+
+#42103 : Suppression d'un exemplaire
+Correction des fonctions d'import incluant les répertoires classes et includes.
+
+#42174 : Connecteur Zotero
+Non-reprise de l'issn sur l'import d'articles lors de la synchronisation du connecteur.
+
+#42991 : Exports RIS et RIS Zotero
+Correction de l'export de l'éditeur.
+
+#43493 : Conversion mémonotices vers unimarc PMB
+Si la notice générée est un article, suppression du champ isbn/issn au sein de celle-ci.
+
+#43618 : Relations entre notices
+Suppression des liens unilatéraux en import, si l'on demande de ne conserver que les liens de la notice qui remplace
+
+#43699 : Synchronisation du connecteur ArteVOD
+Correction du code afin d'éviter une boucle infinie.
+
+#43747 : Planificateur des tâches: fichiers de logs et informations
+Ajout d'informations dans celles présentes lors de l'exécution du planificateur des tâches
+Les fichiers de logs d'exécutions n'étaient pas supprimés du serveur.
+
+#43780 : Entrepôts synchronisables
+Correction des options de gestion des documents numériques, correction de l'application de ces options.
+
+#43917 : Enrichissement ArteVOD et entités html
+Décodage des entités html du contenu des notices avant de les intégrer dans l'entrepôt.
+
+#43957 : Relations entre notices
+Correction de la gestion des relations réciproques en import de notices, selon le paramétrage choisi.
+
+#44127 : Connecteur OAI sortant : Gestion des notices supprimées
+Dans le connecteur OAI sortant, les notices supprimées sont incluses dans le compte total ("completeListSize").
+Ces notices sont insérées à la fin de la liste et non plus sur chaque page.
+Elles prennent en compte les intervalles de dates spécifiés dans la requête ("from" et "until")
+Dédoublonnage des notices présentes dans plusieurs sets.
+
+#44270 : Modification automatique de la date des avis
+Correction sur la modification automatique de la date des avis en mise à jour de base de données
+
+---------
+Autorités
+---------
+
+#40751 : Impression du thésaurus
+Correction de la génération du contenu lorsque le PMB est déclaré en ISO-8859-1 et que certains caractères windows CP-1252 ont été saisis en base de données.
+
+#39791 : Modification de la méthode "get_isbd" dans la classe "titre_uniforme"
+Si l'isbd du titre uniforme est vide, on le génère et on le retourne.
+
+#40698 : Problème de navigation sur les entités liées d'une autorité
+Suite à l'enregistrement d'une autorité, la navigation sur les entités liées ne fonctionnait pas.
+
+#42672 : Détail d'une catégorie
+Affichage des catégories spécifiques par ordre alphabétique.
+
+#42738 : Formulaire de modification d'une catégorie
+Les liaisons de cette catégorie sont désormais triées par ordre alphabétique.
+
+#42990 : Sphinx - Ajout des éditeurs dans la mécanique d'indexation
+Ajout des éditeurs dans la mécanique d'indexation de sphinx
+
+#43319 : RMC autorités : Recherche de concepts par le schéma
+La recherche des concepts par leur schéma dans la RMC autorité fonctionne.
+
+#43488 : Remplacement d'une catégorie
+A la fin du remplacement, la catégorie remplacée n'était pas supprimée.
+
+#44120 : Remplacement d'autorité
+Prise en compte de la variable no_display permettant de ne pas afficher l'autorité à remplacer dans la liste de sélection de l'autorité finale.
+
+#44261 : Vignettes d'autorités
+Suppression de la vignette en suppression d'autorité
+
+---------
+Catalogue
+---------
+
+#39849 : Import Z3950 et titres uniformes
+Correction de l'erreur générée par la présence d'un titre uniforme en import Z3950.
+
+#39962 : Gestion du mappage des formulaires
+Correction d'une anomalie dans l'algo pour déterminer si un formulaire est dérivable ou non
+
+#40321 : RMC : Recherche booléenne sur les champs persos
+Recherche multicritère sur les champs persos compatibles avec la nouvelle méthode.
+De plus une recherche * sur un critère de champ perso ne ressort que les notices dont ce champ est renseigné.
+
+#40325 :  Harmonisation des boutons dans la gestion des avis
+Harmonisation de l'ordre d'affichage des boutons en gestion des avis
+
+#40415 : Problème pour éditer les grilles de notices quand on change le type de doc
+En édition de grille :
+Il n'était plus possible d'éditer les grilles après avoir changé le type de document sur les grilles de périodiques, d'articles et de bulletins
+
+#40536 : Recherche dans les notices
+De façon aléatoire certaines recherches dans les notices ne donnaient pas de résultat et généraient une erreur MySQL (Vu sur un serveur Windows)
+
+#40579 : Transfert entre paniers
+Correction du transfert entre un panier de bulletins et un panier de notices.
+
+#40629 : Procédures distantes
+Correction de l'exécution et de l'import des procédures distantes, dans les procédures paniers et dans les actions personnalisables.
+
+#40822 : Caractères accentués dans les listes MARC
+Si la valeur commence par un caractère accentué, correction de l'affichage de l'abécédaire et des valeurs associées à une initiale.
+
+#40920 : Pop-up de sélection d'autorité
+Correction de l'affichage pour une autorité comportant un apostrophe dans son ISBD.
+
+#40968 : Mauvaise prise en compte du paramètre numero_exemplaire_auto_script
+Si le fichier du script numero_exemplaire_auto_script n'existe pas prise en compte du script par défaut
+
+#41055 : Import des concepts en Z3950 "Fatal Error"
+Correction de la "Fatal Error" sur la fonction "traite_concepts_for_form"
+
+#41326 : Recherche sphinx sur les documents numériques | Report en 5.0
+Report en 5.0 de la recherche sphinx sur les documents numériques
+
+#41450 : Formulaire de création d'un auteur à partir d'une notice
+Suppression de l'autocompletion sur le champ nom dans le formulaire de création d'un auteur
+
+#41487 : Ajout des notices au panier avec sphinx activé
+Il était impossible d'ajouter des notices au panier à la suite d'une recherche.
+
+#41522 : Requete RFID
+lorsque la RFID est décochée dans les préférences utilisateurs, il ne faut pas envoyer les requêtes
+
+#41555 : Application des droits sur l'ajout des notices à un panier
+Après une recherche auteur/titre, sur la page de résultat, lors de l'ajout des notices au panier, les droits d'accès n'étaient pas appliqués.
+
+#42173 : Erreur fatale à l'enregistrement d'un exemplaire d'un numéro de périodique
+Erreur liée à Sphinx, modification de l'indexation.
+
+#42245 : Espaces de contribution : Gestion des droits d'accès
+Gestion des droits d'accès sur les documents numériques et correction des droits d'accès de notice.
+
+#42348 : Formulaires de contributions : Equations de recherche sur les catégories
+Les équations de recherche sur les catégories fonctionnent correctement.
+
+#42454 : Création de procédure panier
+Correction de l'utilisateur autorisé par défaut.
+
+#42685 : Masque de saisie de notices
+La grille de saisie de notice n'était pas appliquée à la suite d'une éventuelle suppression du premier onglet apparaissant dans un formulaire d'édition de notice.
+
+#42702 : Historique des recherches
+Correction de l'ajout à l'historique de recherches en lien avec les autorités.
+
+#42895 : Masque de saisie de notices : Ajout de concepts
+Correction de l'ajout multiple de concepts au sein d'un formulaire de notices suite à une modification de grille.
+
+#43000 : Entête de notice et auteurs
+En affichage réduit de gestion, si la notice ne comporte aucun auteur principal, seul le premier autre auteur est affiché.
+
+#43606 : Interrogation serveur Z3950 via la recherche externe "Connecteurs"
+Correction de la requête envoyée au serveur qui ne renvoyait plus de résultat.
+
+#43667 : Modification d'un abonnement
+Correction de l'affichage du prix dans le formulaire.
+
+#43746 : Infobulle dans les recheches multicritères
+Ajout d'un title à l?élément [...] en recherche multicritère de catalogage et d'autorités.
+
+#43830 : Nomenclatures : Génération de sous-manifestations
+Correction d'un problème de génération de sous-manifestations lorsqu'il y a deux formations de même type
+
+#43949 : Affichage des entités HTML dans les ISBD de notices
+Protection des entités HTML afin qu'elles s'affichent correctement dans les en-têtes et ISBD de notices.
+
+#44163 : Relations entre notices : Liens entre le bulletin et le périodique
+Correction sur la perte du lien entre la notice de bulletin et son périodique
+
+#44325 : Recherche externe et recherches spéciales
+Affichage des critères de recherches spéciales lorsque le paramètre général "extended_search_dnd_interface" est activé.
+
+-----------
+Circulation
+-----------
+
+#42670 : Sélecteur action dans les relances
+Correction de la valeur de l'action "Ne rien faire" dans le sélecteur du module de relances.
+
+#39873 : Pret mode manuel en rfid
+Pret mode manuel (douchette) en rfid active redevient fonctionnel
+
+#40137 : Recherche dans les lecteurs
+Pour la recherche dans les lecteurs, modification pour utiliser une table MySQL temporaire à la place d'une table persistante. 
+
+#40326 : Ajout d'un message manquant
+Ajout d'un message d'en-tête manquant pour l'action mailing des paniers en circulation.
+
+#40570 : Actions rapides
+Correction de l'enregistrement de la localisation du document par défaut en création d'exemplaire
+
+#41512 : Forcage d'un prêt express
+Correction d'une erreur bloquant le forçage d'un prêt express.
+
+#41949 : Transfert entre paniers d'emprunteurs
+Correction de la vérification des droits d'accès aux différents paniers.
+
+#42926 :  Problème sur les titres lors d'un export tableur en recouvrement
+Correction d'un problème sur les titres lors d'un export tableur en recouvrement.
+
+#42961 : Auto-complétion des professions
+Correction de la requête qui renvoyait des doublons de libellés.
+
+#43556 : tableau de bord et requetes ajax asynchrones
+Toutes les requêtes ajax du tableau de bord se font maintenant en mode asynchrone pour ne pas figer le navigateur lors de la saisie de code barres
+
+--------
+Demandes
+--------
+
+#41340 : Génération de rapport de demande au format rtf
+Correction de la gestion de l'encodage pour les PMB en UTF-8.
+
+------
+Divers
+------
+
+#41159 : Encodage lors de conversion/import via les connecteurs
+Lors de la conversion via les fonctions de WebServices les accents étaient encodés deux fois dans les PMB en iso-8859-1.
+
+#39969 : Fonctions d'import modèle
+Globalisation du répertoire des classes pour éviter une erreur fatale à l'export sur certaines fonctions.
+
+#40288 : Recherches : Calcul de pertinence
+Optimisation du calcul de pertinence. 
+La table temporaire de résultats de recherche atteignait des limites SQL provoquant des lenteurs et des erreurs dans les listes de résultats.
+
+#41915 : Ajout d'un cas "iso-8859-1" dans les fonctions de nettoyage de chaînes de caractères
+Dans les fonctions qui nettoient les chaînes de caractères, on ne testait que les encodages "utf-8" et "iso8859-1". Or, dans certains cas, l'encodage est "iso-8859-1". Ce dernier cas est maintenant pris en compte.
+
+#41927 : Affichage des icones
+Correction de la fonction get_url_icon permettant depuis la gestion d'afficher des images de l'opac.
+
+#42046 : PMB ISO-8859-1 : Correction d'encodage du tableau de bord
+Les éléments du tableau de bord n'étaient pas affichés sur les PMB en ISO-8859-1 lorsque le contenu incluait des accents.
+
+#42732 : Erreur à l'appel de propriétés non existantes sur les articles et les sections dans les templates django
+Correction d'une erreur fatale suite à une récursivité trop prononcée dans le cmsLookup de pmbh2o.
+
+#42949 : Facettes sur les concepts
+Les facettes sur les concepts sont de nouveaux fonctionnelles
+
+#43150 : Indexation des champs personnalisés
+Conservation des mots vides lors de l'indexation des champs personnalisés
+
+#43794 : Fichier de messages espagnols
+Correction d'un message posant problème avec la structure du fichier.
+
+---
+DSI
+---
+
+#41144 : Veilles : surveillance de site web
+Correction de l'encodage des items si le PMB est installé en iso-8859-1, et correction de la récupération des liens.
+
+#41254 : Veilles : surveillance de site web
+Amélioration de la récupération des items selon l'encodage de la source. Ajout d'un paramètre permettant d'utiliser la base de l'url de la source si les liens des items sont relatifs.
+
+#41288 : Formulaire de bannette publique
+Correction de l'affichage de deux sélecteurs.
+
+#42478 : Liste des notices dans les bannettes
+Correction de la sélection des notices à diffuser selon le critère de groupement par champ personnalisé.
+
+#43612 : Affichage de l'équation dans l'entête des bannettes
+Correction du remplacement du motif de l'équation.
+
+--------
+Editions
+--------
+
+#40670 : Générations de lettres : Prise en compte du message "Tel 1 :"
+Prise en compte du message "Tel 1 :" dans les lettres PDF (retards, relances,..). 
+Le message appelé n'était pas le bon.
+
+#43069 : Cache des images dans l'édition d'une bibliographie
+L'URL de l'image avec le cache paramétré faisait référence à la gestion et non à l'Opac.
+
+----
+OPAC
+----
+
+#39793 : Impression PDF et vignettes des notices
+Remise en place de l'affichage des vignettes qui étaient bloquées dans l'impression PDF en template par défaut.
+
+#39842 : Visionneuse de documents numériques
+Correction du chargement des documents dans la visionneuse quand ceux-ci sont placés dans des sous-répertoires du répertoire d'upload.
+
+#40256 : Templates Django : Problème d'affichage des avis
+Modification du template "record_extended_display.tpl.html" :
+Avant :
+ligne xx : {% if global.opac_avis_display_mode == 0 %}
+ligne xxx : {% if global.opac_avis_display_mode == 1 %}
+Après :
+ligne xx : {% if global.opac_avis_display_mode == '0' %}
+ligne xxx : {% if global.opac_avis_display_mode == '1' %}
+Le type "text" n'est pas égal au type "int"
+
+#40502 : Flux RSS d'une recherche
+Correction de l'appel des classes d'affichage personnalisées lors de la génération du flux.
+
+#40669 : Correction templates django common de notices
+Correction du titre au survol des vignettes des notices en affichage django common réduit et détaillé.
+
+#40690 : Correction templates django de notices common bretagne
+Ajout d'une séparation entre le numéro du bulletin et la date de parution du bulletin dans les templates django de notices common bretagne en affichage réduit des articles.
+
+#41029 : Page d'accueil via une vue
+Correction d'une régression liée au ticket #31957.
+Paramétrer le fait de tomber sur une recherche prédéfinie en page d'accueil via le paramètre first_page_params n'était plus possible.
+
+#39925 : Enregistrement des avis
+Correction de l'enregistrement des avis lorsque le paramètre OPAC avis_allow est configuré avec la valeur 3 (ajouts anonymes possibles).
+
+#40906 : Avis privés sans être authentifié
+Il était possible d'ajouter des avis privés sans être connecté, ils devenaient orphelins.
+
+#40990 : Array juste après le body
+Si le répertoire style demandé n'est pas présent, une chaine vide est retourné, au lieu d'un Array
+
+#41211 :  Etagère vide
+Ajout de fermeture de div manquante
+
+#41307 : Selecteur de catégories
+Erreur d'inclusion de notice_tpl_gen
+
+#41329 : Mode d'affichage personnalisé par vue
+Correction de l'application d'un mode d'affichage si celui-ci n'est pas disponible dans la vue en cours.
+
+#41544 : Correction de l'affichage de la phrase de tri par défaut en résultat de recherche à l'OPAC
+L'affichage de la phrase de tri par défaut en résultat de recherche à l'OPAC s'affiche correctement.
+
+#41545 : Sélecteur d'autorité
+Correction du style pour le sélecteur de catégories, correction du paginateur pour les sélecteurs d'auteur, de catégorie et de titre uniforme.
+
+#41669 : Espaces de contribution : correction des balises
+Suppression d'une balise <div> fermée inopinément dans les espaces de contribution.
+
+#41719 : Espaces de contribution : Gestion des droits d'accès par accès direct
+Les droits d'accès sont pris en compte correctement lorsqu'on tente d?accéder aux espaces / scénarios / formulaires directement depuis leur URL.
+
+#42275 : Surlignage des mots de la recherche
+Correction de la fonction de surlignage quand le portail est activé.
+
+#42329 : Formulaire d'impression OPAC
+Ajout d'un titre aux formulaires d'impression de l'OPAC. Changement de contenu dans l'infobulle d'impression d'un résultat de recherche OPAC.
+
+#42425 : Recherche depuis une url courte
+Correction de la gestion des éléments de recherche pour éviter les erreurs dans l'appel de certaines urls courtes.
+
+#42764 : Ajout de balises html dans l'équation de recherche
+En résultats de recherche niveau 2 des balises html ont été ajoutées afin de permettre une mise en forme et interactivité.
+
+#42772 : Visionneuse de documents numériques
+Correction de l'affichage des documents dans la visionneuse suite à l'application d'une facette lors d'une recherche.
+
+#42775 : Paramètre "concepts_active" à l'OPAC
+Prise en compte pour la recherche à l'OPAC de l'activation des concepts.
+
+#42781 : Sélection de catégorie en recherche multicritères
+Correction de la navigation dans les termes spécifiques.
+
+#42789 : Disponibilité des exemplaires
+Correction des informations retournées et du template django sur l'affichage réduit des notices.
+
+#42984 : Export d'un panier
+Correction de la liste déroulante de sélection du format d'export.
+
+#43135 : Recherche multicritère et autolevel2
+Si l'autolevel2 est à 1, correction de l'affichage des résultats de recherche contenant une sélection d'autorité.
+
+#43259 : Globalisation des variables PHP de templates PMB
+Il faut désormais déclarer les variables en globales dans les fichiers *.tpl.php pour qu'elles soient reconnues dans le contexte global
+
+#43424 : [Vues OPAC] Corrections dans la gestion de l'environnement
+Problème rencontré : avec les vues OPAC activées, de nombreux templates sont chargés avant la récupération des messages et des paramètres spécifiques à la vue sélectionnée.
+
+#43431 : Application d'une facette combinant plusieurs critères
+Correction du résultat quand les critères combinés ne renvoient pas de notice.
+
+#43500 : Prise en compte de paramètre à l'OPAC
+Prise en compte du paramètre opac_cart_allow à l'affichage de la liste des prêts de l'usager.
+
+#43533 : Enrichissement ArteVOD
+Correction de la synchronisation du connecteur, et de l'affichage du contenu au sein de l'enrichissement.
+
+#43549 : Popup de sélection de concept en multicritère OPAC
+Correction de l'impossibilité d'ouvrir la popup de sélection d'un concept en multicritère OPAC.
+
+#43704 : Dépouillements d'un bulletin
+Correction de l'affichage des dépouillements sur l'affichage standard, selon le paramétrage, si le bulletin possède une notice.
+
+#44027 : Recherche personnalisée cnl
+Correction d'un libellé de menu déroulant dans la fonction de recherche personnalisée à l'opac.
+
+#44414 : RMC OPAC : Sélecteur de concept
+Le sélecteur de concepts dans la multicritères à l'OPAC est de nouveau disponible.
+
+#44469 : CSS du partage de résultat de recherche
+Modification du la feuille de style afin de rendre la fonction compatible tout navigateur.
+Ajout d'une animation pour les navigateurs récents.
+
+-------
+Portail
+-------
+
+#40604 : Conditions d'affichage des pages FRBR
+Correction sur les conditions d'affichage des pages FRBR. Les conditions ou les tris étaient enregistrés avec l'identifiant 1.
+
+#41177 : Permettre de trier du contenu éditorial sur un CP
+Il est désormais possible de trier les valeurs de champs personnalisés dans le contenu éditorial.
+
+#41208 : Affichages Django : Désactivation du panier de lecteur
+Prise en compte de l'activation ou non de la mise en panier sur l'affichage des bulletins et des notices de bulletin.
+
+#41550 : Gestion du cache des vignettes des documents du portefolio
+Le chemin des vignettes des documents du portefolio n'était pas bien pris en compte avec le cache pour les serveurs mutualisés.
+
+#42013 : Correction du bouton "+" pour tout sélectionner en édition d'élément du portfolio
+Cela sélectionnait uniquement le premier.
+
+#42061 : Sources de données "Notices des catégories d'une rubrique" pour une liste de notices
+La sélection de "notices des catégories d'une rubrique" comme source de données d'une liste de notices ne retournait aucun résultat. C'est corrigé.
+
+#43170 : Portail : Enregistrement du contexte dans les PMB en iso-8859-1
+Enregistrement des données de contexte du portail en session pour les PMB encodés en ISO-8859-1.
+
+#44247 : Source de donnée bannette : Sélection manuelle
+Prise en compte de toutes les bannettes, et non des bannettes automatiques seulement.
+
+#44278 : Placement du bouton "vider le cache des images"
+Le bouton "vider le cache des images" est affiché à la ligne avec le bouton "Vider le cache"
+
+
+*******************
+EVOLUTIONS
+
+
+--------------
+Administration
+--------------
+
+#40361 : Champ retourné par les webservices
+Ajout du champ "codestat" dans les données retournées par les fonctions des webservices PMB.
+
+#40059 : Formulaire de contact : Suppression d'objets
+Ajout du bouton en édition d'un objet
+
+#42273 : Description pour la recherche dans les concepts à l'OPAC
+Édition du message associé au paramètre "modules_search_concept".
+
+#43159 : Conversion Prisme
+Ajout d'une correspondance de type de document dans les conversions Prisme vers unimarc et Prisme vers XML unimarc.
+
+#44264 : Conversion memodocnet
+Ajout de la conversion memodocnet BCDI vers PMB 
+
+#44358 : Imprimante tickets de prêt
+Ajout d'un paramètre permettant de gérer plusieurs imprimantes ticket de prêt, éventuellement gérées par plusieurs raspberry.
+
+---------
+Autorités
+---------
+
+#40984 : Multicritères concepts :  recherche sur tous les champs littéraux
+Il est désormais possible de rechercher sur tous les champs littéraux (notes, exemple, définition...).
+
+#41607 : RMC autorités : Ajout d'un critère sur le thésaurus des catégories
+Possibilité d'ajouter un critère sur le thésaurus des catégories.
+
+---------
+Catalogue
+---------
+
+#40476 : ArteVOD : Evolution du webservice
+Évolution du connecteur ArteVOD pour s'adapter à l'évolution du web-service.
+Récupération du nombre total d'enregistrements et refonte de l'enrichissement.
+/!\ Étant donné que le template d?enrichissement a été modifié, il est conseillé de repartir de celui défini par défaut (En enregistrant la source après avoir vidé le champ de template ).
+
+#39686 : Liens entre notices
+Choix des liens à conserver en import et remplacement de notices.
+
+#39915 : Harmonisation des popups dans la gestion des périodiques
+Dans la popup des calendriers de la gestion des périodiques le bouton de fermeture est maintenant sous forme de picto.
+Une class "panel-close" a été ajoutée afin de pouvoir mettre en forme cet élément d'interface.
+
+#40765 : Affichage d'une notice de bulletin
+Affichage du carré de couleur du statut lorsqu'une notice de bulletin est présente.
+
+#41040 : Valeur par défaut en création de document numérique
+Ajout d'une valeur par défaut au champ "propriétaire" en création de document numérique.
+
+#41932 : Alerte de suggestion à traiter
+Prise en compte du paramètre de localisation des suggestions pour l'affichage de l'alerte ou non.
+
+-----------
+Circulation
+-----------
+
+#41133 : RFID indication antivol sur retour de document
+Ajout de l'indication antivol sur retour de document ( led qui flash).
+Retour plus rapide: la commande antivol est envoyée avant la lecture rfid
+
+#41393 : Actions rapides en circulation
+Ajout du choix de la localisation par défaut en visualisation des réservations.
+
+#41694 : Statistiques de fréquentation : statistiques horaires
+Les statistiques sont enregistrés avec la date et l'heure.
+
+------
+Divers
+------
+
+#40928 : Options pour le debogage - Afficher les erreurs PHP 
+Ajout de deux paramètres "display_errors" dans les paramètres généraux et dans la section "OPAC" pour faciliter le débogage d'anomalies.
+Essentiellement utile pour les développeurs
+
+#41886 : Optimisation de l'indexation des concepts lorsque Sphinx est activé 
+Statification de l'instanciation du sphinx_indexer
+
+#43084 : Ajout du méthode de suppression de notice dans l'api
+Ajout de deux méthodes : 
+- une pour supprimer une liste de notices(monographie ou périodique) mis dans un tableau
+- une pour vérifier l'utilisation d'une notice
+
+#43752 : Ajout d'un champ bulletin dans les formulaires de contribution
+Ajout d'un champ bulletin dans les formulaires de contribution de type "notice".
+Si ce champ est rempli, que le type de document est défini à "Article" et le niveau hiérarchique à "2". Alors, l'article sera automatiquement rattaché au bulletin sélectionné.
+
+---
+DSI
+---
+
+#41471 : Informations reprises en résumé des items de veille
+Pour la source "notices de la base", possibilité de personnaliser les informations reprises dans le résumé des items, à l'aide d'un template de notices.
+
+--------
+Editions
+--------
+
+#39930 : Coloration syntaxique dans les templates de notices et de bannettes
+Identique au contenu éditorial et aux pages FRBR
+
+----
+OPAC
+----
+
+#38132 : Ajout entête pour l'impression par panier
+Ajout entête et pied de page pour l'impression par panier : impression, PDF, traitement de texte, mail. Template éditable en Administration > Template de Mail > Template impression de panier. Le paramètre OPAC print_cart_header_footer doit contenir l'id du template.
+
+#40432 : Affichage Django : Classement des autorités personnalisées
+Nouvelle propriété {{ record.authpersos_ranked }}
+Tableau groupé par identifiant d'autorité perso
+
+#40538 : Flux RSS: Optimisation requete de recherche de document numérique et gestion des notices de bulletins
+Optimisation de la requete de recherche de document numérique d'une notice dans la construction des flux RSS et prise en compte des notices de bulletin
+
+#41578 : Formulaires de contribution | Prise en charge des répertoires d'upload navigables
+Possibilité de naviguer dans les répertoires d'upload déclarés comme navigables dans les formulaires de contribution.
+
+#42493 :  Informations de notices dans la surcharge de méta données
+Dans le module portail "Surcharges de méta-données", lorsque l'on choisit comme source de donnée "depuis une notice", on récupère les informations de la notice.
+
+#43107 : Remplacement du pixel blanc par le no image
+L'image de 2/2 pixels est maintenant remplacée par la no image du dossier style. Le remplacement est effectué directement dans le fichier opac_css/getimage.php.
+
+#43311 : Permalink d'une notice invisible
+Modification du libellé affiché lorsque la notice n'est pas visible. Nouveau message : "Vous ne pouvez pas accéder à ce document."
+
+#43416 : Formulaires de contribution : Alerte au dépôt d'un document qui dépasse le poids autorisé
+Une alerte est envoyée lorsqu'un document dépasse la limite autorisée.
+
+#43545 : Navigateur de périodiques
+Ajout d'un paramètre OPAC "perio_a2z_default_active_subscription_filter" permettant de cocher par défaut la case "abonnement actif".
+
+#43813 : Contribution: Tri par ordre alphabétique de la liste des formulaires côté OPAC 
+Liste des formulaires classée par ordre alphabétique.
+
+#44126 : Pouvoir modifier son alerte privée
+Il est désormais possible de ré-éditer son alerte privée.
+
+#44371 : Modification du répertoire temporaire de mpdf
+Passage du dossier temporaire de la classe MPDF dans le dossier temp de PMB.
+
+-------
+Portail
+-------
+
+#39854 : Liste de rubriques : Rubriques des catégories d'une rubrique  
+Nouvelle source de données dans le module "Liste de rubriques"
+
+#40031 : Surcharge de méta-données : améliorations sur l'ergonomie
+Possibilité de modifier une méta-donnée
+Permettre de choisir le(s) groupe(s) à appliquer dans le cadre
+
+#40038 : Module métadonnées / notice : pouvoir choisir un template de notices
+Pour la source de donnée "Méta-données d'une notice"
+
+#40742 : Surcharge de méta-données : Affichage du titre de bulletin
+Affichage du titre de la notice de bulletin si le titre du bulletin est vide
+
+#40894 : Bouton vider le cache des images
+Ajout d'un bouton dans la gestion pour vider le répertoire temp des images
+
+#41202 : Module "Recherche" : Ouverture des liens dans un nouvel onglet
+Cases à cocher dans les autres liens pour avoir la possibilité de les ouvrir dans un nouvel onglet
+
+#43492 : Ajout de l'éditeur HTML dans le module "Code HTML"
+Ajout de l'éditeur HTML dans la vue du module "code html".
+
+#44282 : Liste d'étagères : Répertoire de templates à utiliser
+Possibilité de choisir un répertoire de templates pour la vue des notices appartenant aux étagères sélectionnées.
+Prise en compte du paramètre OPAC "etagere_notices_format" pour le mode d'affichage des notices
+
+#44439 : Ajout de toolkit dans l'onglet portail
+De nouveaux toolkits ont été ajouté dans le portail:
+- uikit 3 Version 3.0.0-Beta.40 _(uniqument en version DEV de pmb)_
+- Font Awesome Version 5.0.6 
+- Masonry Version 4.2.0 
+
+#44408 : Toolkits : Arborescence générique
+Mécanique générique d'ajout de nouveaux toolkits.
+- pmb/opac_css/styles/common/toolkits/nom_du_toolkit/js/ (Tous les fichiers à la racine suffixé par ".min.js" seront automatiquement chargés lorsqu'il est activé)
+- pmb/opac_css/styles/common/toolkits/nom_du_toolkit/css/ (Tous les fichiers à la racine suffixé par ".min.css" de même nom que le javascript seront automatiquement chargés lorsqu'il est activé)
+Composants activés lorsque l'option est cochée (chargement identique) :
+- pmb/opac_css/styles/common/toolkits/nom_du_toolkit/js/components/
+- pmb/opac_css/styles/common/toolkits/nom_du_toolkit/css/components/
+
+
+*******************
+FONCTIONNALITES
+
+
+#40107 : Autopostage sur les concepts
+- ajout de l'autopostage sur les concepts en recherche simple en gestion
+- ajout de l'autopostage sur les concepts en recherche multi-critères de notices en gestion et en OPAC
+- ajout de l'autopostage sur les concepts en recherche multi-critères d'autorités en gestion
+- ajout des notices indexées par les concepts autopostés sur la fiche d'un concept
+
+#40677 : Harmonisation et corrections du DOM
+Harmonisation du dom entre les différentes pages.
+Travail de fond toujours en cours.
+
+
+
+
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+*                                    CHANGE_LOG_5.0.3                                                                  *
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+
+
+*******************
+ANOMALIES
+
+
+--------------
+Administration
+--------------
+
+#39334 : Notices des connecteurs sortants
+Correction de la génération du cache des notices lors du rafraichissement des sets du connecteur. Correction de la requête de sélection des notices en cache, quand la date de modification des exemplaires est prise en compte.
+
+#39586 : Webservice pour l'automate de prêt
+Correction de la suppression des prêts temporaires.
+
+---------
+Catalogue
+---------
+
+#39136 : Reprise de la notice dans la dérivation oeuvre
+Correction d'une anomalie dans le mappage des champs dans la création d'une oeuvre dérivée depuis une notice.
+Le champ "notices liées" n'était pas correctement repris.
+
+#39574 : Problème d'encodage au niveau des notifications
+Suppression d'un double encodage sur le contenu HTML de la zone de notification
+
+-----------
+Circulation
+-----------
+
+#39385 : Mise en cache des photos de lecteurs de PMB
+Le paramètre de taille maximum des photos des lecteurs n'était plus pris en compte à l'affichage avec la mise en place du cache des images.
+
+#39479 : Vérification de réservation lors d'un retour de transfert
+Lors du retour d'un exemplaire sur son site d'origine, vérification de la possibilité de satisfaire une réservation.
+
+------
+Divers
+------
+
+#39275 : Correction pour une connexion à un service Sphinx distant
+Correction d'un bug sur la connexion à un service Sphinx.
+Le paramètre sphinx_mysql_connect n'était pas pris en compte pour la connexion à l'API de recherche Sphinx.
+Cela ne fonctionnait donc pas lorsque l'on voulait se connecter à un service Sphinx distant 
+
+----
+OPAC
+----
+
+#39283 : Liste des bannettes visibles
+Correction de l'affichage de la liste des bannettes en fonction de la catégorie de l'emprunteur et de son appartenance à d'éventuels groupes.
+
+-------
+Portail
+-------
+
+#39409 : Affichage des logos d'article ou de rubrique
+Correction de l'affichage lorsque l'élément éditorial ne possède pas de logo.
+
+
+*******************
+EVOLUTIONS
+
+
+--------------
+Administration
+--------------
+
+#39292 : Formulaire de création d'action personnalisable et de procédure panier
+En création d'action personnalisable et de procédure panier, l'utilisateur courant est autorisé par défaut. Si une procédure existe déjà, on ré-affiche le formulaire de création.
+
+------
+Divers
+------
+
+#39447 : Optimisations de l'affichage des champs persos dans les formulaires
+Optimisations liées à la réduction du nombre de fichiers javascript inclus au chargement d'un formulaire contenant des champs persos.
+
+----
+OPAC
+----
+
+#39506 : [Affichages Django] Affichage du titre du bulletin dans les infos de bulletinage
+Titre du bulletin dans les infos de bulletinage : {{ record.bul_info.bulletin_title }}
+
+-------
+Portail
+-------
+
+#39474 : Format de fichier pour les logos du contenu éditorial
+Indication des formats conseillés sur le formulaire d'upload des logos.
+
+
+
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+*                                    CHANGE_LOG_5.0.2                                                                  *
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+
+
+*******************
+ANOMALIES
+
+
+-----------
+Circulation
+-----------
+
+#39058 : Débit de l'abonnement depuis une fiche lecteur
+Le débit de l'abonnement ne se fait que si une prolongation a été faite.
+
+------
+Divers
+------
+
+#39099 : Correction du chargement des nomenclatures en modification de notices
+Corrections en 2 temps : ajout de l'attribut startOpen="no" dans le gabarit pour éviter que les listes d'autorités soit dépliées par défaut
+
+----
+OPAC
+----
+
+#38710 : Recherche multi-critère associée à une vue OPAC
+Correction de la gestion des apostrophes dans l'enregistrement de la recherche associée à la vue.
+
+#38715 : Correction templates common django de notices
+Correction du champs "Mots clés" qui apparaissait tout en haut de la notice quand le paramètre OPAC "thésaurus" était à 0.
+
+
+
+
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+*                                    CHANGE_LOG_5.0.1                                                                  *
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+
+
+Voir sur le site www.sigb.net :
+Nouveautés : http://www.sigb.net/newsletter/nouveautes_50/nouveautes_pmb_50.pdf
+Améliorations : http://www.sigb.net/newsletter/nouveautes_50/ameliorations_pmb_50.pdf
+
+
+
+
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+*                                    CHANGE_LOG_4.2.12                                                                 *
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+************************************************************************************************************************
+
+
+Voir le fichier changelogs42.txt dans le répertoire racine de PMB (ajoutez "42" dans l'URL de cette page !)

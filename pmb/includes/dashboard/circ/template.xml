@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- 
+****************************************************************************************
+© 2002-2004 PMB Services / www.sigb.net pmb@sigb.net et contributeurs (voir www.sigb.net)
+****************************************************************************************
+$Id: template.xml,v 1.2 2015-06-15 12:55:35 pmbs Exp $ -->
+
+<!-- LLIUREX 22/02/2018 
+Se cambia el idioma por defecto de fr_FR a es_ES -->
+<template default_lang='es_ES'>
+<!-- FIN LLIUREX 22/02/2018 -->	
+	<content lang='fr_FR'><![CDATA[
+		<h2>Emprunteurs</h2>
+		<div class='row'>
+			<div class='title'>Total : </div>
+			<div class='value'>{{emprs.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Abonnements expirés : </div>
+			<div class='value'>{{emprs.0.expired}}</div>
+		</div>
+		<div class='row'>&nbsp;</div>
+		<h2>Prets</h2>
+		<div class='row'>
+			<div class='title'>En cours : </div>
+			<div class='value'>{{prets.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>En retard : </div>
+			<div class='value'>{{prets.0.late}}</div>
+		</div>
+		<div class='row'>&nbsp;</div>
+		<h2>Réservation</h2>
+		<div class='row'>
+			<div class='title'>A valider : </div>
+			<div class='value'>{{resas.0.a_valider}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Confirmées : </div>
+			<div class='value'>{{resas.0.confirmee}}</div>
+		</div>
+		]]>
+	</content>
+	
+	<content lang='en_UK'><![CDATA[
+		<h2>Borrowers</h2>
+		<div class='row'>
+			<div class='title'>Amount : </div>
+			<div class='value'>{{emprs.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Overdue subscriptions : </div>
+			<div class='value'>{{emprs.0.expired}}</div>
+		</div>
+		<div class='row'>&nbsp;</div>
+		<h2>Loans</h2>
+		<div class='row'>
+			<div class='title'>Ongoing : </div>
+			<div class='value'>{{prets.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Late : </div>
+			<div class='value'>{{prets.0.late}}</div>
+		</div>
+		<div class='row'>&nbsp;</div>
+		<h2>Holds</h2>
+		<div class='row'>
+			<div class='title'>Waiting for validation : </div>
+			<div class='value'>{{resas.0.a_valider}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Confirmed : </div>
+			<div class='value'>{{resas.0.confirmee}}</div>
+		</div>
+		]]>
+	</content>
+
+<!-- LLIUREX 22/02/2018 -->
+	<content lang='es_ES'><![CDATA[
+		<h2>Prestatarios</h2>
+		<div class='row'>
+			<div class='title'>Total : </div>
+			<div class='value'>{{emprs.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Subcripciones caducadas : </div>
+			<div class='value'>{{emprs.0.expired}}</div>
+		</div>
+		<div class='row'>&nbsp;</div>
+		<h2>Préstamos</h2>
+		<div class='row'>
+			<div class='title'>En curso : </div>
+			<div class='value'>{{prets.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>En retraso : </div>
+			<div class='value'>{{prets.0.late}}</div>
+		</div>
+		<div class='row'>&nbsp;</div>
+		<h2>Reservas</h2>
+		<div class='row'>
+			<div class='title'>Validadas : </div>
+			<div class='value'>{{resas.0.a_valider}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Confirmadas : </div>
+			<div class='value'>{{resas.0.confirmee}}</div>
+		</div>
+		]]>
+	</content>
+
+	<content lang='va_ES'><![CDATA[
+		<h2>Prestataris</h2>
+		<div class='row'>
+			<div class='title'>Total : </div>
+			<div class='value'>{{emprs.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Subcripcions caducades : </div>
+			<div class='value'>{{emprs.0.expired}}</div>
+		</div>
+		<div class='row'>&nbsp;</div>
+		<h2>Préstecs</h2>
+		<div class='row'>
+			<div class='title'>En curs : </div>
+			<div class='value'>{{prets.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>En retard : </div>
+			<div class='value'>{{prets.0.late}}</div>
+		</div>
+		<div class='row'>&nbsp;</div>
+		<h2>Reserves</h2>
+		<div class='row'>
+			<div class='title'>Validades : </div>
+			<div class='value'>{{resas.0.a_valider}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Confirmades : </div>
+			<div class='value'>{{resas.0.confirmee}}</div>
+		</div>
+		]]>
+	</content>
+<!-- FIN LLIUREX 22/02/2018 -->	
+
+</template>

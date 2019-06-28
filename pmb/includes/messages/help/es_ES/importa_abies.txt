@@ -1,0 +1,10 @@
+<p>Esta función permite importar información de la aplicación ABIES al PMB. En concreto se importaran datos de las siguientes tablas del Abies: Fondos, Fondos_Autores, Ejemplares, Autores, Editoriales, Ubicaciones, TiposLector, Cursos, Fondos_CDUs y TiposFondo</p>
+<h2>
+<p>Instruciones:</p>
+</h2>
+<p>1. Ejecute esta utilidad <b>sólo</b> si no ha empezado a utilizar el PMB. En caso contrario se podría producir pérdida de información. </p>
+<p>2. Antes de iniciar el proceso, realice una copia se seguridad de la base de datos del PMB (Administración: Copias de Seguridad) para poder restaurar el PMB en caso de problemas.</p>
+<p>3. Obtenga un fichero .mdb con las tablas de la aplicación Abies. </p>
+<p>4. Mediante la aplicación <b>LliureX Abies2PMB</b> convierta el fichero .mdb en un fichero .sql. </p>
+<p>5. Importe el fichero .sql para cargar la información en el PMB. </p>
+<p>6. Para finalizar debe reindexar la base de datos. Para ello acceda a Admistración: Herramientas:Mantenimiento de la base de datos y marque al menos las opciones <b>"Reindexar el index global"</b> y <b>"Reindexar todos los campos de búsqueda"</b>. </p>

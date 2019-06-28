@@ -1,0 +1,11 @@
+<h1>M&ograve;dul de fitxes</h1>
+<p>Este m&ograve;dul permet constituir una base de dades gen&egrave;riques (carnet d&apos;adreces, etc.) a partir dels camps personalitzables que s&apos;han definit.
+Les informacions s&apos;emmagatzemen en forma de fitxa.
+</p>
+
+<h2>Consulta</h2>
+Permet fer busques simples o multicriteri sobre els camps personalitzats definits i mostrar les fitxes corresponents a esta busca.<br />
+<h2>Recollida de dades</h2>
+Creaci&oacute; d&apos;una fitxa nova per mitj&agrave; dels camps personalitzables.<br />
+<h2>Gesti&oacute;</h2>
+Gesti&oacute; dels camps personalitzables, visualitzaci&oacute; dels camps, reindexaci&oacute; de les fitxes.<br />

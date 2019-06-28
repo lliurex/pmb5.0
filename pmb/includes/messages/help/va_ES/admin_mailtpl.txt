@@ -1,0 +1,9 @@
+<h1>Administraci&oacute; de plantilles de correu</h1>
+<p>Esta p&agrave;gina permet editar les plantilles de correu electr&ograve;nic.</p>
+<p>Configuraci&oacute; que s&apos;ha de realitzar:</p>
+
+<p>mail_html_format: format d&apos;enviament dels correus des de l&apos;OPAC 
+<br> 1: HTML 
+<br> 2: HTML, imatges incloses</p>
+<p>img_folder : directori d&apos;emmagatzematge de les imatges en cam&iacute; absolut del tipus /home/.../public_html/pmb/includes/img/</p>
+<p>img_url : URL d&apos;acc&eacute;s al directori d&apos;imatges del tipus http://pmb.com/.../pmb/includes/img/</p>

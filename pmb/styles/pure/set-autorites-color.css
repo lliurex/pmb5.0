@@ -1,0 +1,184 @@
+@charset "utf-8";
+/* +--------------------------------------------------------------------------+
+// 2017 PMB Services / www.sigb.net pmb@sigb.net et contributeurs (voir www.sigb.net)
+// +-------------------------------------------------+
+// $Id: set-autorites-color.css,v 1.1.2.3 2017-09-25 13:37:14 wlair Exp $ */
+/*------------------------------------------------------------------------------------------*/
+/* ========================================================================
+   autorites
+ ==========================================================================  */
+
+.uk-navbar-nav li#navbar-autorites a:after,
+.autorites .hmenu.uk-tab>*:hover>a {
+  border-bottom-color: #3b609a;
+}
+
+li#navbar-autorites.current,
+.autorites .uk-checkbox:checked,
+.autorites .uk-checkbox:indeterminate,
+.autorites .uk-radio:checked,
+.autorites .uk-checkbox:checked:focus,
+.autorites .uk-checkbox:indeterminate:focus,
+.autorites .uk-radio:checked:focus,
+.autorites div#extra2 span.uk-icon,
+.autorites div#extra2 .notification.ui-active {
+  background-color: #3b609a;
+}
+
+.autorites .uk-input:focus,
+.autorites .uk-select:focus,
+.autorites .uk-textarea:focus,
+.autorites .uk-checkbox:focus,
+.autorites .uk-radio:focus,
+.autorites.claro.pure .dijitButtonHover .dijitButtonNode,
+.autorites.claro.pure .dijitDropDownButtonHover .dijitButtonNode,
+.autorites.claro.pure .dijitComboButton .dijitButtonNodeHover,
+.autorites.claro.pure .dijitComboButton .dijitDownArrowButtonHover,
+.autorites.claro.pure .dijitToggleButtonHover .dijitButtonNode,
+.autorites.claro.pure .dijitTextBoxHover,
+.autorites #contenu .uk-button-default:focus,
+.autorites #contenu .uk-button-default:hover,
+.autorites .hmenu.uk-tab>.uk-active>a,
+.autorites iframe {
+  border-color: #3b609a;
+}
+
+.uk-navbar-nav li#navbar-autorites a:hover,
+.autorites h1.section-title i,
+.autorites h1.section-sub-title,
+.autorites .uk-link,
+.autorites a,
+.autorites .uk-link:hover,
+.autorites a:hover,
+.autorites h3:not(.section-sub-title),
+.autorites .article-title i,
+.autorites #menu .uk-nav>li>a i,
+.autorites #menu .uk-nav>li.uk-active>a,
+.autorites #menu .uk-nav>li>a i,
+.autorites #menu .uk-nav>li.uk-active>a,
+.autorites #menu .uk-nav>li>a:hover,
+.autorites .h2-like i,
+.autorites #extra span.uk-icon:hover,
+.autorites #extra i:hover,
+.autorites #navbar .dashboard:hover,
+.pure .autorites .uk-tab > * > a:hover,
+.pure .autorites .uk-tab > * > a:focus,
+.autorites .categ_browser a,
+.autorites .categ_browser a:hover,
+.autorites .categ_browser a:focus,
+.autorites .categ_browser a:active,
+.autorites .hmenu.uk-tab>.uk-active>a{
+  color: #3b609a;
+}
+
+.autorites #contenu input.wyr-input[type='file']:focus {
+  outline-color: #3b609a;
+}
+
+.autorites .stat-child .uk-table th {
+  color: #3b609a;
+  font-weight: 500;
+}
+
+.autorites #menu ul.uk-nav {
+  border-top: solid 2px #3b609a;
+}
+
+.autorites #menu>h3 .uk-icon {
+  background: #3b609a;
+}
+
+.autorites.claro.pure .dijitMenu .dijitMenuItemHover td,
+.autorites.claro.pure .dijitMenu .dijitMenuItemSelected td,
+.autorites.claro.pure .dijitMenuItemHover,
+.autorites.claro.pure .dijitComboBoxMenu .dijitMenuItemHover,
+.autorites.claro.pure .dijitMenuItemSelected,
+.autorites.claro.pure .dojoDndItemOver {
+  background-color: #799cd1;
+  border-color: #3b609a;
+  background-image: none;
+}
+
+.autorites form .form-contenu,
+.autorites .row.bkg-grey {
+  border-color: #758aaa;
+}
+
+.autorites input.wyr-input[type='submit'],
+.autorites .uk-button,
+.autorites .search_cancel>input,
+.autorites.claro.pure .dijitButton .dijitButtonNode,
+.autorites.claro.pure .dijitDropDownButton .dijitButtonNode,
+.autorites.claro.pure .dijitComboButton .dijitButtonNode,
+.autorites.claro.pure .dijitToggleButton .dijitButtonNode {
+  background-color: #3b609a;
+}
+
+.autorites input.wyr-input[type='submit']:hover,
+.autorites .uk-button:hover,
+.autorites .search_cancel>input:hover,
+.autorites.claro.pure .dijitButton .dijitButtonNode:hover,
+.autorites.claro.pure .dijitDropDownButton .dijitButtonNode:hover,
+.autorites.claro.pure .dijitComboButton .dijitButtonNode:hover,
+.autorites.claro.pure .dijitToggleButton .dijitButtonNode:hover {
+  background-color: #3d6db7;
+}
+
+.autorites input.wyr-input[type='submit']:focus,
+.autorites input.wyr-input[type='submit']:active,
+.autorites .uk-button:focus,
+.autorites .uk-button:active,
+.autorites .search_cancel>input:focus,
+.autorites .search_cancel>input:active,
+.autorites.claro.pure .dijitButton .dijitButtonNode:focus,
+.autorites.claro.pure .dijitDropDownButton .dijitButtonNode:focus,
+.autorites.claro.pure .dijitComboButton .dijitButtonNode:focus,
+.autorites.claro.pure .dijitToggleButton .dijitButtonNode:focus,
+.autorites.claro.pure .dijitButton .dijitButtonNode:active,
+.autorites.claro.pure .dijitDropDownButton .dijitButtonNode:active,
+.autorites.claro.pure .dijitComboButton .dijitButtonNode:active,
+.autorites.claro.pure .dijitToggleButton .dijitButtonNode:active {
+  background-color: #285191;
+}
+
+.autorites .uk-label,
+.autorites .uk-label:hover {
+  background: #3b609a;
+  color: #fff;
+}
+
+.autorites .search-result-item.notice-child[style*='block'],
+.autorites .child[style*='block'],
+.autorites div[startopen="Yes"] {
+  border-color: #799cd1;
+}
+
+.autorites select:focus {
+  outline-color: #799cd1;
+}
+
+.autorites .saisie-5emr,
+.autorites .saisie-10emr,
+.autorites .saisie-15emr,
+.autorites .saisie-20emr,
+.autorites .saisie-30emr,
+.autorites .saisie-50emr,
+.autorites .saisie-80emr,
+.pure .autorites input[class^='saisie'][class*='emr']:hover,
+.pure .autorites input[class^='saisie'][class*='emr']:active,
+.pure .autorites input[class^='saisie'][class*='emr']:focus {
+	background-color: rgb(213, 226, 247);
+	color:#000;
+}
+/*dijit Part*/
+.pure .autorites .dijitTreeRowHover {
+  background: #dae9ff;
+}
+/* Selected */
+.pure .autorites .dijitTreeRowSelected,
+.pure .autorites .dijitTreeRowHover.dijitTreeRowSelected,
+.pure .autorites .dijitTreeRowActive.dijitTreeRowSelected {
+  color: #fff;
+  background: #4f75b1;
+  border: 0 none;
+}

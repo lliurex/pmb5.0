@@ -1,0 +1,33 @@
+<?php
+
+// $Id: search_empr.txt,v 1.1 2012-12-04 15:45:33 mbertin Exp $
+
+// howto search a borrower
+
+$content = "
+<div class='row'>
+<h3><center>PMB: Uso de las características especiales dentro de la búsqueda de usuarios</center></h3>
+</div>
+<br /><hr /><br /><b>Búsqueda extendida</b><br />
+<p class='pn-normal'>Permite visualizar la lista de todos los lectores, dentro de la búsqueda y validar directamente.</p>
+
+<b>Búsqueda selectiva</b><br />
+<p class='pn-normal'>Para una búsqueda más selectiva, permite utilizar carácteres especiales: <br /> 
+<ul>
+<li>para buscar todos los nombre que <b> comiencen</b> per <b>ALE</b>, escribir: <b>^ALE</b>, </li>
+<li>para buscar todos los nombres que <b>contienen ALE</b>, escribir: <b>ALE</b>, </li>
+<li>para buscar todos los nombres que <b>terminen</b> por <b>ALE</b>, escribir: <b>ALE$</b>.</li>
+</ul></p>
+
+<hr /><br />
+<div class='row'><center>
+<a href='#' onclick='window.close()'>
+<!--<img src='./images/close.gif' border='0' alt='[$msg[197]]' title='$msg[197]'>-->
+[$msg[197]]
+</center></a>
+</div>
+";
+
+print $content;
+
+?>

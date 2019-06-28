@@ -1,0 +1,5 @@
+<h1>Administraci&oacute; dels usuaris</h1>
+<p>Els diferents codis que afecten cada un dels usuaris de la biblioteca permeten obtindre estad&iacute;stiques sobre el p&uacute;blic de la biblioteca.
+</p>
+
+<p>A l'hora de combinar els codis descrits anteriorment, heu d'adaptar l'aplicaci&oacute; al funcionament particular del vostre centre.</p>

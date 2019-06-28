@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pmbsections>
+	<section name="a_general">Opcions generals de funcionament de l'OPAC</section>
+	<section name="b_aff_general">Informacions de la biblioteca</section>
+	<section name="c_recherche">Opcions per les busques en l'OPAC</section>
+	<section name="d_aff_recherche">Opcions per la visualització de resultats de les busques</section>
+	<section name="e_aff_notice">Visualització de registres</section>
+	<section name="f_modules">Mòduls de visualització dins l'OPAC</section>
+	<section name="h_cart">Opcions de les cistelles</section>
+	<section name="i_categories">Opcions per la visualització i la navegació dins les classificacions</section>
+	<section name="j_etagere">Opcions sobre les prestatgeries</section>
+	<section name="k_section">Opcions sobre la navegació per les seccions</section>
+	<section name="l_dsi">Opcions sobre la D.S.I.</section>
+	<section name="m_photo">Opcions sobre les fotos</section>
+	<section name="z_unused">No utilitzat</section>
+	<section name="pdfcde">Opcions de format de la carta de comanda</section>
+	<section name="pdfdev">Opcions de format de la carta de petició de pressupost</section>
+	<section name="pdfliv">Opcions de format del lliurament</section>
+	<section name="pdffac">Opcions de format de les factures</section>
+	<section name="pdfsug">Opcions de format dels llistats de suggeriments</section>	
+	<section name="mel">Opcions de format dels correus electrònics de suggeriments</section>
+
+	<section name="categories">Opcions per a les categories</section>	
+	<section name="thesaurus">Opcions per als tesaurus<</section>	
+	<section name="classement">Opcions per als plans de classificació</section>
+	<section name="transferts">Opcions generals per a les transferències</section>
+	<section name="pdfrel">Opcions de disseny per als recordatoris</section>	
+	<section name="search">Opcions per a les busques</section>	
+	<section name="concepts">Opcions per als conceptes</section>
+	<section name="map">Opcions per a la georeferència</section>		
+</pmbsections>

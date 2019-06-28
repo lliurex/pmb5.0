@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* +--------------------------------------------------------------------------+
+// 2017 PMB Services / www.sigb.net pmb@sigb.net et contributeurs (voir www.sigb.net)
+// +-------------------------------------------------+
+// $Id: set-cata-color.css,v 1.1.2.6 2017-12-08 14:34:19 wlair Exp $ */
+/*------------------------------------------------------------------------------------------*/
+#navbar .uk-navbar-nav li#navbar-catalog a:after,
+.catalog .hmenu.uk-tab>*:hover>a{
+	border-bottom-color:#ef8800;
+}
+li#navbar-catalog.current,
+.catalog .uk-checkbox:checked, 
+.catalog .uk-checkbox:indeterminate, 
+.catalog .uk-radio:checked,
+.catalog .uk-checkbox:checked:focus, 
+.catalog .uk-checkbox:indeterminate:focus, 
+.catalog .uk-radio:checked:focus,
+.catalog div#extra2 span.uk-icon,
+.catalog div#extra2 .notification.ui-active {
+	background-color:#ef8800;	
+}
+.catalog .uk-input:focus, 
+.catalog .uk-select:focus, 
+.catalog .uk-textarea:focus,
+.catalog .uk-checkbox:focus, 
+.catalog .uk-radio:focus,
+.catalog.claro.pure .dijitButtonHover .dijitButtonNode,
+.catalog.claro.pure .dijitDropDownButtonHover .dijitButtonNode,
+.catalog.claro.pure .dijitComboButton .dijitButtonNodeHover,
+.catalog.claro.pure .dijitComboButton .dijitDownArrowButtonHover,
+.catalog.claro.pure .dijitToggleButtonHover .dijitButtonNode,
+.catalog.claro.pure .dijitTextBoxHover,
+.catalog #contenu .uk-button-default:focus,
+.catalog #contenu .uk-button-default:hover,
+.catalog .hmenu.uk-tab>.uk-active>a,
+.catalog  iframe {
+	border-color: #ef8800;
+}
+.uk-navbar-nav li#navbar-catalog a:hover,
+.catalog h1.section-title i,
+.catalog h1.section-sub-title ,
+.catalog .uk-link,
+.catalog a,
+.catalog .uk-link:hover,
+.catalog a:hover,
+.catalog h3:not(.section-sub-title),
+.catalog .article-title i,
+.catalog #menu .uk-nav>li>a i,
+.catalog #menu .uk-nav>li.uk-active>a,
+.catalog #menu .uk-nav>li>a i,
+.catalog #menu .uk-nav>li.uk-active>a,
+.catalog #menu .uk-nav>li>a:hover ,
+.catalog .h2-like i,
+.catalog #extra span.uk-icon:hover,
+.catalog #extra i:hover,
+.catalog #navbar .dashboard:hover,
+.pure .catalog .uk-tab > * > a:hover,
+.pure .catalog .uk-tab > * > a:focus,
+.catalog .categ_browser a,
+.catalog .categ_browser a:hover,
+.catalog .categ_browser a:focus,
+.catalog .categ_browser a:active,
+.catalog .hmenu.uk-tab>.uk-active>a{
+	color:#ef8800;
+}
+.catalog #contenu input.wyr-input[type='file']:focus{
+	outline-color: #ef8800;
+}
+.catalog .stat-child .uk-table th{
+	color: #ef8800;
+	font-weight: 500;
+}
+.catalog #menu ul.uk-nav{		
+	border-top: solid 2px #ef8800;		
+}
+.catalog #menu>h3 .uk-icon{		
+	background: #ef8800;		
+}
+.catalog.claro.pure .dijitMenu .dijitMenuItemHover td, 
+.catalog.claro.pure .dijitMenu .dijitMenuItemSelected td, 
+.catalog.claro.pure .dijitMenuItemHover, 
+.catalog.claro.pure .dijitComboBoxMenu .dijitMenuItemHover, 
+.catalog.claro.pure .dijitMenuItemSelected,
+.catalog.claro.pure .dojoDndItemOver {
+    background-color:rgba(250, 167, 46, 0.3);
+    border-color:#ef8800;
+    background-image: none;
+}
+.catalog form .form-contenu,
+.catalog .row.bkg-grey{
+	border-color:#f5ac4d;
+}
+.catalog input.wyr-input[type='submit'],
+.catalog .uk-button,
+.catalog .search_cancel>input,
+.catalog.claro.pure .dijitButton .dijitButtonNode,
+.catalog.claro.pure .dijitDropDownButton .dijitButtonNode,
+.catalog.claro.pure .dijitComboButton .dijitButtonNode,
+.catalog.claro.pure .dijitToggleButton .dijitButtonNode,
+.catalog .bouton.vider,
+.catalog div[class^='dijit'] input[class^='bouton']{
+	background-color: #ef8800;
+		
+}
+.catalog input.wyr-input[type='submit']:hover,
+.catalog .uk-button:hover,
+.catalog .search_cancel>input:hover,
+.catalog.claro.pure .dijitButton .dijitButtonNode:hover,
+.catalog.claro.pure .dijitDropDownButton .dijitButtonNode:hover,
+.catalog.claro.pure .dijitComboButton .dijitButtonNode:hover,
+.catalog.claro.pure .dijitToggleButton .dijitButtonNode:hover,
+.catalog .bouton.vider:hover,
+.catalog div[class^='dijit'] input[class^='bouton']:hover {
+	background-color: #f7910b;
+}
+.catalog input.wyr-input[type='submit']:focus,
+.catalog input.wyr-input[type='submit']:active,
+.catalog .uk-button:focus,
+.catalog .uk-button:active,
+.catalog .search_cancel>input:focus,
+.catalog .search_cancel>input:active,
+.catalog.claro.pure .dijitButton .dijitButtonNode:focus,
+.catalog.claro.pure .dijitDropDownButton .dijitButtonNode:focus,
+.catalog.claro.pure .dijitComboButton .dijitButtonNode:focus,
+.catalog.claro.pure .dijitToggleButton .dijitButtonNode:focus,
+.catalog.claro.pure .dijitButton .dijitButtonNode:active,
+.catalog.claro.pure .dijitDropDownButton .dijitButtonNode:active,
+.catalog.claro.pure .dijitComboButton .dijitButtonNode:active,
+.catalog.claro.pure .dijitToggleButton .dijitButtonNode:active,
+.catalog .bouton.vider:active,
+.catalog .bouton.vider:focus,
+.catalog div[class^='dijit'] input[class^='bouton']:active,
+.catalog div[class^='dijit'] input[class^='bouton']:focus   {
+	background-color: #f77100;
+}
+.catalog .uk-label,
+.catalog .uk-label:hover {
+	background: #ef8800;
+	color:#fff;		
+}
+.catalog  .search-result-item.notice-child[style*='block'],
+.catalog  .child[style*='block'],
+.catalog  div[startopen="Yes"] {
+	border-color: #f5ac4d;
+}
+.catalog select:focus{
+	outline-color: #f77100;
+}
+
+.catalog .saisie-5emr,
+.catalog .saisie-10emr,
+.catalog .saisie-15emr,
+.catalog .saisie-20emr,
+.catalog .saisie-30emr,
+.catalog .saisie-50emr,
+.catalog .saisie-80emr.pure,
+.catalog input[class^='saisie'][class*='emr']:hover,
+.pure .catalog input[class^='saisie'][class*='emr']:active,
+.pure .catalog input[class^='saisie'][class*='emr']:focus{
+  background: #f6a436;
+  color:#000;	
+}
+/*dijit Part*/
+.pure .catalog .dijitTreeRowHover {
+  background: #ffdeb2;
+}
+/* Selected */
+.pure .catalog .dijitTreeRowSelected,
+.pure .catalog .dijitTreeRowHover.dijitTreeRowSelected,
+.pure .catalog .dijitTreeRowActive.dijitTreeRowSelected {
+  color: #fff;
+  background: #f6a436;
+  border: 0 none;
+}

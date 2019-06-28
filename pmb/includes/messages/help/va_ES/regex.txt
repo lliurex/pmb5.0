@@ -1,0 +1,92 @@
+<?php
+
+// $Id: regex.txt,v 1.10 2009-05-16 11:05:14 dbellamy Exp $
+
+// documentaci&oacute; sobre els operadors booleans
+
+$content = "
+<table border='0' width='100%'>
+<tr>
+<td align='left'>
+<b>PMB: els operadors booleans i les expressions de busca</b>
+</td>
+<td align='right'>
+<a href='#' onclick='window.close()'>
+<!--<img src='./images/close.gif' border='0' alt='[$msg[197]]' title='$msg[197]'>-->
+[$msg[197]]
+</a>
+</td>
+</tr>
+</table>
+<hr />
+<b>Busca simple</b>
+<p class='pn-normal'>Per defecte, el motor de busca busca els elements que contenen <b>com a m&iacute;nim</b> (O impl&iacute;cit) un dels mots introdu&iuml;ts. Els resultats es mostren segons el nombre decreixent de mots trobats, i despr&eacute;s per orde alfab&egrave;tic.
+<br />Ex. <em>jardins interiors</em> significa que buscar&agrave; els elements que continguen els mots jardins <b>o</b> interiors (jardins d&apos;interiors, jardins japonesos, disseny d&apos;interiors...).
+<br />Els accents i les maj&uacute;scules/min&uacute;scules no es tenen en compte. Si dos mots estan separats per altre signe que espai, +, o -, es considera que l&apos;orde en qu&egrave; es troben &eacute;s l&apos;orde com han d&apos;apar&eacute;ixer als resultats.
+<br />Ex. <em>Sant Jordi/drac</em> s&apos;analitza de la manera següent: busca els elements que continguen <em>sant</em> <b>o</b> els elements que continguen <em>jordi i drac</em> <b>o</b> els dos.
+<br />Alguns mots s&apos;ignoren ja que es consideren buits de contingut (ex.: de, t, l, d, s, seu, la...).
+</p>
+
+<b>El guionet</b>
+<p class='pn-normal'>
+	El guionet es considera com un operador entre dos mots (vegeu m&eacute; avall el cap&iacute;tol «Operadors l&ograve;gics entre dos mots»). Aix&iacute;, tot mot compost amb un guionet s&apos;ha de tancar entre cometes per a fer una busca del terme exacte (vegeu m&eacute;s avall el cap&iacute;tol «Busca exacta»).
+</p>
+      
+<b>Truncament</b>
+<p class='pn-normal'>Els mots es poden truncar per l&apos;esquerra, la dreta o parcialment pel car&agrave;cter *
+	<br />Ex. <em>graf*</em> buscar&agrave; els mots que comencen per <em>graf</em> (gr&agrave;fic, grafisme, gr&agrave;fics...), <em>*ogia</em> buscar&agrave; tots els termes que acaben en <em>ogia</em> (psicologia, sociologia, trilogia...), <em>p*tria</em> buscar&agrave; els mots que comencen per <em>p</em> i acaben en <em>tria</em> (psiquiatria, pediatria...).
+	<br />Podeu truncar m&eacute;s d&apos;una vegada un mateix mot.</p>
+	
+<b>Busca exacta</b>
+<p class='pn-normal'>Per a buscar per termes exactes cal tancar els mots entre cometes. Si el motor de busca troba un terme exacte, buscar&agrave; els elements inclosos tal com els troba. En este tipus de busca tamb&eacute; es pot utilitzar el truncament.
+	<br />Ex. <em>\'dent\'</em> significa que tots els elements que continguen <em>dent</em> (dent&iacute;fric, dentista, accident, incident...).
+	<br />La busca exacta &eacute;s pr&agrave;ctica per a la busca d&apos;expressions que contenen espais o signes de puntuaci&oacute; (una sigla per exemple).
+	<br />Ex. <em>\"T.L.C.\"</em> buscar&agrave; els elements que continguen el text <em>T.L.C.</em>, en canvi <em>T.L.C.</em> buscar&agrave; els elements que continguen les lletres T o L o C.
+	<br />Els accents i les maj&uacute;scules/min&uacute;scules no es tenen en compte dins d&apos;una busca exacta.
+	Finalment, els termes exactes es poden utilitzar amb totes les expressions complexes descrites m&eacute;s avall.
+</p>
+  
+<b>Negaci&oacute;</b>
+<p class='pn-normal'>El s&iacute;mbol ~ davant d&apos;un terme representa una negaci&oacute; d&apos;este terme. Aix&ograve; significa la busca de tots els elements que no continguen eixe terme.		  
+	<br />Ex. <em>~treball</em> significa que buscar&agrave; tots els elements excepte aquells que continguen el terme treball.
+</p>
+
+<b>Operadors l&ograve;gics entre dos mots</b>
+<p class='pn-normal'>Els operadors l&ograve;gics es poden utilitzar entre els mots:</p>
+<ul>
+	<li><b>+</b>: operador I<br />Ex. <em>disc + dur</em>significa que buscar&agrave; els elements que continguen els mots disc <b>i</b> dur.</li>
+	<li><b>-</b>: operador MENYS (I NO)<br />Ex. <em>disc - dur</em> significa que buscar&agrave; els elements que continguen el mot disc, <b>menys els que continguen tamb&eacute;</b> el mot dur. </li>
+</ul>
+<p class='pn-normal'>Estos operadors es poden utilitzar m&eacute;s d&apos;un a la vegada. S&apos;apliquen per orde, d&apos;esquerra a dreta.
+<br />Ex. <em>poesia + franc&eacute;s* - rom&agrave;ntic* </em> significa que buscar&agrave; els elements que continguen <em> poesia i franc&eacute;s(esa)(eses)</em> <b>menys</b><em> rom&agrave;ntic(a)(isme)</em>.
+<br /><br />Atenci&oacute;, els operadors no es poden posar seguits, una negaci&oacute; no es pot combinar amb un operador 
+(<b>+~</b> significa el mateix que l&apos;operador <b>-</b>).
+</p>
+
+ <b>Agrupaments</b>
+<p class='pn-normal'>Una expressi&acute; es pot agrupar per a esdevenir un terme. Estos agrupaments es fan amb els        <b>par&egrave;ntesis</b>. Aix&ograve; permet canviar l&apos;orde d&apos;aplicaci&oacute; dels operadors o combinar els resultats d&apos;expressions complexes.
+		  <br />Ex.</p>
+		<ul>
+		<li><em>poesia + (francesa rom&agrave;ntica)</em> buscar&agrave; de tots els elements que continguen francesa o rom&agrave;ntica, &uacute;nicament aquells que continguen <em>poesia</em>.</li>
+		<li><em>(poesia + francesa) rom&agrave;ntica</em> buscar&agrave; tots els elements que continguen <em>poesia i francesa </em><b>o</b> tots els elements que continguen <em>rom&agrave;ntica</em>.</li>
+		<li><em>~(poesia + francesa) + (literatura ameri*)</em> buscar&agrave; <em>tots els elements que no continguen poesia i francesa</em> <b>i</b> <em>els elements que continguen literatura o ameri*.</li>
+		</ul>
+<p class='pn-normal'> Els par&egrave;ntesis es poden utilitzar sense l&iacute;mit.
+<br />Ex. <em>(poesia + (francesa rom&agrave;ntica)) (literatura + XIX)</em> buscar&agrave; <em>de tots els elements que continguen francesa o rom&agrave;ntica, &uacute;nicament aquells que continguen poesia</em> <b>o</b> <em>els elements que continguen literatura i XIX</em>
+</p>
+
+<b>Pertinen&ccedel;a</b>
+<p class='pn-normal'>Els resultats es mostren per orde de pertinen&ccedil;a i despr&eacute;s per orde alfab&egrave;tic. La pertinen&ccedil;a es calcula simplement pel nombre total de mots o termes exactes trobats.
+	<br />Ex.</p>
+<ul>
+	<li><em>jardins interiors</em> trobar&agrave; tots els elements que continguen jardins o interiors, aquells que continguen els dos mots es mostraran al principi de la llista de resultats</li>
+	<li><em>~(poesia + francesa) (literatura ameri*)</em> trobar&agrave; tots els elements que no continguen <em>poesia i francesa</em>, d&apos;estos elements, aquells que continguen <em>literatura o ameri*</em> apareixeran al principi de la llista de resultats (primerament literatura i ameri*, despr&eacute;s ameri*, i despr&eacute;s literatura)</li>
+</ul>
+        
+ 
+";
+
+print $content;
+
+?>
+

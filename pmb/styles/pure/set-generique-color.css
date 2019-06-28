@@ -1,0 +1,43 @@
+/*
+ * Checked
+ */
+.pure.end_import .uk-radio:checked, 
+.pure.end_import .uk-checkbox:checked, 
+.pure.end_import .uk-checkbox:indeterminate {
+    background-color: #563D7C;
+    border-color: transparent;
+}
+
+/* Focus */
+.pure.end_import .uk-radio:checked:focus, 
+.pure.end_import .uk-checkbox:checked:focus, 
+.pure.end_import .uk-checkbox:indeterminate:focus {
+    background-color: #4a336f;
+}
+
+.pure.end_import .uk-button{
+    background-color: #563D7C;
+}
+div[class^='dijit'] input[class^='bouton']{
+    background-color: #563D7C;
+}
+.pure.end_import .uk-button:hover,
+div[class^='dijit'] input[class^='bouton']:hover{
+    background-color: #6c5197;
+}
+.pure.end_import .uk-button:focus,
+.pure.end_import .uk-button:active,
+div[class^='dijit'] input[class^='bouton']:focus
+div[class^='dijit'] input[class^='bouton']:active{
+    background-color: #47306a;
+}
+.pure.abonnement_parution_edition .uk-button{
+    background-color: #563D7C;
+}
+.pure.abonnement_parution_edition .uk-button:hover{
+    background-color: #6c5197;
+}
+.pure.abonnement_parution_edition .uk-button:focus,
+.pure.abonnement_parution_edition .uk-button:active{
+    background-color: #47306a;
+}

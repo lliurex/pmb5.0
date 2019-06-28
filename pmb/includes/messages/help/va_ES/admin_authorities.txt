@@ -1,0 +1,7 @@
+<h1>Administraci&oacute; d'autoritats</h1>
+
+<p>La secci&oacute; d'<b>autoritats</b> permet definir els par&agrave;metres de l'aplicaci&oacute; per als registres.
+<ul>
+<li><b>Or&iacute;gens</b> permet definir els or&iacute;gens de les autoritats, que s'han de distingir durant la importaci&oacute;.</li>
+</ul></p>
+ 

@@ -1,0 +1,22 @@
+<br>
+<b>CUIDADO, esta herramienta sirve para crear los registros y las autoridades. 
+<br>También se actualizarán registros ya existentes.</b>
+<br><br>
+
+El archivo debe estar en formato <b>IBERMARC (REBECA)</b>. El resultado de la búsqueda de registros en la página web<br>
+de <b>Registros Bibliográficos del Ministerio de Cultura <a href="http://www.mcu.es/bibliotecas/MC/Rebeca/index.html" target="_blank">http://www.mcu.es/bibliotecas/MC/Rebeca/index.html</a></b><br>
+se puede descargar en un fichero <b>000*.reb</b> para su importación desde PMB.<br>
+<ul>
+<li>La importación se realiza en tres fases :
+<OL>
+<LI>Primero se envía el archivo</LI>
+<LI>Luego se carga </LI>
+<LI>Finalmente se transfieren los registros a la base de datos</LI>
+</OL></li>
+</ul>
+<br><br>
+<!-- LLIUREX 08/02/2013 -->
+<!-- Comentado para eliminar botón -->
+<!-- <a href="iimport_expl.php?categ=import&sub=import_reb&action=beforeupload">Enviar el archivo</a> -->
+<!-- LLIUREX -->
+

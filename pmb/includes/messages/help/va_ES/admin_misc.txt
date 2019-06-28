@@ -1,0 +1,19 @@
+<h1>Ferramentes</h1>
+<p>Ac&iacute; trobareu diferents opcions. </p>
+<p>
+<b>Neteja de la base de dades</b> permet realitzar el manteniment de la base de dades: suprimir els registres sense exemplars, etc.
+</p><p>
+<b>Accions personalitzables</b> fa refer&egrave;ncia a les estad&iacute;stiques personalitzables visibles dins de la pestanya Pr&eacute;stecs o b&eacute; a les consultes d&apos;actualitzaci&oacute; executades peri&ograve;dicament que es poden emmagatzemar ac&iacute;.
+</p><p>
+<b>Fitxer log</b> genera un fitxer (log) de diferents procediment de PMB. 
+Actualment no és utilitzat però es conserva per temes de compatibilitat.
+</p><p>
+<b>Act. de la base</b> esta funci&oacute; &eacute;s molt important. Permet actualitzar l&apos;estructura de la base de dades cada vegada que actualitzeu els fitxers del PMB al carregar una nova versi&oacute;. Durant el proc&eacute;s no es perd cap dada.
+</p><p>
+<b>Descripci&oacute; de les taules</b>, tal com el seu nom indica.
+</p><p>
+<b>Manteniment MySQL</b>, funcions de manteniment de la base de dades. Permet verificar-ne la integritat.
+</p><p>
+<b>Par&agrave;metres</b> genera els aspectes de personalitzaci&oacute; de l&apos;aplicaci&oacute;, per exemple la identificaci&oacute; de la biblioteca, o l&apos;activaci&oacute; de la meteorologia a l&apos;OPAC.
+p>
+

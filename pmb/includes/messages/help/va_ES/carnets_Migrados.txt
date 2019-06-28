@@ -1,0 +1,4 @@
+<H1><center>GENERACIÓ DELS CARNETS DE L'ALUMNAT MIGRAT</center></H1> 
+<p></p>
+<p><center>Feu clic en <b>Genera carnets</b> per a obtindre els carnets dels usuaris el codi d'identificació dels quals s'haja migrat al NIA. (Abans d'imprimir recomanem que comproveu la data de validesa que figura en els carnets ja que poden aparéixer carnets d'usuaris amb l'abonament caducat).</center></p>
+

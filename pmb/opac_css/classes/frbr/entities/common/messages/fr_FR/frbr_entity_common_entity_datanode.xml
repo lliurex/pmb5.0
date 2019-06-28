@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE XMLlist SYSTEM "../XMLlist.dtd" [<!ENTITY nbsp "&amp;nbsp;">]>
+
+<!-- messages localisés en français pour la classe racine d'un module
+****************************************************************************************
+© 2002-2012 PMB Services / www.sigb.net pmb@sigb.net et contributeurs (voir www.sigb.net)
+****************************************************************************************
+$Id: frbr_entity_common_entity_datanode.xml,v 1.2 2017-05-05 07:43:35 dgoron Exp $ -->
+
+<XMLlist>
+	<entry code="frbr_entity_common_entity_datanode_edit">Modification de jeu de données - %s</entry>
+	<entry code="frbr_entity_common_entity_datanode_add">Création d'un nouveau jeu de données</entry>
+	<entry code="frbr_entity_common_entity_datanode_parent">Parent</entry>
+	<entry code="frbr_entity_common_entity_datanode_name">Nom</entry>
+	<entry code="frbr_entity_common_entity_datanode_comment">Description</entry>
+	<entry code="frbr_entity_common_entity_datanode_datasource_choice">Choisissez une source de donnée</entry>
+	<entry code="frbr_entity_common_entity_datanode_confirm_delete">Voulez-vous vraiment supprimer ce jeu de données ?</entry>
+	<entry code="frbr_entity_common_entity_datanode_name_empty">Veuillez saisir le nom du jeu de données.</entry>
+	<entry code="frbr_entity_common_entity_datanode_filter_choice">Choisissez un filtre</entry>
+	<entry code="frbr_entity_common_entity_datanode_sort_choice">Choisissez un tri</entry>
+	<entry code="frbr_entity_common_entity_datanode_filter_create">Créer un nouveau filtre</entry>
+	<entry code="frbr_entity_common_entity_datanode_sort_create">Créer un nouveau tri</entry>
+	<entry code="frbr_entity_common_entity_datanode_filter_edit">Edition d'un filtre</entry>
+	<entry code="frbr_entity_common_entity_datanode_sort_edit">Edition d'un tri</entry>
+	<entry code='frbr_entity_common_datasource_aut_link'>Autorités liées</entry>
+</XMLlist>

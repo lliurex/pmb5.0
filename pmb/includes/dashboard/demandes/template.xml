@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- 
+****************************************************************************************
+© 2002-2004 PMB Services / www.sigb.net pmb@sigb.net et contributeurs (voir www.sigb.net)
+****************************************************************************************
+$Id: template.xml,v 1.3 2016-11-29 15:33:37 agiraud Exp $ -->
+
+<!-- LLIUREX 22/02/2018 
+Se cambia el idioma por defecto de fr_FR a es_ES -->
+<template default_lang='es_ES'>
+<!-- FIN LLIUREX 22/02/2018 -->	
+	<content lang='fr_FR'><![CDATA[
+		<div class='row'>
+			<div class='title'>Total des demandes : </div>
+			<div class='value'>{{nb_demandes.0.total}}</div>
+		</div>
+	  	<h2>Demandes par état</h2>
+		<div class='row'>
+			<div class='title'>Demandes à valider : </div>
+			<div class='value'>{{nb_demandes_a_valider.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Demandes validées : </div>
+			<div class='value'>{{nb_demandes_validees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Demandes refusées : </div>
+			<div class='value'>{{nb_demandes_refusees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Demandes terminées : </div>
+			<div class='value'>{{nb_demandes_terminees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Demandes abandonnées : </div>
+			<div class='value'>{{nb_demandes_abandonnees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Demandes archivées : </div>
+			<div class='value'>{{nb_demandes_archivees.0.total}}</div>
+		</div>
+		]]>
+	</content>
+	
+	<content lang='en_UK'><![CDATA[
+		<div class='row'>
+			<div class='title'>Total of requests : </div>
+			<div class='value'>{{nb_demandes.0.total}}</div>
+		</div>
+	  	<h2>Requests by state</h2>
+		<div class='row'>
+			<div class='title'>Requests to validate : </div>
+			<div class='value'>{{nb_demandes_a_valider.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Requests validated : </div>
+			<div class='value'>{{nb_demandes_validees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Requests refused : </div>
+			<div class='value'>{{nb_demandes_refusees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Requests finished : </div>
+			<div class='value'>{{nb_demandes_terminees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Requests given up : </div>
+			<div class='value'>{{nb_demandes_abandonnees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Requests classified : </div>
+			<div class='value'>{{nb_demandes_archivees.0.total}}</div>
+		</div>
+		]]>
+	</content>
+
+<!-- LLLIUREX 22/02/2018 -->
+	<content lang='es_ES'><![CDATA[
+		<div class='row'>
+			<div class='title'>Total de solicitudes : </div>
+			<div class='value'>{{nb_demandes.0.total}}</div>
+		</div>
+	  	<h2>Requests by state</h2>
+		<div class='row'>
+			<div class='title'>Solicitudes a validar : </div>
+			<div class='value'>{{nb_demandes_a_valider.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Solicitudes validadas : </div>
+			<div class='value'>{{nb_demandes_validees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Solicitudes rechazadas : </div>
+			<div class='value'>{{nb_demandes_refusees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Solicitudes finalizadas : </div>
+			<div class='value'>{{nb_demandes_terminees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Solicitudes retiradas : </div>
+			<div class='value'>{{nb_demandes_abandonnees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Solicitudes archivadas : </div>
+			<div class='value'>{{nb_demandes_archivees.0.total}}</div>
+		</div>
+		]]>
+	</content>
+
+	<content lang='va_ES'><![CDATA[
+		<div class='row'>
+			<div class='title'>Total de sol·licituds : </div>
+			<div class='value'>{{nb_demandes.0.total}}</div>
+		</div>
+	  	<h2>Requests by state</h2>
+		<div class='row'>
+			<div class='title'>Sol·licituds a validar : </div>
+			<div class='value'>{{nb_demandes_a_valider.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Sol·licituds validades : </div>
+			<div class='value'>{{nb_demandes_validees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Sol·licituds rebutjades : </div>
+			<div class='value'>{{nb_demandes_refusees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Sol·licituds finalitzades : </div>
+			<div class='value'>{{nb_demandes_terminees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Sol·licituds retirades : </div>
+			<div class='value'>{{nb_demandes_abandonnees.0.total}}</div>
+		</div>
+		<div class='row'>
+			<div class='title'>Sol·licituds arxivades : </div>
+			<div class='value'>{{nb_demandes_archivees.0.total}}</div>
+		</div>
+		]]>
+	</content>
+<!-- FIN LLIUREX 22/02/2018 -->	
+</template>

@@ -1,0 +1,21 @@
+.dijitEditor{
+    min-width: 100%;
+}
+
+.dojoxGridArrowButtonChar{
+    max-width: 15px;
+    float: left;
+}
+.dojoxGridColCaption{
+    width: calc(100% - 15px);
+}
+..dojoxGrid .dojoxGridCell{
+    min-height:100%;
+}
+.pure .dijitTextBox input.dijitArrowButtonInner{
+    margin: 0px!important;
+}
+.dijitComboBox .dijitButtonNode.dijitArrowButton.dijitDownArrowButton.dijitArrowButtonContainer{
+    height: 30px;
+    box-sizing: border-box;
+}

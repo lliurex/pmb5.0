@@ -1,0 +1,10 @@
+<h1>Administración de los Estados de colecciones</h1>
+
+<p>La sección <b>administración de los estados de coleccciones </b> permite definir los parámetros de la aplicación para las colecciones periódicas.
+<ul>
+<li><b>Ubicaciones</b> permite definir las ubicaciones de las colecciones dentro de la localización.</li>
+<li><b>Soportes</b> permite definir los soportes de las colecciones.</li>
+<li><b>Estados</b> permite el tratamiento diferenciado para las colecciones, así­ como la exhibición dentros del OPAC.</li>
+<li><b>Personalizables</b> campos personalizables en los estados de las colecciones.</li>
+</ul></p>
+ 

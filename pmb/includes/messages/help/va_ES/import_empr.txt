@@ -1,0 +1,22 @@
+<?php
+
+// $Id: import_empr.txt,v 0.1 2003/11/21 9:44:264 Jonathan charest
+
+// Documentació sobre la utilització de la importació
+
+$content = "
+  <p><b>PMB: breu manual sobre com importar </b> </p>
+  <p><strong>En la columna de l&apos;esquerra</strong>, hi ha el nom dels camps de la base de dades.<br />
+    &Eacute;s en d&apos;estos camps on s&introdu&iuml;x la informaci&oacute; sobre els usuaris.</p>
+  <p><strong>En la columna del centre</strong> es mostra la posici&oacute; del camp dins del fitxer, p. ex.:<br />
+    2003,&quot;3&quot;,&quot;Archambault&quot;,... <br />
+    2003 &eacute;s la 1a posici&oacute;,
+   és l'any d'incorporació de l'estudiant al cole·lgi,"3" esta a la 2a posició, és la sessió  actual de l'estudiant, "Archambault" esta en la 3a posició, és el nom de l'estudiant.</p>
+  <p><strong>En la columna de la dreta</strong>, és un exemple del primer registre del fitxer, pot ser molt útil si volem canviar la posisió en el fitxer. No s'oblide de fer clic
+   a Actualitzar perquè els canvis produïsquen efecte en l'arxiu.</p>
+  <p><strong>Els campos en roig</strong>, són els camps no editables per l'usuari, que es completaran sols.</p>
+";
+
+print $content;
+
+?>

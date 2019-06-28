@@ -1,0 +1,15 @@
+<h1>Transfer&egrave;ncies</h1>
+<p>Ac&iacute; trobareu les opcions per a configurar les transfer&egrave;ncies. </p>
+<p>
+<b>General</b> els par&agrave;metres generals
+</p><p>
+<b>Circulaci&oacute;</b> els par&agrave;metres per a la circulaci&oacute;
+</p><p>
+<b>OPAC</b> els par&agrave;metres per a l&apos;OPAC
+</p><p>
+<b>Orde de busca</b> permet generar l&apos;orde dels llocs en els quals es busca l&apos;exemplar que s&apos;ha de transferir 
+</p><p>
+<b>Estats per defecte</b> estats per defecte durant la recepci&oacute; d&apos;un exemplar en un lloc 
+</p><p>
+<b>Depuraci&oacute; de l&apos;historial</b> supressi&oacute; de l&apos;historial de transfer&egrave;ncies 
+</p>

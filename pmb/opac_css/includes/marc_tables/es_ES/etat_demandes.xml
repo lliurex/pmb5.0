@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+/*************************************************************************
+ *																		 * 
+ * Fichier qui regroupe les différents états d'une demande de recherche  *
+ *																		 *		
+ *************************************************************************/
+-->
+<XMLlist>
+<!--LLIUREX 23/02/2018	
+	<entry code="1">A valider</entry>
+	<entry code="2">Validée</entry>
+	<entry code="3">Refusée</entry>
+	<entry code="4">Finie</entry>
+	<entry code="5">Abandonnée</entry>
+	<entry code="6">Archivée</entry-->
+	<entry code="1">Validar</entry>
+	<entry code="2">Validado</entry>
+	<entry code="3">Rechazado</entry>
+	<entry code="4">Acabado</entry>
+	<entry code="5">Abandonado</entry>
+	<entry code="6">Archivado</entry>
+<!--FIN LLIUREX 23/02/2018 -->	
+</XMLlist>

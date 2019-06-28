@@ -1,0 +1,2 @@
+<h1>Gestion del términal de préstamo</h1>
+<p>Permite definir el comportamiento de un terminal de préstamo y definir los mensajes a mostrar según el comportamiento. </p>

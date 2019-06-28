@@ -1,0 +1,16 @@
+{% extends 'gabarit.html' %}
+
+<!-- $Id: authperso.html,v 1.2 2015-12-21 16:31:16 apetithomme Exp $ -->
+
+{% block element_content %}
+	<td valign="top">
+		
+		{% block pperso %}
+			{{ block.super }}
+		{% endblock %}
+		{% block indexing_concept %}
+			{{block.super}}
+		{% endblock %}
+		
+	</td>
+{% endblock %}

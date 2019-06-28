@@ -1,0 +1,22 @@
+<?php
+
+// $Id: import_empr.txt,v 0.1 2003/11/21 9:44:264 Jonathan charest
+
+// Documentación sobre el uso de las importaciones
+
+$content = "
+  <p><b>PMB : breve manual sobre cómo importar</b> </p>
+  <p><strong>En la columna de la izquierda</strong>, est&aacute;n los nombres de los campos de la base de datos.<br />
+    Es en estos campos d&oacute;nde se van a introducir los datos de los usuarios.</p>
+  <p><strong>En la columna del centro</strong> se muestra la posición del campo dentro del archivo, ex:<br />
+    2003,&quot;3&quot;,&quot;Archambault&quot;,... <br />2003 esta en la 1ª posición,
+    es el año de incorporación del estudiante al colegio, "3" esta en la 2ª posición, es la sesión actual del estudiante, "Archambault" esta en la
+    3ª posición, es el nombre del estudiante.</p>
+  <p><strong>En la columna de la derecha</strong>, es un ejemplo del primer registro del fichero, puede ser muy útil si queremos cambiar la posición
+  en el fichero. No se olvide de hacer clic en Actualizar para que los cambios surtan efecto en el archivo.</p>
+  <p><strong>Los campos en rojo</strong>, son los campos no editables por el usuario que se completaran sólos.</p>
+";
+
+print $content;
+
+?>

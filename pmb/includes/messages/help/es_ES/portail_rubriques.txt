@@ -1,0 +1,5 @@
+<h1>Gestion de las Rúblicas</h1>
+
+<p>Permite administrar las rúbricas.</p>
+
+ 

@@ -1,0 +1,2 @@
+<h1>Administraci&oacute; de recol&middot;lectors de registres</h1>
+<p>Esta p&agrave;gina permet gestionar les importacions de registres des de connectors diferents.</p>

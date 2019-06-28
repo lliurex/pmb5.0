@@ -1,0 +1,13 @@
+<h1>Transferéncias</h1>
+<p>Aqui encontrarás las opciones para configurar las transferéncias. </p>
+<p>
+<b>General</b> Los parámetros generales;raux
+</p><p>
+<b>Circulación</b> Los parámetros para la circulación
+</p><p>
+<b>OPAC</b> Los parámetros para el OPAC
+</p><p>
+<b>Orden de búsqueda</b> permite generar la orden de los lugares dentro de los que buscar los ejemplares a transferir</p><p>
+<b>Estado por defecto</b> Estado por defecto durante la recepción de un ejemplar en un sitio</p><p>
+<b>Depuración</b> Eliminación del historial de transferéncias 
+</p>

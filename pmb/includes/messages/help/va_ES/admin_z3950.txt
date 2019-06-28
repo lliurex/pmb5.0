@@ -1,0 +1,5 @@
+<h1>Z 39.50</h1>
+<p>Configuraci&oacute; del client Z39 50 per a la importaci&oacute; de registres.</p>
+
+<b>Servidors</b> llistat dels servidors Z39.50 i permet afegir-hi o eliminar-ne.
+

@@ -1,0 +1,8 @@
+<h1>Administración de la planificación</h1>
+
+<p>La sección <b>administración de la planificación</b> pemite automatizar acciones efectuadas manualmente por el administrador.
+<ul>
+<li>La <b>Gestion des t&agrave;ches</b> r&eacute;f&eacute;rence l&apos;ensemble des t&agrave;ches planifi&eacute;es</li>
+<li>El <b>Panel de control</b> es la parte utilizada para la programación de las copias de seguridad;st la partie utilis&eacute;e par le cron du Syst&egrave;me d&apos;Exploitation pour le pilotage des t&agrave;ches</li>
+
+</ul></p>

@@ -1,0 +1,8 @@
+<h1>Administración de Autoridades</h1>
+
+<p>La sección <b>administración de autoridades</b> permite definir los parámetros de la aplicación para los registros.
+<ul>
+<li><b>orí­genes</b> permite definir los orí­genes de las autoridades, a distinguir durante la importación</li>
+</ul></p>
+ 
+ 

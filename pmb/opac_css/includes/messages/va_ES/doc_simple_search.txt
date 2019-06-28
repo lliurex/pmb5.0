@@ -1,0 +1,13 @@
+<h2>Busca simple</h2>
+<p><strong>Introdu&iuml;u el t&iacute;tol o l&apos;autor que voleu buscar i feu clic a <i>Busca</i></strong></p>
+<hr/>
+
+<p>Podeu introduir noms comuns i nom propis.</p>
+<p><b>Els car&agrave;cters amb accent</b> i els <b>signes de puntuaci&oacute;</b><b>s&apos;ignoren</b> 
+durant la busca (&egrave;, &eacute;, &agrave;, &ccedil;, !, etc.).</p>
+<p>Tamb&eacute; es pot buscar per editorial, col&middot;lecci&oacute;, subcol&middot;lecci&oacute;, categories (tesaurus), 
+classificacions (per exemple Dewey), paraules clau, resum i notes.</p>
+<p>Per a aix&ograve;, marqueu <img src="images/coche.gif" align="absmiddle">
+ primer les caselles corresponents, introdu&iuml;u els criteris de busca i feu clic a Busca.</p>
+<hr/>
+<p>Tamb&eacute; podeu fer una busca utilitzant els <a href="help.php?whatis=expbool">operadors booleans</a>.<br/>

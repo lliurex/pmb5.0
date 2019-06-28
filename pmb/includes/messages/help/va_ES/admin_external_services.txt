@@ -1,0 +1,11 @@
+<h1>Administraci&oacute; dels servicis externs</h1>
+
+<p>Els servicis externs s&oacute;n unes funcions que poden utilitzar altres programes per a accedir a funcionalitats del PMB de manera externa a l'aplicaci&oacute;.</p>
+
+<p>Podeu gestionar estes funcions:</p>
+<ul>
+<li>Autoritzacions generals: definix els drets d'acc&eacute;s a les funcions globalment.</li>
+<li>Autoritzacions per usuari: definix els drets d'acc&eacute; per usuaris.</li>
+<li>Usuaris externs: definix usuaris externs, que es poden utilitzar per a autenticar usuaris dels servicis.</li>
+<li>Grups d'usuaris externs: classifica els usuaris externs en grups.</li>
+</ul>

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo " [ PMB 5.0 ] : Searching PMB database..."
+
+lliurex-sgbd --db_is_present lliurex-pmb
+
+if [ ! -f /tmp/db_is_present ]; then
+	echo " [ PMB 5.0 ] : PMB database not found. NOTHING TO DO"
+else
+	echo " [ PMB 5.0 ] : PMB database found. NOW some tables WILL BE UPDATED"
+	lliurex-pmb --upgrade	
+	PATH_SQL="/usr/share/pmb/www/lliurex/utilidades_sql/Update_tables.sql"
+	lliurex-sgbd --inject_sql lliurex-pmb $PATH_SQL	
+	
+fi
+
+exit 0

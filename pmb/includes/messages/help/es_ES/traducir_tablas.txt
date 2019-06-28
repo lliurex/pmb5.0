@@ -1,0 +1,8 @@
+<p>Esta función permite traducir al idioma seleccionado parte de la información que durante la instalación fue insertada en las tablas de parámetros del PMB que se muestran
+</p>
+<h2>
+<p>Instruciones:</p>
+</h2>
+<p>1. Realice una <b>copia de seguridad</b> de la base de datos.</p>
+<p>2. Seleccione el idioma al que desea traducir la información contenida en las tablas (actualmente disponible la traducción al valenciano y castellano). </p>
+<p>3. Haga clic sobre <b>Iniciar Traducción</b></p>

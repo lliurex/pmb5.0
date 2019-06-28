@@ -1,0 +1,7 @@
+<h1>Módulo de Solicitud de Búsquedas e Información</h1>
+<p>Las solicitudes de búsqueda y de información es un servicio que permite que un usuario pueda establecer contacto con un documentalista para intercambiar, precisar y solicitar informaciones para conseguir un registro completo, que satisfaga la necesidad del lector. </p>
+
+<h2>Listas</h2>
+Permite ver las solicitudes de búsqueda según diferentes tipos de filtro.<br />
+<h2>Acciones</h2>
+Permite ver todas las acciones activas de usuario en curso (Hilos de discusion, citas,...).<br />

@@ -1,0 +1,59 @@
+<?php
+// +-------------------------------------------------+
+// © 2002-2004 PMB Services / www.sigb.net pmb@sigb.net et contributeurs (voir www.sigb.net)
+// +-------------------------------------------------+
+// $Id: perio_a2z.inc.php,v 1.9 2016-06-29 14:50:22 dgoron Exp $
+if (stristr($_SERVER['REQUEST_URI'], ".inc.php")) die("no access");
+                    
+require_once($base_path."/classes/perio_a2z.class.php");
+
+switch($sub){
+	case 'get_onglet':
+		$a2z=new perio_a2z(0,$opac_perio_a2z_abc_search,$opac_perio_a2z_max_per_onglet);
+		ajax_http_send_response( $a2z->get_onglet($onglet_sel) );
+	break;
+	case 'get_perio':	
+		$a2z=new perio_a2z($id,$opac_perio_a2z_abc_search,$opac_perio_a2z_max_per_onglet);	
+		if($pmb_logs_activate){
+			//Enregistrement du log
+			global $log;
+				
+			if($_SESSION['user_code']) {
+				$res=pmb_mysql_query($log->get_empr_query());
+				if($res){
+					$empr_carac = pmb_mysql_fetch_array($res);
+					$log->add_log('empr',$empr_carac);
+				}
+			}
+		
+			$log->add_log('num_session',session_id());
+			
+			$rqt="select notice_id, typdoc, niveau_biblio, index_l, libelle_categorie, name_pclass, indexint_name
+				from notices n
+				left join notices_categories nc on nc.notcateg_notice=n.notice_id
+				left join categories c on nc.num_noeud=c.num_noeud
+				left join indexint i on n.indexint=i.indexint_id
+				left join pclassement pc on i.num_pclass=pc.id_pclass
+				where notice_id='".$id."'";
+			$res_noti = pmb_mysql_query($rqt);
+			while(($noti=pmb_mysql_fetch_array($res_noti))){
+				$infos_notice=$noti;
+			}
+			$log->add_log('docs',$infos_notice);
+		
+			//Enregistrement vue
+			if($opac_opac_view_activate){
+				$log->add_log('opac_view', $_SESSION["opac_view"]);
+			}
+		
+			$log->save();
+		}
+		ajax_http_send_response($a2z->get_perio($id) );
+	break;
+	case 'reload':	
+		$a2z=new perio_a2z(0,$opac_perio_a2z_abc_search,$opac_perio_a2z_max_per_onglet);	
+		ajax_http_send_response( $a2z->get_form(0,0,1) );
+	break;
+}
+
+?>

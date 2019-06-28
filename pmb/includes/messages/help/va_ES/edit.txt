@@ -1,0 +1,4 @@
+<h1><img src="./images/icone_editions.gif" hspace="6" vspace="6" align="middle"> M&ograve;dul de pr&eacute;stecs</h1>
+<p>Acabeu d&apos;accedir al m&ograve;dul de pr&eacute;stecs de l&apos;aplicaci&oacute; PMB.</p>
+<div align="right">L&apos;equip de desenvolupadors del projecte</div>
+ 

@@ -1,0 +1,6 @@
+<h1>C&ograve;pia de seguretat</h1>
+</p><p>
+<b>C&ograve;pia de seguretat (LliureX):</b> Permet realitzar una c&ograve;pia de seguretat de la base de dades<p><p>
+<b>Importa c&ograve;pia de seguretat (LliureX) :</b> Importa c&ograve;pies de seguretat realitzades
+</p><p>
+

@@ -1,0 +1,2 @@
+<h1>Gesti&oacute; del visualitzador</h1>
+<p>Permet generar el comportament del visualitzador.</p>

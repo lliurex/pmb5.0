@@ -1,0 +1,4 @@
+<h1>Gesti&oacute; dels drets d'acc&eacute;s</h1>
+
+<p>La gesti&oacute; dels drets d'acc&eacute;s permet definir espec&iacute;ficament els drets d'&uacute;s dels recursos del programari.</p>
+<br />

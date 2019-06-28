@@ -1,0 +1,85 @@
+<!-- $Id: gabarit.html,v 1.15.2.2 2017-11-07 16:09:41 arenou Exp $ -->
+
+<style type="text/css">
+.aut_display_row {
+	display: table-row;
+}
+
+.aut_display_cell {
+	display: table-cell;
+	padding-right: 5px;
+}
+</style>
+
+<div class="notice-parent" id="el{{list_element.uid}}{{list_element.id}}Parent">
+  		<img hspace="3" border="0" onclick="expandBase('el{{list_element.uid}}{{list_element.id}}', true); return false;" id="el{{list_element.uid}}{{list_element.id}}Img" name="imEx" class="img_plus" src="./images/plus.gif">
+		<span class="notice-heada">
+			<small>
+				<span class='{{list_element.statut_class_html}}' style='margin-right: 3px;'>
+					<a href=# onmouseover="z=document.getElementById('zoom_statut{{list_element.id}}'); z.style.display='';" onmouseout="z=document.getElementById('zoom_statut{{list_element.id}}'); z.style.display='none';">
+						<img src="./images/spacer.gif" width="10" height="10" />
+					</a>
+				</span>
+			</small>
+			{% if list_element.type_icon %}
+				<img align="top" src="{{ list_element.type_icon }}" title="{{ list_element.type_label }}" alt="{{ list_element.type_label }}"/>
+			{% endif %}
+			{{ list_element.icon_pointe_in_cart }}
+			{{ list_element.icon_del_in_cart }}
+			<div id="zoom_statut{{list_element.id}}" style="border: solid 2px #555555; background-color: #FFFFFF; position: absolute; display:none; z-index: 2000;">
+				<b>
+					{{ list_element.statut_label }}
+				</b>
+			</div>
+			<a href="./autorites.php?categ=see&sub={{list_element.string_type_object}}&id={{list_element.num_object}}">
+				{% block element_header %}
+					{{ list_element.isbd | safe }}
+				{% endblock %}
+			</a>
+		</span>
+  		<br>
+</div>
+
+<div style="margin-bottom: 6px; display: block;" class="notice-child" startOpen="no" id="el{{list_element.uid}}{{list_element.id}}Child">
+    <div class="vignAut">{{list_element.thumbnail}}</div>
+	<img align="middle" href="#"/>
+	<h3>{{ list_element.type_label }}</h3>
+	{{ list_element.caddie }}
+	<div style="overflow:hidden;"><table width="100%">
+		<tr>
+			{% block element_content %}
+				{% block indexing_concept %}
+					{% for concept in list_element.indexing_concepts %}
+						{% if loop.first %}
+							<div class="indexing_concepts aut_display_row">
+								<div class="aut_display_cell">
+									<b>{{ msg.ontology_skos_concept }} :</b>
+								</div>
+								<div class="aut_display_cell">
+						{% endif %}
+									<a href="./autorites.php?categ=see&sub=concept&id={{ concept.id }}">{{ concept.display_label }}</a><br/>
+						{% if loop.last %}
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% endblock %}
+				{% block pperso %}
+					{% for pperso in list_element.p_perso %}
+						{% if pperso.AFF %}
+							<div class="aut_display_row">
+								<div class="aut_display_cell">
+									<b>{{ pperso.TITRE }}</b>
+								</div>
+								<div class="aut_display_cell">
+									{{ pperso.AFF }}
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% endblock %}
+			{% endblock %}
+		</tr>
+	</table></div>
+	<div class="clear"></div>
+</div>

@@ -1,0 +1,9 @@
+<h1>Administración de plantillas de email</h1>
+<p>Esta página le permite editar las plantillas de emil para su utilización</p>
+<p>Parametrización a realizar:</p>
+
+<p>mail_html_format : Formato de envío de los emails desde el OPAC 
+<br> 1: HTML 
+<br> 2: HTML, images incluses</p>
+<p>img_folder : Directorio de almacenamiento de las imagenes en ruta absoluta del tipo /home/.../public_html/pmb/includes/img/</p>
+<p>img_url : URL de acceso al directorio de imágenes del tipo http://pmb.com/.../pmb/includes/img/</p>

@@ -1,0 +1,30 @@
+<h1>Administraci&oacute; de les importacions</h1>
+<p>Este apartat permet generar les importacions de dades associades a les obres o als exemplars.</p>
+<p>El procediment es realitza en diferents passos: 
+<ul>
+	<li>Definici&oacute; dels par&agrave;metres d&apos;importaci&oacute;:<br />
+		Per als registres:
+		<ul>
+		<li>ISBN obligatori</li>
+		<li>Duplicaci&oacute; de l&apos;ISBN (si es marca s&iacute;, els registres existents no es crearan)</li>
+		<li>Actulizaci&oacute; dels registres (sobre ISBN id&egrave;ntics)</li>
+		<li>Ignorar els ISSN (per a les publicacions peri&ograve;diques) </li>
+		<li>Estat dels registres (per a identificar acuradament els registres importats)</li>
+		</ul>
+		Per als exemplars:
+		<ul>
+		<li>Prestador (ex. : biblioteca departamental de pr&eacute;stec)</li>
+		<li>Estat de l&apos;exemplar (ex. : «importaci&oacute; en curs»)</li>
+		<li>Localitzaci&oacute; dels exemplars</li>
+		<li>Signatura obligat&ograve;ria</li>
+		<li>Correspond&egrave;ncia entre el codi 995 i el vostre fons per als tipus de suport, codis estad&iacute;stics i seccions</li>
+		</ul>
+	</li>
+	<li>Desc&agrave;rrega del fitxer</li>
+	<li>Importaci&oacute; dels registres o dels exemplars</li>
+	<li>Per als exemplars, marcatge de les importacions per a verificar la correspond&egrave;ncia entre el llistat de pr&eacute;stec i les obres realment transmeses.</li>
+	</ul>
+	</p>
+<p>Esta &uacute;ltima verficicaci&oacute; &eacute;s r&agrave;pida i es pot realitzar &iacute;ntegrament amb un lector &ograve;ptic.</p>
+
+

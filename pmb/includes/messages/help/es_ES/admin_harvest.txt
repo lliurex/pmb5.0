@@ -1,0 +1,2 @@
+<h1>Administración de recolectores de registros</h1>
+<p>Esta página le permite gestionar las importaciones de registros desde diferentes conectores.</p>

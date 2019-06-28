@@ -1,0 +1,9 @@
+<!-- $Id: titre_uniforme.html,v 1.2 2016-04-05 08:43:35 arenou Exp $ -->
+{{ oeuvre.object_instance.name }} [{{ oeuvre.object_instance.oeuvre_nature_name }} {{ oeuvre.object_instance.oeuvre_type_name }}]
+{% for auteur in oeuvre.object_instance.sorted_responsabilities.authors %}
+	 / {{ auteur.objet.display }}
+{% endfor %}
+{% for performer in oeuvre.object_instance.sorted_responsabilities.performers %}
+	 / {{ performer.objet.display }}
+{% endfor %}
+{% if oeuvre.object_instance.date %}({{ oeuvre.object_instance.date }}){% endif %}

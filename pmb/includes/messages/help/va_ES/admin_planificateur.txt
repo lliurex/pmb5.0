@@ -1,0 +1,8 @@
+<h1>Administraci&oacute; de la planificaci&oacute;</h1>
+
+<p>La secci&oacute; <b>Administraci&oacute; de la planificaci&oacute;</b> permet automatitzar accions realitzades manualment per l&apos;administrador.</p>
+<ul>
+<li>La <b>Gesti&oacute; de les tasques</b> fa refer&egrave;ncia al conjunt de les tasques planificades</li>
+<li>El <b>Tauler de control</b> &eacute;s la part utilitzada per a la programaci&oacute; de les c&ograve;pies de seguretat; &eacute;s la part utilitzada pel cron del sistema d&apos;explotaci&oacute; per al pilotatge de les tasques</li>
+
+</ul></p>

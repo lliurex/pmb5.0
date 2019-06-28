@@ -1,0 +1,64 @@
+{% extends 'gabarit.html' %}
+
+<!-- $Id: subcollection.html,v 1.3 2016-06-22 14:56:33 dgoron Exp $ -->
+
+{% block element_content %}
+	<td valign="top">
+		{{ list_element.get_object_instance.isbd_entry }}<br/>
+		<br/>
+		{% if list_element.get_object_instance.parent_libelle %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{msg.search_extended_subcollection_parent}} :</b>
+				</div>
+				<div class="aut_display_cell">
+					<a href="./autorites.php?categ=see&sub=collection&id={{ list_element.get_object_instance.parent }}">{{list_element.get_object_instance.parent_libelle}}</a>
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.editeur_libelle %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{msg.164}} :</b>
+				</div>
+				<div class="aut_display_cell">
+					<a href="./autorites.php?categ=see&sub=publisher&id={{ list_element.get_object_instance.editeur }}">{{list_element.get_object_instance.editeur_libelle}}</a>
+				</div>
+			</div>
+		{% endif %}
+		<div class="aut_display_row">
+			<div class="aut_display_cell">
+				<b>{{ msg.subcollection_details_issn | printf "" }}</b>
+			</div>
+			<div class="aut_display_cell">
+				{% if list_element.get_object_instance.issn %}{{ list_element.get_object_instance.issn }}{% else %}{{ msg.subcollection_details_no_issn }}{% endif %}
+			</div>
+		</div>
+		{% if list_element.get_object_instance.subcollection_web %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{msg.editeur_web}} :</b>
+				</div>
+				<div class="aut_display_cell">
+					<a target="_blank" href="{{list_element.get_object_instance.subcollection_web}}">{{list_element.get_object_instance.subcollection_web}}</a>
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.comment %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{msg.707}} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{list_element.get_object_instance.comment | nl2br }}
+				</div>
+			</div>
+		{% endif %}
+		{% block indexing_concept %}
+			{{block.super}}
+		{% endblock %}
+		{% block pperso %}
+			{{ block.super }}
+		{% endblock %}
+	</td>
+{% endblock %}

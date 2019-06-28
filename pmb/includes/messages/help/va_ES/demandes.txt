@@ -1,0 +1,7 @@
+<h1>M&ograve;dul de sol&middot;licituds de busca i d&apos;informaci&oacute;</h1>
+<p>Les sol&middot;licituds de busca i d&apos;informaci&oacute; s&oacute;n un servici que permet que un usuari puga establir contacte amb un documentalista per a intercanviar, precisar i sol&middot;licitar informacions per tal d&apos;aconseguir un registre resultat complet corresponent a la necessitat de l&apos;usuari.</p>
+
+<h2>Llistes</h2>
+Permet veure les sol&middot;licitus de busca segons diferents tipus de filtre.<br />
+<h2>Accions</h2>
+Permet veure totes les accions actives de l&apos;usuari en curs (fil de discussi&oacute;, cites,...).<br />

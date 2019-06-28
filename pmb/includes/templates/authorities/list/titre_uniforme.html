@@ -1,0 +1,268 @@
+{% extends 'gabarit.html' %}
+
+<!-- $Id: titre_uniforme.html,v 1.3.4.1 2017-10-06 14:52:58 tsamson Exp $ -->
+
+{% block element_content %}
+	<td valign="top">
+		{{ list_element.get_object_instance.get_isbd_simple }}<br/>
+		<br/>
+		{% for author in list_element.get_object_instance.sorted_responsabilities.authors %}
+			{% if loop.first %}
+				<div class="aut_display_row">
+					<div class="aut_display_cell">
+						<b>{{ msg.aut_oeuvre_form_auteur }} :</b>
+					</div>
+					<div class="aut_display_cell">
+			{% else %}/{% endif %}	
+			<a href='autorites.php?categ=see&sub=author&id={{author.id}}'>{{ author.objet.display }}</a>{% for attribute in author.attributes %}{% if attribute.fonction_label %}, {{ attribute.fonction_label }}{% endif %}{% endfor %}
+			{% if author.qualif_label %}({{ author.qualif_label }}){% endif %}
+			{% if loop.last %}
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+		{% for performer in list_element.get_object_instance.sorted_responsabilities.performers %}
+			{% if loop.first %}
+				<div class="aut_display_row">
+					<div class="aut_display_cell">
+						<b>{{ msg.aut_oeuvre_form_interprete }} :</b>
+					</div>
+					<div class="aut_display_cell">
+			{% else %}/{% endif %}
+			<a href='autorites.php?categ=see&sub=author&id={{performer.id}}'>{{ performer.objet.display }}</a>{% for attribute in performer.attributes %}{% if attribute.fonction_label %}, {{ attribute.fonction_label }}{% endif %}{% endfor %}
+			{% if performer.qualif_label %}({{ performer.qualif_label }}){% endif %}
+			{% if loop.last %}
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+		{% if list_element.get_object_instance.oeuvre_type_name %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_oeuvre_type }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.oeuvre_type_name }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.oeuvre_nature_name %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_oeuvre_nature }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.oeuvre_nature_name }}
+				</div>
+			</div>
+		{% endif %}
+		
+		{% if list_element.get_object_instance.oeuvre_expressions_list_ui.elements_list %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_oeuvre_expression }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.oeuvre_expressions_list_ui.elements_list }}
+				</div>
+			</div>
+		{% endif %}
+		
+		{% if list_element.get_object_instance.form %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_forme }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.form }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.date %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_date }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.date }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.place %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_lieu }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.place }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.subject %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_sujet }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.subject | nl2br }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.intended_termination == 1 %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_completude }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ msg.aut_oeuvre_form_completude_finished }}
+				</div>
+			</div>
+		{% else %}
+			{% if list_element.get_object_instance.intended_termination == 2 %}
+				<div class="aut_display_row">
+					<div class="aut_display_cell">
+						<b>{{ msg.aut_oeuvre_form_completude }} :</b>
+					</div>
+					<div class="aut_display_cell">
+						{{ msg.aut_oeuvre_form_completude_infinite }}
+					</div>
+				</div>
+			{% endif %}
+		{% endif %}
+		{% if list_element.get_object_instance.intended_audience %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_public }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.intended_audience }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.history %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_histoire }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.history | nl2br }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.context %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_contexte }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.context | nl2br }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.distrib %}
+			{% for distribution in list_element.get_object_instance.distrib %}
+				{% if loop.first %}
+					<div class="aut_display_row">
+						<div class="aut_display_cell">
+							<b>{{ msg.aut_titre_uniforme_form_distribution }} :</b>
+						</div>
+						<div class="aut_display_cell">
+				{% else %}; {% endif %}
+				{{ distribution.label }}
+				{% if loop.last %}
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+		{% if list_element.get_object_instance.ref %}
+			{% for reference in list_element.get_object_instance.ref %}
+				{% if loop.first %}
+					<div class="aut_display_row">
+						<div class="aut_display_cell">
+							<b>{{ msg.aut_titre_uniforme_form_ref_numerique }} :</b>
+						</div>
+						<div class="aut_display_cell">
+				{% else %}; {% endif %}
+				{{ reference.label }}
+				{% if loop.last %}
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+		{% if list_element.get_object_instance.tonalite %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_titre_uniforme_form_tonalite }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.tonalite }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.coordinates %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_coordonnees }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.coordinates }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.equinox %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_equinoxe }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.equinox }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.subdiv %}
+			{% for subdivision in list_element.get_object_instance.subdiv %}
+				{% if loop.first %}
+					<div class="aut_display_row">
+						<div class="aut_display_cell">
+							<b>{{ msg.aut_titre_uniforme_form_subdivision_forme }} :</b>
+						</div>
+						<div class="aut_display_cell">
+				{% else %}; {% endif %}
+				{{ subdivision.label }}
+				{% if loop.last %}
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+		{% if list_element.get_object_instance.characteristic %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.aut_oeuvre_form_caracteristique }} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{ list_element.get_object_instance.characteristic | nl2br }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.comment %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{msg.707}} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{list_element.get_object_instance.comment | nl2br }}
+				</div>
+			</div>
+		{% endif %}
+		{% block indexing_concept %}
+			{{block.super}}
+		{% endblock %}
+		{% block pperso %}
+			{{ block.super }}
+		{% endblock %}
+	</td>
+	
+{% endblock %}

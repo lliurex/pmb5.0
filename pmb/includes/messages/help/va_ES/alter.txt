@@ -1,0 +1,7 @@
+<br />
+<b>ATENCI&Oacute;, esta actualitzaci&oacute; pot ser llarga i arriscada...
+<br />Abans de realitzar-la &eacute;s convenient fer una c&ograve;pia de seguretat.</b>
+<br /><br />Ignoreu els missatges d&apos;error que puguen apar&eacute;ixer, s&oaucte;n perqu&egrave; la vostra versi&oacute; no est&agrave; actualitzada.
+<br />Si els missatges continuen al final de l&apos;actualitzaci&oacute;, caldr&agrave; estudiar-ne la causa.
+<br /><br /><a class='bdd_updade_link' href="alter.php?categ=alter&sub=&action=lancement">Feu clic ac&iacute; per a començar l&apos;actualitzaci&oacute;.</a>
+			

@@ -1,0 +1,12 @@
+<p>Aquesta funció permet importar informació de l'aplicació ABIES al PMB. En concret, es poden importar dades de les taules següents de l'Abies: Fondos, Ejemplares, Autores, Editoriales, Ubicaciones, TiposLector, Cursos i Fondos_CDU
+</p>
+<h2>
+<p>Instrucions:</p>
+</h2>
+<p>1. Executeu aquesta utilitat <b>només</b> si no heu començat a utilizar el PMB. En cas contrari es podria produir pèrdua d'informació. </p>
+<p>2. Abans d'iniciar el procés, feu una còpia se seguretat de la base de dades del PMB (Administració > Còpies de seguretat) per a poder restaurar el PMB en cas que hi haja problemes.</p>
+<p>3. Obteniu un fitxer .mdb amb les taules de l'aplicació Abies. </p>
+<p>4. Mitjançant l'aplicació <b>LliureX Abies2PMB</b> convertiu el fitxer .mdb en un fitxer .sql. </p>
+<p>5. Importeu el fitxer .sql per a carregar la informació en el PMB. </p>
+<p>6. Per a finalitzar heu de reindexar la base de dades. Per a això, accediu a Admistración > Eines > Manteniment de la base de dades i marqueu almenys les opcions <b>"Reindexa l'índex global"</b> i <b>"Reindexa tots els camps de cerca"</b>. </p>
+

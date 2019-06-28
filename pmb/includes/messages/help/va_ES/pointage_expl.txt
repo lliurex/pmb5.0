@@ -1,0 +1,14 @@
+<br />
+<b>M&ograve;dul de control dels documents rebuts
+</b>
+<br /><br />
+Podeu «puntejar» tots els documents rebuts per a canviar-ne l&apos;estat a disponibles.
+<br /><br />
+<OL>
+<LI>Seleccioneu l&apos;estat i la secci&oacute; correctes</LI>
+<LI>Llig els codis de barres dels documents amb un lector de codis de barres</LI>
+</OL>
+<br /><br />
+			
+
+			

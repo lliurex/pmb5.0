@@ -1,0 +1,19 @@
+Ruta de los archivos de las modificaciones de lliurex: pmb/lliurex
+
+Los ficheros sql se incluyen automáticamente durante la instalación en las bases de datos vacías.
+No obstante, se ponen a disposiciÃ³n por si se quisieran agregar manualmente.
+	* pmb4_base.sql .- Dump original (incluye biblio.sql, minimum.sql y feed_esssential.sql de la instalación original en version v5.19)
+	* categories.sql .- Inserta una lista de categorías predeterminada (es requisito que no exista previamente categorias).
+	* cdu.sql .- Inserta clasificaciones según la normativa CDU.
+	* z3950.sql .- Inserta algunos servidores z3950 más frecuentes.
+
+También se ponen a disposición utilidades de base de datos:
+	* utilidades_sql/elimina_blancos.sql .- Esta utilidad eminina blancos de los códigos de barra de los libros.
+
+Scripts:
+	* utilidades/categoriasToPmbCategories.py .- A partir de un fichero de texto con una categoría por línea genera una estructura sql para incluirlas en el PMB. (ejemplo de fichero: sampleMATERIAS.csv)
+	* utilidades/cduToPmbIndexint.py .- A partir de un fichero de texto con una CDU por lí­nea (código _tabulador_ descripción) genera una estructura sql para incluirlas en el PMB. (ejemplo de fichero: sampleCDU.csv)
+	* utilidades/pmbXMLtoPo.py .- Fichero empleado para la generación de traducciones.
+	* utilidades/poToPmbXML2.py .- Fichero empleado para la generación de traducciones.
+	* utilidades/poToPmbXML.py .- Fichero empleado para la generación de traducciones.
+

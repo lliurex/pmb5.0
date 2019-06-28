@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- 
+$Id: params.xml,v 1.4 2006-02-01 17:21:14 dbellamy Exp $ -->
+
+<params>
+    <!-- Nom de l'import -->
+    <importname>Fichier texte -&gt; UNIMARC ISO 2709</importname>
+    <!-- Nombre de notices traitées par passe -->
+    <nperpass>200</nperpass>
+    <!-- Type de l'entrée -->
+    <input type="text" header="yes"/>
+    <!-- type de la sortie -->
+    <output importable="yes" type="iso_2709" suffix="uni"/>
+    <step type="texttoxml">
+        <!-- Conversion texte en unimarc -->
+        <trootelement>unimarc</trootelement>
+        <separator>|</separator>
+        <delimitedby></delimitedby>
+        <escaped>yes</escaped>
+    <!-- LLIUREX 22/02/2018   
+        <cols>
+            <col id="1">
+                <field>010</field>
+                <subfield>a</subfield>
+            </col>
+            <col id="2,3">
+                <field>995</field>
+                <subfield>f,k</subfield>
+            </col>
+            <col id="4,5">
+                <field>700</field>
+                <subfield>a,b</subfield>
+            </col>
+            <col id="6,7">
+                <field>200</field>
+                <subfield>a,d</subfield>
+                <ind>1 </ind>
+            </col>
+            <col id="8,9,10">
+                <field>210</field>
+                <subfield>a,c,d</subfield>
+            </col>
+            <col id="11">
+                <field>010</field>
+                <subfield>d</subfield>
+            </col>
+            <col id="12,13">
+                <field>225</field>
+                <subfield>a,h</subfield>
+            </col>
+            <col id="14,15,16">
+                <field>215</field>
+                <subfield>a,c,d</subfield>
+            </col>
+            <col id="17">
+                <field>676</field>
+                <subfield>a</subfield>
+            </col>
+        </cols>
+    -->
+        <cols>
+            <col id="1">
+                <field>010</field>
+                <subfield>a</subfield>  <!-- ISBN -->
+            </col>
+            <col id="2,3,4">
+                <field>995</field>
+                <subfield>f,k,r</subfield> <!-- Código de barras ejemplar, signatura, tipo de documento -->
+        </col>
+        <col id="5,6,7,8">
+                <field>200</field>
+                <subfield>a,c,d,e</subfield> <!-- Titulo del libro, Título propio de un autor diferente, Título paralelo, Complemento -->
+            </col>
+            <col id="9">
+                <field>700</field>
+                <subfield>a</subfield> <!-- Datos Autor_1 -->
+            </col>
+            <col id="10">
+                <field>701</field>
+                <subfield>a</subfield> <!-- Datos Autor_2 -->
+            </col>
+            <col id="11">
+                <field>702</field>
+                <subfield>a</subfield> <!-- Datos Autor_3 -->
+            </col>
+            <col id="12,13">
+                <field>210</field>
+                <subfield>c,d</subfield> <!-- Editorial y Año publicación libro -->
+            </col>
+            <col id="14">
+                <field>225</field>
+                <subfield>a</subfield> <!-- Colección. Ejem. barco de vapor etc... -->
+            </col>
+            <col id="15,16,17">
+                <field>215</field>
+                <subfield>a,c,d</subfield> <!-- Número de páginas, Características del libro, Formato del libro -->
+            </col>
+            <col id="18">
+                <field>300</field>
+                <subfield>a</subfield> <!-- Notas generales -->
+            </col>           
+            <col id="19">
+                <field>676</field>
+                <subfield>a</subfield> <!-- Clasificación -->
+            </col>      
+            <col id="20,21">
+                <field>101</field>
+                <subfield>a,c</subfield> <!-- Idioma de la publicación e Idioma general -->
+            </col>
+        </cols>
+    <!-- FIN LLIUREX 22/02/2018-->    
+            
+    </step>
+    <step type="toiso">
+        <!-- Conversion xml unimarc en iso2709 unimarc -->
+        <rootelement>unimarc</rootelement>
+        <il>2</il>
+        <sl>2</sl>
+        <dm1>4</dm1>
+        <dm2>5</dm2>
+        <dm3>0</dm3>
+    </step>
+</params>

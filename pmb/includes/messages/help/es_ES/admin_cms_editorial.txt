@@ -1,0 +1,7 @@
+<h1>Administración de contenido editorial</h1>
+
+<p>La secciónn <b>administración de contenido editorial</b> permite definir los parámetros de la aplicación para el contenido editorial.
+<ul>
+<li><b>Estado de publicación</b> permite definir los estados, con el objetivo de distinguir los derechos de visibilidad dentro del OPAC</li>
+</ul></p>
+ 

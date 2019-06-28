@@ -1,0 +1,17 @@
+<br />
+<b>ATENCI&Oacute;, esta importaci&oacute; crea els registres i les autoritats si és necessari. 
+<br />Esta funci&oacute; no actualitza registres ja existents.</b>
+<br /><br />
+
+L&apos;arxiu ha de tindre el format UNIMARC.<br />
+<ul>
+<li>La importaci&oacute; es realitza en tres fases:
+<OL>
+<LI>C&agrave;rrega de l&apos;arxiu</LI>
+<LI>Prec&agrave;rrega de l&apos;arxiu</LI>
+<LI>Transfer&egrave;ncia a la base de dades de registres</LI>
+</OL></li>
+<br /><li>En comptes de carregar l&apos;arxiu podeu posar-lo a disposici&oacute; en el servidor pel m&egrave;tode que m&eacute;s vos convinga (FTP per exemple). En este cas el fitxer s&apos;ha d&apos;anomenar "<?php echo $nom_fichier_transfert_ftp; ?>" i podeu utilitzar directament la <a href="iimport_expl.php?categ=import&sub=import&action=preload">prec&agrave;rrega</a>.</li>
+</ul>
+<br /><br /><a href="iimport_expl.php?categ=import&sub=import&action=beforeupload">Començar: carrega el fitxer</a>
+

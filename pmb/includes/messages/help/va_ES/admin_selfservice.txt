@@ -1,0 +1,2 @@
+<h1>Gesti&oacute; del terminal de pr&eacute;stec</h1>
+<p>Permet generar el comportament d&apos;un terminal de pr&eacute;stec i definir els missatges que s&apos;han de mostrar segons els comportaments. </p>

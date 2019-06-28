@@ -1,0 +1,10 @@
+<h1>Administraci&oacute; dels estats de les col·leccions</h1>
+
+<p>La secci&oacute; <b>Administraci&oacute; dels estats de les col·lecccions </b> permet definir els par&agrave;metres de l'aplicaci&oacute; per a les col·leccions de publicacions peri&ograve;diques.
+<ul>
+<li><b>Ubicaci&oacute;</b> permet definir les ubicacions de les col·leccions en la localitzaci&oacute;.</li>
+<li><b>Suport</b> permet definir els suports de les col·leccions.</li>
+<li><b>Estats</b> permet el tractament diferenciat per a les col·leccions, aix&iacute; com en la visualitzaci&oacute; en l'OPAC.</li>
+<li><b>Personalitzables</b> camps personalitzables en els estats de les col·leccions.</li>
+</ul></p>
+ 

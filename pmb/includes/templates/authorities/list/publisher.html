@@ -1,0 +1,78 @@
+{% extends 'gabarit.html' %}
+
+<!-- $Id: publisher.html,v 1.3 2016-06-22 14:56:33 dgoron Exp $ -->
+
+{% block element_content %}
+	<td valign="top">
+		{{ list_element.get_object_instance.isbd_entry }}<br/>
+		<br/>
+		{% if list_element.get_object_instance.link %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{msg.editeur_web}} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{list_element.get_object_instance.link}}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.ed_comment %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{msg.707}} :</b>
+				</div>
+				<div class="aut_display_cell">
+					{{list_element.get_object_instance.ed_comment | nl2br }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.ville %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{msg.publisher_details_location | printf "" }} :</b>
+				</div>
+				<div class='aut_display_cell'>
+					{{ list_element.get_object_instance.ville }}
+				</div>
+			</div>
+		{% endif %}
+		{% if list_element.get_object_instance.adr1 %}
+			{% if list_element.get_object_instance.cp %}
+				{% if list_element.get_object_instance.ville %}
+					<div class="aut_display_row">
+						<div class="aut_display_cell">
+							<b>{{ msg.adresse_empr }} :</b>
+						</div>
+						<div class="aut_display_cell">
+							{{list_element.get_object_instance.adr1}}
+							{% if list_element.get_object_instance.adr2 %}
+								<br />{{list_element.get_object_instance.adr2}}
+							{% endif %}	
+							<br />{{list_element.get_object_instance.cp}} {{list_element.get_object_instance.ville}}
+							{% if list_element.get_object_instance.pays %}
+								<br />{{list_element.get_object_instance.pays}}
+							{% endif %}
+						</div>
+					</div>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+		{% if list_element.get_object_instance.supplier.id_entite %}
+			<div class="aut_display_row">
+				<div class="aut_display_cell">
+					<b>{{ msg.acquisition_ach_fou2 }} :</b>
+				</div>
+				<div class='aut_display_cell'>
+					{{list_element.get_object_instance.supplier.raison_sociale }}
+				</div>
+			</div>
+		{% endif %}
+		{% block indexing_concept %}
+			{{ block.super }}
+		{% endblock %}
+		{% block pperso %}
+			{{ block.super }}
+		{% endblock %}
+	</td>
+{% endblock %}
+

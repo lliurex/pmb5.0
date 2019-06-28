@@ -1,0 +1,15 @@
+<h2>Búsqueda por términos del Tesauro</h2>
+<p><strong>La búsqueda por términos del tesauro permite navegar entre las diferentes materias de las obras de la 
+biblioteca.</strong></p>
+<p>Las categorías equivalen a una clasificación de las obras (un tesauro) creada para la biblioteca con ayuda de palabras o de expresiones; por ejemplo <i>Literatura medieval</i> o <i>Mamíferos marinos</i></p>
+<p>En esta búsqueda comience por <b>introducir uno o varios términos a buscar</b>, 
+por ejemplo <i>historia</i>. Los resultados de la búsqueda aparecen en dos partes : </p>
+<p>La parte superior le remite a la categoría que corresponde a su búsqueda. Un clic en una de las categorías 
+de la parte superior (por ejemplo <i>historia política</i>) hace aparecer en la <b>parte inferior más información</b> sobre la categoría escogida y sobre eventuales <b>reenvíos</b>.</p>
+<hr />
+<p>Haciendo clic en uno de los enlaces de la parte inferior, usted se deplaza de categoría en categoría.</p>
+<hr />
+<p>Para seleccionar una categoría y que aparezcan las obras correspondientes, haga clic en la lupa 
+<img src='images/search.gif' align='absmiddle'>ubicada al comienzo de la línea.</p>
+<hr />
+<p>Si la lupa no aparece, significa que no hay obras que correspondan a esa categoría.</p>

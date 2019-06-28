@@ -1,0 +1,19 @@
+<h1>Administraci&oacute; de l&apos;OPAC</h1>
+
+<p>
+La secci&oacute; <b>Administraci&oacute; de l&apos;OPAC</b> permet configurar els diferents m&ograve;duls de l&apos;OPAC.
+<ul>
+	<li>
+		<b>Llista de busques:</b> 
+		Gesti&oacute; de les busques predefinides que es podran consultar en l&apos;OPAC.
+	</li>
+	<li>
+		<b>Estad&iacute;stiques de l&apos;OPAC:</b> 
+		Guarda i crea estad&iacute;stiques sobre les accions dels usuaris de l&apos;OPAC.
+	</li>
+	<li>
+		<b>Navegaci&oacute; per localitzaci&oacute; i seccions: </b>
+		 Configuraci&oacute; de la navegaci&oacute; virtual pels plans de classificaci&oacute;.
+	</li>
+</ul>
+</p>

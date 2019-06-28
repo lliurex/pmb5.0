@@ -1,0 +1,22 @@
+<br>
+<b>ATENCI&Oacute;, esta importaci&oacute; crea els registres i les autoritats. 
+<br>Tamb&eacute; s&apos;actualitzaran registres ja existents.</b>
+<br><br>
+
+El fitxer ha d&apos;estar en format <b>IBERMARC (REBECA)</b>. El resultat de la busca de registres en la p&agrave;gina web<br>
+de <b>Registres Bibliogr&agrave;fics del Ministeri de Cultura <a href="http://www.mcu.es/bibliotecas/MC/Rebeca/index.html" target="_blank">http://www.mcu.es/bibliotecas/MC/Rebeca/index.html</a></b><br>
+es pot descarregar en un fitxer <b>000*.reb</b> per a la importaci&oacute; des del PMB.<br>
+<ul>
+<li>La importaci&oacute; es realitza en tres fases:
+<OL>
+<LI>Càrrega del fitxer</LI>
+<LI>Precàrrega del fitxer</LI>
+<LI>Transferència a la base de dades dels registres</LI>
+</OL></li>
+</ul>
+<br><br>
+<!-- LLIUREX 08/02/2013 -->
+<!-- Comentat per a eliminar el bot&oacute; -->
+<!-- <a href="iimport_expl.php?categ=import&sub=import_reb&action=beforeupload">Envia el fitxer</a> -->
+<!-- LLIUREX -->
+

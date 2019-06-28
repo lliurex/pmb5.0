@@ -1,0 +1,16 @@
+<br />
+<b>ATENCI&Oacute;, esta importaci&oacute; crea els registres, si cal, i especialment els exemplars.
+<br />Estos es crearan i marcaran com a <i>disponibles</i>.</b>
+<br /><br />
+
+El fitxer ha d&apos;estar en format <b>UNIMARC</b> (zona 995).<br />
+<ul>
+<li>La importaci&oacute; es realitza en tres fases:
+<OL>
+<LI><b>C&agrave;rrega del vostre fitxer</LI>
+<LI><b>Prec&agrave;rrega del fitxer</LI>
+<LI><b>Transfer&egrave;ncia a la base de dades de registres</LI>
+</OL></li>
+<br /><li>En comptes de carregar el vostre fitxer, podeu posar-lo a disposici&oacute; en el servidor pel m&egrave;tode que m&eacute;s vos convinga (FTP per exemple). En este cas el fitxer s&apos;ha d&apos;anomenar "<?php echo $nom_fichier_transfert_ftp; ?>" i podeu utilitzar directament la <a href="iimport_expl.php?categ=import&sub=import_expl&action=preload">prec&agrave;rrega</a>.</li>
+</ul>
+<br /><br /><a href="iimport_expl.php?categ=import&sub=import_expl&action=beforeupload">Començar: carrega el vostre fitxer</a>

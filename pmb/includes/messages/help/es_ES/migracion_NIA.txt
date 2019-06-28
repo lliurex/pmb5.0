@@ -1,0 +1,10 @@
+<p>Esta función permite, migrar el código de identificación de los alumnos que utilizan actualmente el Número de Expediente al NIA. 
+</p>
+<h2>
+<p>Instruciones:</p>
+</h2>
+<p>1. Realice una <b>copia de seguridad</b> de la base de datos.</p>
+<p>2. Haga clic sobre <b>Iniciar Migración</b></p>
+<p>3. Una vez migrado el código de identificación, podrá imprimir los carnets con el nuevo identificador. (Antes de imprimir recomendamos comprobar la fecha de validez que figura en los carnets).</p>
+
+<p> A continuación se muestra el número de registros que pueden ser migrados junto con el resto de registros que no ser­an migrados</p>
