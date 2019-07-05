@@ -1,3 +1,9 @@
+pmb (5.0.4+lliurex15) bionic; urgency=medium
+
+  * Initial release for bionic
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 05 Jul 2019 11:33:27 +0200
+
 pmb (5.0.4+lliurex5) xenial; urgency=medium
 
   * Fixed the generation of 'tejuelos'

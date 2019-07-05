@@ -8,7 +8,6 @@ Homepage: http://www.sigb.net/
 
 Package: pmb
 Architecture: any
-Pre-Depends:php5-lliurex-compat
 Depends: ${misc:Depends}, mysql-server, mysql-client
 Description: Integrated Library Management System
  PMB (4.2.6) is an entirely free ILS (Integrated Library management System).
