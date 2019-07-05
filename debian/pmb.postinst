@@ -18,25 +18,7 @@ case $1 in
 
 		mkdir -p /etc/lliurex-tokens/
 
-		'''
-		if [ ! -e /etc/lliurex-tokens/pmb5.0_rev_phpsize ]; then
-			
-			# Setting the lliurex-token for pmb
-			echo " [ PMB 5.0 ] : PHP Upload size fixed to 200MB "
-			echo "PHP Size fixed to 200MB " > /etc/lliurex-tokens/pmb5.0_rev_phpsize
-			date >> /etc/lliurex-tokens/pmb5.0_rev_phpsize
-			
-			# Calling utility
-			bash /usr/share/pmb/www/lliurex/utilidades/phpiniconf.sh --pmb || true
-
-		else
-
-			echo " [ PMB 5.0 ] : PHP Upload has been already set...nothing to do "
-
-		fi
-		'''
-		
-		if [ ! -e /etc/lliurex-tokens/pmb4.2_javascript ]; then
+		if [ ! -e /etc/lliurex-tokens/pmb5.0_javascript ]; then
 			
 			# Setting the lliurex-token for pmb
 			echo " [ PMB 5.0 ] : Disable Javascript Common "
@@ -46,7 +28,7 @@ case $1 in
 			# Calling utility
 			#a2disconf javascript-common || true
 			 
-			DISCONF="/usr/local/sbin/a2disconf"
+			DISCONF="a2disconf"
 			${DISCONF} javascript-common || true	
 		else
 
