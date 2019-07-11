@@ -33,10 +33,10 @@ switch(LOCATION):
 		define('SQL_TYPE',  'mysql');		// Type de serveur de base de données
 		break;
 	case "$dbname":
-		define('SQL_SERVER', 'localhost');		// nom du serveur
-		define('USER_NAME', $dbuser);		// nom utilisateur
-		define('USER_PASS', $dbpass);		// mot de passe
-		define('DATA_BASE', $dbname);		// nom base de données
+		define('SQL_SERVER', "$dbserver");		// nom du serveur
+		define('USER_NAME', "$dbuser");		// nom utilisateur
+		define('USER_PASS', "$dbpass");		// mot de passe
+		define('DATA_BASE', "$dbname");		// nom base de données
 		define('SQL_TYPE',  'mysql');			// Type de serveur de base de données
 		// Encode de caracteres de la base de données 
 		 //$charset = "iso-8859-1" ;

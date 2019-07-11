@@ -71,10 +71,10 @@ switch($categor){ // Selección de opciones.
 			$query="select valeur_param from parametres where type_param='pmb' and sstype_param ='indexation_must_be_initialized'";
 			$result = pmb_mysql_query($query, $dbh);
 			if (pmb_mysql_num_rows($result)) {
-				$query="update parametres set valeur_param='-1' where type_param='pmb' and sstype_param ='indexation_must_be_initialized'";
+				$query="update parametres set valeur_param='0' where type_param='pmb' and sstype_param ='indexation_must_be_initialized'";
 				$res = mysql_query($query, $dbh);
 			}else{
-				$query="INSERT INTO parametres (type_param, sstype_param, valeur_param, comment_param, section_param, gestion) VALUES ('pmb','indexation_must_be_initialized','-1','Indexation required','',0)";
+				$query="INSERT INTO parametres (type_param, sstype_param, valeur_param, comment_param, section_param, gestion) VALUES ('pmb','indexation_must_be_initialized','0','Indexation required','',0)";
 				$res = mysql_query($query, $dbh);
 			}	
 			
