@@ -1,3 +1,9 @@
+pmb (5.0.4+lliurex17) bionic; urgency=medium
+
+  * Fixed main.php file
+
+ --  Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 12 Jul 2019 13:10:51 +0200
+
 pmb (5.0.4+lliurex16) bionic; urgency=medium
 
   * Changed to use docker
