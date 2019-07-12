@@ -7732,7 +7732,7 @@ $Id: va_ES.xml,v 1.747.2.19 2015-01-07 13:29:11 jpermanne Exp $ -->
 <!-- LLIUREX 26/09/2018 -->
 <entry code="indexation_alert">El procés d'indexació de la base de dades s'executarà a continuació. Aquest procés pot tardar diversos minuts</entry>
 <entry code="indexation_init">Preparant el procés d'indexació de la base de dades. Espereu un moment per favor ...</entry>
-<entry code="minor_changes_bbdd">Aplicant canvis menors i tonant a indexar la base de dades...</entry>
+<entry code="minor_changes_bbdd">Aplicant canvis menors...</entry>
 <entry code="minor_changes_end">Canvis menors aplicats a la base de dades.</entry>
 <entry code="indexation_progress">Tornant a indexar la base de dades...</entry>
 <entry code="indexation_end">La indexació de la base de dades ha finalizat</entry>
