@@ -65,10 +65,10 @@ class netbase {
 			
 		$form_proceedings = "
 			<div class='row'>
-				<input type='checkbox' value='1' id='index_global' name='index_global' ".(isset($index_global) && $index_global == "1" ? "checked" :"").">&nbsp;<label for='index_global' >".htmlentities($msg["nettoyage_index_global"], ENT_QUOTES, $charset)."</label>
+				<input type='checkbox' value='1' id='index_global' name='index_global' ".(isset($index_global) && $index_global == "1" ? "checked" :"checked").">&nbsp;<label for='index_global' >".htmlentities($msg["nettoyage_index_global"], ENT_QUOTES, $charset)."</label>
 			</div>
 			<div class='row'>
-				<input type='checkbox' value='2' id='index_notices' name='index_notices' ".(isset($index_notices) && $index_notices == "2" ? "checked" :"").">&nbsp;<label for='index_notices'>".htmlentities($msg["nettoyage_index_notices"], ENT_QUOTES, $charset)."</label>
+				<input type='checkbox' value='2' id='index_notices' name='index_notices' ".(isset($index_notices) && $index_notices == "2" ? "checked" :"checked").">&nbsp;<label for='index_notices'>".htmlentities($msg["nettoyage_index_notices"], ENT_QUOTES, $charset)."</label>
 			</div>
 			<div class='row'>
 				<input type='checkbox' value='4' id='clean_authors' name='clean_authors' ".(isset($clean_authors) && $clean_authors == "4" ? "checked" :"").">&nbsp;<label for='clean_authors'>".htmlentities($msg["nettoyage_clean_authors"], ENT_QUOTES, $charset)."</label>
@@ -112,7 +112,7 @@ class netbase {
 				<input type='checkbox' value='2048' id='gen_signature_notice' name='gen_signature_notice' ".(isset($gen_signature_notice) && $gen_signature_notice == "2048" ? "checked" :"").">&nbsp;<label for='gen_signature_notice'>".htmlentities($msg["gen_signature_notice"], ENT_QUOTES, $charset)."</label>
 			</div>
 			<div class='row'>
-				<input type='checkbox' value='2097152' id='gen_phonetique' name='gen_phonetique' ".(isset($gen_phonetique) && $gen_phonetique == "2097152" ? "checked" :"").">&nbsp;<label for='gen_phonetique'>".htmlentities($msg["gen_phonetique"], ENT_QUOTES, $charset)."</label>
+				<input type='checkbox' value='2097152' id='gen_phonetique' name='gen_phonetique' ".(isset($gen_phonetique) && $gen_phonetique == "2097152" ? "checked" :"checked").">&nbsp;<label for='gen_phonetique'>".htmlentities($msg["gen_phonetique"], ENT_QUOTES, $charset)."</label>
 			</div>
 			<div class='row'>
 				<input type='checkbox' value='4096' id='nettoyage_clean_tags' name='nettoyage_clean_tags' ".(isset($nettoyage_clean_tags) && $nettoyage_clean_tags == "4096" ? "checked" :"").">&nbsp;<label for='nettoyage_clean_tags'>".htmlentities($msg["nettoyage_clean_tags"], ENT_QUOTES, $charset)."</label>
@@ -176,7 +176,7 @@ class netbase {
 				<input type='checkbox' value='134217728' id='hash_empr_password' name='hash_empr_password' ".(isset($hash_empr_password) && $hash_empr_password == "134217728" ? "checked" :"").">&nbsp;<label for='hash_empr_password'>".htmlentities($msg["hash_empr_password"], ENT_QUOTES, $charset)."</label>
 			</div>
 			<div class='row'>
-				<input type='checkbox' value='268435456' name='index_authorities' ".(isset($index_authorities) && $index_authorities == "268435456" ? "checked" :"").">&nbsp;<label for='index_authorities'>".htmlentities($msg["nettoyage_index_authorities"], ENT_QUOTES, $charset)."</label>
+				<input type='checkbox' value='268435456' name='index_authorities' ".(isset($index_authorities) && $index_authorities == "268435456" ? "checked" :"checked").">&nbsp;<label for='index_authorities'>".htmlentities($msg["nettoyage_index_authorities"], ENT_QUOTES, $charset)."</label>
 			</div>";
 		if ($pmb_explnum_controle_doublons) {
 			$form_proceedings .= "

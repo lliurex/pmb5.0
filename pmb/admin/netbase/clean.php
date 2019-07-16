@@ -126,6 +126,10 @@ if($spec) {
 	if($v_state) {
 		print "<h2>".htmlentities($msg["nettoyage_termine"], ENT_QUOTES, $charset)."</h2>";
 		print urldecode($v_state);
+	//---------------------------LLIUREX 16/07/2019-------------------------------------	
+		$query="update parametres set valeur_param='0' where type_param='pmb' and sstype_param='indexation_must_be_initialized'";
+		pmb_mysql_query($query, $dbh);
+	//---------------------------FIN LLIUREX 16/07/2019---------------------------------	
 	} else
 		include_once('./form.inc.php');
 }
