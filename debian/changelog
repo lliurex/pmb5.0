@@ -1,3 +1,9 @@
+pmb (5.0.4+lliurex18) bionic; urgency=medium
+
+  * New process to recommend reindexing the database
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 16 Jul 2019 13:13:03 +0200
+
 pmb (5.0.4+lliurex17) bionic; urgency=medium
 
   * Fixed main.php file
