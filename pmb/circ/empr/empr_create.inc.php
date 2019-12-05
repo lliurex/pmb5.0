@@ -29,7 +29,10 @@ $cb_a_creer = '';
 if ($pmb_num_carte_auto_array[0] == "1" ) {
 	$requete="DELETE from empr_temp where sess not in (select SESSID from sessions)";
 	pmb_mysql_query($requete,$dbh);
-	$rqt = "select max(empr_cb+1) as max_cb FROM (select empr_cb from empr UNION select cb FROM empr_temp WHERE sess <>'".SESSid."') tmp";
+//---------------------------LLIUREX 05/12/2019-----------------------------------//	
+	//$rqt = "select max(empr_cb+1) as max_cb FROM (select empr_cb from empr UNION select cb FROM empr_temp WHERE sess <>'".SESSid."') tmp";
+	$rqt = "select max(empr_cb+1) as max_cb FROM (select empr_cb from empr UNION select cb COLLATE utf8_unicode_ci FROM empr_temp WHERE sess <>'".SESSid."') tmp";
+//-------------------------- FIN LLIUREX 05/12/2019---------------------------	
 	$res = pmb_mysql_query($rqt, $dbh);
 	$cb_initial = pmb_mysql_fetch_object($res);
 	$cb_a_creer = (string)$cb_initial->max_cb;
@@ -42,8 +45,10 @@ if ($pmb_num_carte_auto_array[0] == "1" ) {
 	$long_prefixe = $pmb_num_carte_auto_array[1];
 	$nb_chiffres = $pmb_num_carte_auto_array[2];
 	$prefix = $pmb_num_carte_auto_array[3];
-	
-    $rqt =  "SELECT CAST(SUBSTRING(empr_cb,".($long_prefixe+1).") AS UNSIGNED) AS max_cb, SUBSTRING(empr_cb,1,".($long_prefixe*1).") AS prefixdb FROM (select empr_cb from empr".($long_prefixe?" WHERE empr_cb LIKE '".$prefix."%'":"")." UNION select cb FROM empr_temp WHERE sess <>'".SESSid."') tmp ORDER BY max_cb DESC limit 0,1" ; // modif f cerovetti pour sortir dernier code barre tri par ASCII
+//---------------------------LLIUREX 05/12/2019-----------------------------------//	
+	//$rqt =  "SELECT CAST(SUBSTRING(empr_cb,".($long_prefixe+1).") AS UNSIGNED) AS max_cb, SUBSTRING(empr_cb,1,".($long_prefixe*1).") AS prefixdb FROM (select empr_cb from empr".($long_prefixe?" WHERE empr_cb LIKE '".$prefix."%'":"")." UNION select cb FROM empr_temp WHERE sess <>'".SESSid."') tmp ORDER BY max_cb DESC limit 0,1" ; // modif f cerovetti pour sortir dernier code barre tri par ASCII
+	$rqt =  "SELECT CAST(SUBSTRING(empr_cb,".($long_prefixe+1).") AS UNSIGNED) AS max_cb, SUBSTRING(empr_cb,1,".($long_prefixe*1).") AS prefixdb FROM (select empr_cb from empr".($long_prefixe?" WHERE empr_cb LIKE '".$prefix."%'":"")." UNION select cb COLLATE  utf8_unicode_ci  FROM empr_temp WHERE sess <>'".SESSid."') tmp ORDER BY max_cb DESC limit 0,1" ; // modif f cerovetti pour sortir dernier code barre tri par ASCII
+//-------------------------- FIN LLIUREX 05/12/2019---------------------------	
 	$res = pmb_mysql_query($rqt, $dbh);
 	$cb_initial = pmb_mysql_fetch_object($res);
 	$cb_a_creer = ($cb_initial->max_cb*1)+1;
