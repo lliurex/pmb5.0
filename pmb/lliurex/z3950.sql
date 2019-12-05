@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `z_bib_bak` (
 
 INSERT INTO `z_bib_bak` VALUES (null,'Universidad de Córdoba','CATALOG','medina.uco.es','210','INNOPAC','USMARC','','','',''),
 (null,'Biblioteca Nacional','CATALOG','sigb.bne.es','2200','Unicorn','USMARC','','','',''),
-(null,'Biblioteca Valenciana','CATALOG','bv.gva.es','2102','ABSYSE','IBERMARC','','','',''),
+(null,'Biblioteca Valenciana','CATALOG','bvnpz3950.gva.es','2102','ABNET_DB','ISO 8859-1','','','',''),
 (null,'Congreso de los Diputados','CATALOG','biblioteca.congreso.es','2100','ABSYSBCD','USMARC','','','',''),
 (null,'REBECA','CATALOG','catalogos.mecd.es','220','ABNET_REBECA','ISO 8859-1','','','',''),
 (null,'REBIUN','CATALOG','rebiun.crue.org','210','ABSYSREBIUN','USMARC','','','',''),

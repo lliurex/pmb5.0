@@ -2,6 +2,9 @@
 
 UPDATE z_bib SET bib_nom = 'REBECA', url = 'catalogos.mecd.es', port = '220', base = 'ABNET_REBECA', format ='ISO 8859-1' WHERE url = 'rebeca.mcu.es' || url='rebeca_z3950.mcu.es';
 
+-- Se actualiza la tabla z_bib con los nuevos datos de conexión a Biblioteca Valenciana
+UPDATE z_bib SET bib_nom = 'Biblioteca Valenciana', url = 'bvnpz3950.gva.es', port = '2102', base = 'ABNET_DB', format ='ISO 8859-1' WHERE url = 'bv.gva.es';
+
 -- Se cambia la versión de base de datos de v5.19 a vLlxXenial para actualizar a PMB 5.0.4
 UPDATE parametres SET valeur_param='vLlxXenial' WHERE type_param='pmb' and sstype_param='bdd_version' and valeur_param='v5.19';
 
