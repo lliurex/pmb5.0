@@ -37,7 +37,7 @@ INSERT INTO `z_bib_bak` VALUES (null,'Universidad de Córdoba','CATALOG','medina
 (null,'Universidad Politécnica de Madrid','CATALOG','marte.biblioteca.upm.es','2200','unicorn','USMARC','','','',''),
 (null,'Universidad Pública de Navarra','CATALOG','brocar.unavarra.es','9999','libros','USMARC','','','',''),
 (null,'Universidad de Burgos','CATALOG','ubucat.ubu.es','210','INNOPAC','USMARC','','','',''),
-(null,'Red de Bibliotecas del CSIC','CATALOG','aleph.csic.es','9909','MAD01','USMARC','','','',''),
+(null,'Red de Bibliotecas del CSIC','CATALOG',' eu00.alma.exlibrisgroup.com','210','34CSIC_INST','MARC21','','','',''),
 (null,'Universidad de Sevilla','CATALOG','fama.us.es','210','INNOPAC','USMARC','','','',''),
 (null,'Catálogo Colectivo Bibliotecas Públicas','CATALOG','catalogos.mecd.es','212','ABNET_DB','ISO 8859-1','','','',''),
 (null,'Universidad de Castilla-La Mancha','CATALOG','z3950.uclm.es','210','ABNET_DB','USMARC','','','','');
