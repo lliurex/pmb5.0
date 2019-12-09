@@ -1,3 +1,10 @@
+pmb (5.0.4+lliurex19) bionic; urgency=medium
+
+  * Fixed function to assign codes automatically when creating a new user
+  * Update z3950 info to connect with Biblioteca Valenciana and CSIC
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 09 Dec 2019 11:33:46 +0100
+
 pmb (5.0.4+lliurex18) bionic; urgency=medium
 
   * New process to recommend reindexing the database
