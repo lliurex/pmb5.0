@@ -8124,7 +8124,7 @@ CREATE TABLE `notices_custom_lists` (
 
 LOCK TABLES `notices_custom_lists` WRITE;
 /*!40000 ALTER TABLE `notices_custom_lists` DISABLE KEYS */;
-INSERT INTO `notices_custom_lists` VALUES (1,'ISBN103','ISBN 10',2),(1,'ISBN134','ISBN 13',1),(2,'NO','No',2),(2,'SI','Si',1),(3,'NO','No',2),(3,'SI','Si',1),(4,'biblioAula','Biblioteca de l\'Aula / Biblioteca del Aula',2),(4,'biblioEscolar','Biblioteca Escolar',1),(1,'ISBN81','ISSN',4),(1,'ISBN247','ISAN',5),(1,'OTROS','Altres / Otros',6),(5,'italiano','Italià / Italiano',7),(5,'portugues','Portugués / Portugués',6),(5,'aleman','Alemany / Alemán',5),(5,'frances','Francés / Francés',4),(5,'ingles','Anglés / Inglés',3),(5,'castellano','Castellà / Castellano',2),(5,'valenciao','Valencià / Valenciano',1),(5,'arabe','Àrab / Árabe',8),(5,'ruso','Rus / Ruso',9),(5,'otros ','Altres / Otros',10);
+INSERT INTO `notices_custom_lists` VALUES (1,'ISBN103','ISBN 10',2),(1,'ISBN134','ISBN 13',1),(3,'NO','No',2),(3,'SI','Si',1),(4,'NO','No',2),(4,'SI','Si',1),(6,'biblioAula','Biblioteca de l\'aula / Biblioteca del Aula',2),(6,'biblioEscolar','Biblioteca Escolar',1),(1,'ISBN81','ISSN',4),(1,'ISBN247','ISAN',5),(1,'OTROS','Altres / Otros',6),(2,'italiano','Italià / Italiano',7),(2,'portugues','Portugués / Portugués',6),(2,'aleman','Alemany / Alemán',5),(2,'frances','Francés / Francés',4),(2,'ingles','Anglés / Inglés',3),(2,'castellano','Castellà / Castellano',2),(2,'valenciano','Valencià / Valenciano',1),(2,'arabe','Àrab / Árabe',8),(2,'ruso','Rus / Ruso',9),(2,'otros ','Altres / Otros',10);
 /*!40000 ALTER TABLE `notices_custom_lists` ENABLE KEYS */;
 UNLOCK TABLES;
 
