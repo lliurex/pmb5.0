@@ -3639,9 +3639,25 @@ switch ($version_pmb_bdd) {
 		
 		// +-------------------------------------------------+
 		echo "</table>";
+		
+		//---------------------------------------------------------Se deshabilita la edicion de los formularios--------------------------------
+		$rqt="Update parametres set valeur_param='0' WHERE type_param='pmb' and sstype_param='form_authorities_editables' and valeur_param='1'";
+		$res = mysql_query($rqt, $dbh);
+			
+		$rqt="Update parametres set valeur_param='0' WHERE type_param='pmb' and sstype_param='form_editables' and valeur_param='1'";
+		$res = mysql_query($rqt, $dbh);
+			
+		$rqt="Update parametres set valeur_param='0' WHERE type_param='pmb' and sstype_param='form_expl_editables' and valeur_param='1'";
+		$res = mysql_query($rqt, $dbh);
+			
+		$rqt="Update parametres set valeur_param='0' WHERE type_param='pmb' and sstype_param='form_explnum_editables' and valeur_param='1'";
+		$res = mysql_query($rqt, $dbh);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------		
+		
 		$rqt = "update parametres set valeur_param='v5.28' where type_param='pmb' and sstype_param='bdd_version' " ;
 //--------------------------- FIN LLIUREX 07/03/2018------------------		
 		$res = mysql_query($rqt, $dbh) ;
+
 		echo "<strong><font color='#FF0000'>".$msg[1807]." ".number_format($action, 2, ',', '.')."%</font></strong><br />";
 		$action=$action+$increment;
 

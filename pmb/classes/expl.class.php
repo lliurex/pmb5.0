@@ -431,14 +431,25 @@ class exemplaire {
 		$p_perso=new parametres_perso("expl");
 		if (!$p_perso->no_special_fields) {
 			$perso_=$p_perso->show_editable_fields($this->expl_id);
+	//------------------------------------------LLIUREX CONVOCATORIA--------------------------------		
+			$c='Convoca';
 			for ($i=0; $i<count($perso_["FIELDS"]); $i++) {
 				if(($i == count($perso_["FIELDS"])-1) && ($i%2 == 0)) $element_class = 'row';
 				else $element_class = 'colonne2';
 				$p=$perso_["FIELDS"][$i];
-				$perso.="<div id='el9Child_".$p["ID"]."' class='".$element_class."' movable='yes' title=\"".htmlentities($p["TITRE"], ENT_QUOTES, $charset)."\">
-							<label for='".$p["NAME"]."' class='etiquette'>".$p["TITRE"]." </label>".$p["COMMENT_DISPLAY"]."
+								
+				if (strncmp($p["NAME"],$c,7)==0){
+					$perso.="<div id='el9Child_".$p["ID"]."' class='".$element_class."' movable='yes' title=\"".htmlentities($msg["expl_convo"], ENT_QUOTES, $charset)."\">
+							<label for='".$p["NAME"]."' class='etiquette'>".$msg["expl_convo"]." </label>".$p["COMMENT_DISPLAY"]."
 							<div class='row'>".$p["AFF"]."</div>
 						</div>\n";
+				}else{
+					$perso.="<div id='el9Child_".$p["ID"]."' class='".$element_class."' movable='yes' title=\"".htmlentities($p["TITRE"], ENT_QUOTES, $charset)."\">
+							<label for='".$p["NAME"]."' class='etiquette'>".$p["TITRE"]." </label>".$p["COMMENT_DISPLAY"]."
+							<div class='row'>".$p["AFF"]."</div>
+							</div>\n";
+				}
+	//----------------------------------------FIN LLIUREX CONVOCATORIA------------------------------------
 			}	
 			$perso=$perso_["CHECK_SCRIPTS"]."\n".$perso;
 		} else {

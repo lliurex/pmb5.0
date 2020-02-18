@@ -276,21 +276,32 @@ if (! defined('EXPLNUM_CLASS')) {
 			$p_perso = new parametres_perso("explnum");
 			if (! $p_perso->no_special_fields) {
 				$perso_ = $p_perso->show_editable_fields($this->explnum_id);
+	//-----------------------------------------------LLIUREX CONVOCATORIA--------------------------------			
+				$c='Convoca';
 				for($i = 0; $i < count($perso_["FIELDS"]); $i++) {
 					if (($i == count($perso_["FIELDS"]) - 1) && ($i % 2 == 0))
 						$element_class = 'row';
 					else
 						$element_class = 'colonne2';
 					$p = $perso_["FIELDS"][$i];
-					$perso .= "<div id='el0Child_8_" . $p["ID"] . "' class='" . $element_class . "' movable='yes' title=\"" . htmlentities($p["TITRE"], ENT_QUOTES, $charset) . "\">
-								<label for='" . $p["NAME"] . "' class='etiquette'>" . $p["TITRE"] . " </label>" . $p["COMMENT_DISPLAY"] . "
-								<div class='row'>" . $p["AFF"] . "</div>
-							</div>\n";
+					if (strncmp($p["NAME"],$c,7)==0){
+						$perso .= "<div id='el0Child_8_" . $p["ID"] . "' class='" . $element_class . "' movable='yes' title=\"" . htmlentities($msg["expl_convo"], ENT_QUOTES, $charset) . "\">
+									<label for='" . $p["NAME"] . "' class='etiquette'>" .$msg["expl_convo"]. " </label>" . $p["COMMENT_DISPLAY"] . "
+									<div class='row'>" . $p["AFF"] . "</div>
+								</div>\n";
+					}else{
+						$perso .= "<div id='el0Child_8_" . $p["ID"] . "' class='" . $element_class . "' movable='yes' title=\"" . htmlentities($p["TITRE"], ENT_QUOTES, $charset) . "\">
+									<label for='" . $p["NAME"] . "' class='etiquette'>" . $p["TITRE"] . " </label>" . $p["COMMENT_DISPLAY"] . "
+									<div class='row'>" . $p["AFF"] . "</div>
+								</div>\n";
+					}	
+	//--------------------------------------------------------FIN LLIUREX CONVOCATORIA------------------------------					
 				}
 				$perso = $perso_["CHECK_SCRIPTS"] . "\n" . $perso;
 			} else {
 				$perso = "\n<script>function check_form() { return true; }</script>\n";
 			}
+			
 			$form = str_replace("!!champs_perso!!", $perso, $form);
 			
 			$form = str_replace("!!rights_form!!", $this->get_rights_form(), $form);
@@ -636,13 +647,14 @@ if (! defined('EXPLNUM_CLASS')) {
 				$requete .= $limiter;
 				
 				pmb_mysql_query($requete, $dbh);
-				
+				$p_perso=new parametres_perso("explnum");
 				if (!$update) {
 					$this->explnum_id = pmb_mysql_insert_id();
 					audit::insert_creation (AUDIT_EXPLNUM, $this->explnum_id);
 				}else {
 					audit::insert_modif (AUDIT_EXPLNUM, $this->explnum_id);
 				}
+				$p_perso->rec_fields_perso($this->explnum_id);
 				
 				// traitement des droits acces user_docnum
 				if ($gestion_acces_active == 1 && $gestion_acces_empr_docnum == 1) {

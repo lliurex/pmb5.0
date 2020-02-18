@@ -12646,6 +12646,21 @@ switch ($version_pmb_bdd) {
 			
 			// +-------------------------------------------------+
 			echo "</table>";
+			
+	//---------------------------------------------------------Se deshabilita la edicion de los formularios--------------------------------
+			$rqt="Update parametres set valeur_param='0' WHERE type_param='pmb' and sstype_param='form_authorities_editables' and valeur_param='1'";
+			$res = mysql_query($rqt, $dbh);
+				
+			$rqt="Update parametres set valeur_param='0' WHERE type_param='pmb' and sstype_param='form_editables' and valeur_param='1'";
+			$res = mysql_query($rqt, $dbh);
+				
+			$rqt="Update parametres set valeur_param='0' WHERE type_param='pmb' and sstype_param='form_expl_editables' and valeur_param='1'";
+			$res = mysql_query($rqt, $dbh);
+				
+			$rqt="Update parametres set valeur_param='0' WHERE type_param='pmb' and sstype_param='form_explnum_editables' and valeur_param='1'";
+			$res = mysql_query($rqt, $dbh);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------			
+			
 			$rqt = "update parametres set valeur_param='v5.28' where type_param='pmb' and sstype_param='bdd_version' " ;
 
 		//----------FIN LLIUREX 06/03/2018-------	

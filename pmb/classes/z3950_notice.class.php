@@ -2040,20 +2040,132 @@ class z3950_notice {
 			$perso="";
 			for ($i=0; $i<count($perso_["FIELDS"]); $i++) {
 				$p=$perso_["FIELDS"][$i];
-				$perso.="<div class='row'>
-					<label for='".$p["NAME"]."' class='etiquette'>".$p["TITRE"]." </label>".$p["COMMENT_DISPLAY"]."
-					</div>
-					<div class='row'>
-					".$p["AFF"]."
-					</div>
-					";
+				$c1='Identi';
+				$c2='Idioma';
+				$c3='Autori';
+				$c4='Litera';
+				$c5='Precio';
+				$c6='Ubicac';
+					
+				if (strncmp($p["NAME"], $c1,6)!== 0) {
+					if (strncmp($p["NAME"], $c2,6)!== 0) {
+						if (strncmp($p["NAME"], $c3,6)!== 0) {
+							if (strncmp($p["NAME"], $c4,6)!== 0) {
+								if (strncmp($p["NAME"], $c5,6)!== 0) {
+									if (strncmp($p["NAME"], $c6,6)!== 0) {
+										$perso.="<div class='row'>
+											<label for='".$p["NAME"]."' class='etiquette'>".$p["TITRE"]." </label>".$p["COMMENT_DISPLAY"]."
+											</div>
+											<div class='row'>
+											".$p["AFF"]."
+											</div>
+											";
+									}
+								}			
+							}
+						}
+					}
+				}	
 			}
 			$perso.=$perso_["CHECK_SCRIPTS"];
 			$ptab[9]=str_replace("!!champs_perso!!",$perso,$ptab[9]);
 		} else 
 			$ptab[9]="\n<script type='text/javascript' >function check_form() { return true; }</script>\n";
 		$form_notice = str_replace('!!tab9!!', $ptab[9], $form_notice);
-
+		
+		//------------------------------------------
+			
+			//Mise a jour de l'onglet 9
+			$p_perso1=new parametres_perso("notices");
+			
+			if (!$p_perso1->no_special_fields) {
+				// si on duplique, construire le formulaire avec les donnees de la notice d'origine
+				if ($this->duplicate_from_id) $perso1_=$p_perso1->show_editable_fields($this->duplicate_from_id);
+					else $perso1_=$p_perso1->show_editable_fields($this->id);
+				$perso1="";
+				for ($i=0; $i<count($perso_["FIELDS"]); $i++) {
+					$p=$perso1_["FIELDS"][$i];
+					$c1='Identi';
+					$c2='Idioma';
+					$c3='Autori';
+					$c4='Litera';
+					$c5='Precio';
+					$c6='Ubicac';
+					
+					if (strncmp($p["NAME"], $c1,6)== 0) {
+						$perso1.="<div class='row'>
+								<label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_type_id"]." </label>".$p["COMMENT_DISPLAY"]."
+								</div>
+								<div class='row'>
+								".$p["AFF"]."
+								</div>
+								";
+					}else{
+						if (strncmp($p["NAME"], $c2,6)== 0) {
+							$perso1.="<div class='row'>
+									<label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_langue"]." </label>".$p["COMMENT_DISPLAY"]."
+									</div>
+									<div class='row'>
+									".$p["AFF"]."
+									</div>
+									";
+						}else{
+							if (strncmp($p["NAME"], $c3,6)== 0) {
+								$perso1.="<div class='row'>
+										<label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_authorship"]." </label>".$p["COMMENT_DISPLAY"]."
+										</div>
+										<div class='row'>
+										".$p["AFF"]."
+										</div>
+										";
+							}else{
+								if (strncmp($p["NAME"], $c4,6)== 0) {
+									$perso1.="<div class='row'>
+											<label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_literary_work"]." </label>".$p["COMMENT_DISPLAY"]."
+											</div>
+											<div class='row'>
+											".$p["AFF"]."
+											</div>
+											";
+								}else{
+									if (strncmp($p["NAME"], $c5,6)== 0) {
+										$perso1.="<div class='row'>
+												<label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_price"]." </label>".$p["COMMENT_DISPLAY"]."
+												</div>
+												<div class='row'>
+												".$p["AFF"]."
+												</div>
+												";	
+									}else{
+										if (strncmp($p["NAME"], $c6,6)== 0) {
+											$perso1.="<div class='row'>
+													<label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_location"]." </label>".$p["COMMENT_DISPLAY"]."
+													</div>
+													<div class='row'>
+													".$p["AFF"]."
+													</div>
+													";	
+										}
+									
+									}
+									
+								}		
+							}		 
+						}
+					}				 
+					
+				}
+				$perso1.=$perso1_["CHECK_SCRIPTS"];
+				$ptab[999]=str_replace("!!champs_perso!!",$perso1,$ptab[999]);
+			} else 
+				$ptab[999]="\n<script>function check_form() { return true; }</script>\n";
+			
+			$form_notice = str_replace('!!tab999!!', $ptab[999], $form_notice);
+				
+			
+			
+			
+		//----------------------------------------------
 		// champs de gestion
 		$ptab[10] = str_replace('!!message_folder!!',thumbnail::get_message_folder(), $ptab[10]);
 		

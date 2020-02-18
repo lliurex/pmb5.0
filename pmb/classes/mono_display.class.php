@@ -428,29 +428,119 @@ class mono_display {
 			$zoneNote = "<b>".$msg['265']."</b>:&nbsp;".nl2br(htmlentities($this->notice->n_gen,ENT_QUOTES, $charset)).' ';
 	
 		// ISBN ou NO. commercial
+		$zoneNote .="<br/>---------------------------------------------------------------------";
+		$count=0;
 		if($this->notice->code) {
 			if(isISBN($this->notice->code)) {
 				if ($zoneNote) {
-					$zoneNote .= '.&nbsp;-&nbsp;'.$msg['isbd_notice_isbn'].' ';
+					//$zoneNote .= '.&nbsp;-&nbsp;'.$msg['isbd_notice_isbn'].' ';
+					$zoneNote .= '</br><b>'.$msg['isbd_notice_isbn'].'</b> ';
+
 				} else {
-					$zoneNote = $msg['isbd_notice_isbn'].' ';
+					$zoneNote = '</br><b>'.$msg['isbd_notice_isbn'].'</b> ';
 				}
 			} else {
-				if($zoneNote) $zoneNote .= '.&nbsp;-&nbsp;';
+				//if($zoneNote) $zoneNote .= '.&nbsp;-&nbsp;';
+				//if($zoneNote) 
+				$zoneNote .= '.</br><b>'.$msg['notice_nonisbn'].'</b>';
 			}
+			$count++;
 			$zoneNote .= htmlentities($this->notice->code, ENT_QUOTES, $charset);
 		}
-	
+		
 		if($this->notice->prix) {
-			if($this->notice->code) {$zoneNote .= '&nbsp;: '.htmlentities($this->notice->prix, ENT_QUOTES, $charset);}
-			else {
-				if ($zoneNote) 	{ $zoneNote .= '&nbsp; '.htmlentities($this->notice->prix, ENT_QUOTES, $charset);}
-				else	{ $zoneNote = htmlentities($this->notice->prix, ENT_QUOTES, $charset);}
+			if($this->notice->code) {
+				$zoneNote .= '';
+				$count++;
+			}else {
+				if ($zoneNote){ 
+					//$zoneNote .= '&nbsp; '.htmlentities($this->notice->prix, ENT_QUOTES, $charset);}
+					$zoneNote .= '';
+					$count++;
+				}else{ 
+					//$zoneNote = htmlentities($this->notice->prix, ENT_QUOTES, $charset);}
+					$zoneNote .= '';
+					$count++;
+				}
 			}
 		}
 	
-		if($zoneNote) $this->isbd .= "<br /><br />$zoneNote.";
-	
+		//if($zoneNote) $this->isbd .= "<br /><br />$zoneNote.";
+		if($zoneNote) $this->isbd .= "<br /><br />$zoneNote";
+		// langues
+		$langues = '';
+		if(count($this->langues)) {
+			$langues .= '';
+			$count++;
+		}
+		if(count($this->languesorg)) {
+			$langues .= '';
+		}
+		if($langues)
+			$this->isbd .='';
+			
+		//Champs personalisés
+		
+		$perso_aff = "" ;
+		if (!$this->p_perso->no_special_fields) {
+			$perso_=$this->p_perso->show_fields($this->notice_id);
+			$separator=0;
+			for ($i=0; $i<count($perso_["FIELDS"]); $i++) {
+				$p=$perso_["FIELDS"][$i];
+				$c1='Identi';
+				$c2='Idioma';
+				$c3='Autori';
+				$c4='Litera';
+				$c5='Precio';
+				$c6='Ubicac';
+				// ajout de && ($p['OPAC_SHOW']||$this->show_opac_hidden_fields) afin de masquer les champs masqués de l'OPAC en diff de bannette.
+				if ($p["AFF"] && ($p['OPAC_SHOW'] || $this->show_opac_hidden_fields)) {
+					if (strncmp($p["NAME"],$c1,6)==0){
+						$perso_aff .="<br /><b>".$msg["notice_convo_type_id"]."</b> : ".($p["TYPE"]=='html'?$p["AFF"]:nl2br($p["AFF"]));
+						$separator++;
+					}else{
+						if (strncmp($p["NAME"],$c2,6)==0){
+							$perso_aff .="<br /><b>".$msg["notice_convo_langue"]."</b> : ".($p["TYPE"]=='html'?$p["AFF"]:nl2br($p["AFF"]));
+							$separator++;
+						}else{
+							if (strncmp($p["NAME"],$c3,6)==0){
+								$perso_aff .="<br /><b>".$msg["notice_convo_authorship"]."</b> : ".($p["TYPE"]=='html'?$p["AFF"]:nl2br($p["AFF"]));
+								$separator++;
+							}else{
+								if (strncmp($p["NAME"],$c4,6)==0){
+									$perso_aff .="<br /><b>".$msg["notice_convo_literary_work"]."</b> : ".($p["TYPE"]=='html'?$p["AFF"]:nl2br($p["AFF"]));
+									$separator++;
+								}else{
+									if (strncmp($p["NAME"],$c5,6)==0){
+										$perso_aff .="<br /><b>".$msg["notice_convo_price"]."</b> : ".($p["TYPE"]=='html'?$p["AFF"]:nl2br($p["AFF"]));
+										$separator++;
+									}else{	
+										if (strncmp($p["NAME"],$c6,6)==0){
+											$perso_aff .="<br /><b>".$msg["notice_convo_location"]."</b> : ".($p["TYPE"]=='html'?$p["AFF"]:nl2br($p["AFF"]));
+											$separator++;
+											
+										}else{
+											if ($separator>0){
+												$perso_aff .= "<br/>---------------------------------------------------------------------<br/>";
+												$count=0;
+												$separator=0;
+											}
+											$perso_aff .="<br />".$p["TITRE"]." ".($p["TYPE"]=='html'?$p["AFF"]:nl2br($p["AFF"]));
+										}	
+									}
+								}	
+							}
+							
+						}	
+					}	
+				}
+			}
+		}
+		if ($count>0 || $separator>0){
+			$perso_aff .= "<br/>---------------------------------------------------------------------<br/>";
+		}
+		if ($perso_aff) $this->isbd.=$perso_aff ;
+			
 		//In
 		//Recherche des notices parentes
 		if (!$this->no_link) {
@@ -514,7 +604,7 @@ class mono_display {
 		} else {
 			$categories_show_only_last = $thesaurus_categories_show_only_last;
 		}
-		if(!count($categories_top)) {
+		if(!count($categories_top)) {	
 			$q = "select id_noeud from noeuds where autorite='TOP' ";
 			$r = pmb_mysql_query($q, $dbh);
 			while($res = pmb_mysql_fetch_object($r)) {
@@ -657,18 +747,7 @@ class mono_display {
 			$index_concept = new index_concept($this->notice_id, TYPE_NOTICE);
 			$this->isbd .= $index_concept->get_isbd_display();
 		}
-	
-		// langues
-		$langues = '';
-		if(count($this->langues)) {
-			$langues .= "<b>${msg[537]}</b>&nbsp;: ".construit_liste_langues($this->langues);
-		}
-		if(count($this->languesorg)) {
-			$langues .= " <b>${msg[711]}</b>&nbsp;: ".construit_liste_langues($this->languesorg);
-		}
-		if($langues)
-			$this->isbd .= "<br />$langues";
-	
+		
 		// indexation libre
 		if($this->notice->index_l)
 			$this->isbd .= "<br /><b>${msg[324]}</b>&nbsp;: ".nl2br(htmlentities($this->notice->index_l, ENT_QUOTES, $charset));
@@ -691,20 +770,6 @@ class mono_display {
 	
 		$authperso = new authperso_notice($this->notice_id);
 		$this->isbd .=$authperso->get_notice_display();
-	
-		//Champs personalisés
-		$perso_aff = "" ;
-		if (!$this->p_perso->no_special_fields) {
-			$perso_=$this->p_perso->show_fields($this->notice_id);
-			for ($i=0; $i<count($perso_["FIELDS"]); $i++) {
-				$p=$perso_["FIELDS"][$i];
-				// ajout de && ($p['OPAC_SHOW']||$this->show_opac_hidden_fields) afin de masquer les champs masqués de l'OPAC en diff de bannette.
-				if ($p["AFF"] && ($p['OPAC_SHOW'] || $this->show_opac_hidden_fields)) {
-					$perso_aff .="<br />".$p["TITRE"]." ".($p["TYPE"]=='html'?$p["AFF"]:nl2br($p["AFF"]));
-				}
-			}
-		}
-		if ($perso_aff) $this->isbd.=$perso_aff ;
 	
 		//Notices liées
 		if ((count($this->childs) || count($this->notice_relations->get_nb_pairs()))&&(!$this->no_link)) {

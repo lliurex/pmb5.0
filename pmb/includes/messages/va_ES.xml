@@ -7739,4 +7739,43 @@ $Id: va_ES.xml,v 1.747.2.19 2015-01-07 13:29:11 jpermanne Exp $ -->
 
 <!-- FIN LLIUREX 26/09/2018 -->
 
+<!-- LLIUREX CONVO -->
+<entry code="nom_author">Nom</entry>
+<entry code="sexo_author">Sexe</entry>
+<entry code="author_expl">Nombre de llibres associats</entry>
+<entry code="expl_title">Títol</entry>Títol
+<entry code="exp_type_id">Tipus d'identificació</entry>
+<entry code="expl_id">Id</entry>
+<entry code="expl_lang">Idioma</entry>
+<entry code="expl_female_author">Autoria femenina</entry>
+<entry code="expl_literary_work">Obra literària</entry>
+<entry code="expl_price">Preu</entry>
+<entry code="expl_num">Nombre d'exemplars</entry>
+<entry code="expl_location">Ubicació</entry>
+<entry code="informe_ayudas">Llistat d'ajudes</entry>
+<entry code="informe_autores">Llistat d'autors</entry>
+<entry code="select_grant_period">Seleccioneu una convocatòria</entry>
+<entry code="grant_period_search">Busca registres per a la convocatòria</entry>
+<entry code="grant_periodo_search_error">No s'ha trobat cap registre per a la convocatòria seleccionada</entry>
+<entry code="notice_convo_price">Preu pagat per exemplar amb IVA</entry>
+<entry code="notice_nonisbn">Identificador : </entry>
+<entry code="notice_champs_convo">Dades per a la convocatòria</entry>
+<entry code="notice_champs_others">Altres dades</entry>
+<entry code="notice_convo_type_id">Tipus d'identificació</entry>
+<entry code="notice_convo_authorship">Té autoria femenina?</entry>
+<entry code="notice_convo_literary_work">És una obra literària?</entry>
+<entry code="notice_convo_location">Ubicació</entry>
+<entry code="notice_convo_langue">Idioma</entry>
+<entry code="notices_list">Registres</entry>
+<entry code="expl_convo">Inclou-lo en la convocatòria d'ajudes per al curs</entry>
+<entry code="notices_convo_codcentro">Codi de centre</entry>
+<entry code="notices_convo_year">>Dades per a la convocatòria de l'any</entry>
+<entry code="notices_convo_codcentro_error">Heu d'indicar el codi de centre per a generar el llistat</entry>
+<entry code="notices_convo_price_format_error">El preu indicat per al registre té un format no vàlid</entry>
+<entry code="notices_convo_price_max_error">El preu indicat per al registre supera el màxim permés</entry>
+<entry code="notices_convo_isbn_error">El tipus d'identificador indicat no correspon amb el valor introduït en el camp ISBN o EAN</entry>
+<entry code="bul_convo_isbn_error">El tipus d'identificador indicat no correspon amb el valor introduït en el camp Codi de barres</entry>
+<entry code="convo_empty_values">Atenció: Existeixen registres (marcats en roig) amb dades incompletes per a la justificació de l'ajuda. Reviseu-los abans de generar el fitxer</entry>
+
+
 </XMLlist>

@@ -1068,7 +1068,19 @@ $ptab[7] = "
 	!!champs_perso!!
 </div>
 ";
-
+/* --------------------------------LLIUREX CONVOCATORIA----------------
+$ptab[999] = "
+<!-- onglet 7 -->
+<div id='el999Parent' class='parent'>
+	<h3>
+		<img src='./images/plus.gif' class='img_plus' name='imEx' id='el999Img' onClick=\"expandBase('el999', true); recalc_recept(); return false;\" title='".$msg["notice_champs_convo"]."' border='0' /> ".$msg["notice_champs_convo"]."
+	</h3>
+</div>
+<div id='el999Child' class='child' etirable='yes' title='".$msg["notice_champs_convo"]."'>
+	!!champs_perso!!
+</div>
+";
+-------------------------------------LLIUREX CONVOCATORIA ------------------------------------------- */
 //    ----------------------------------------------------
 //    Champs de gestion
 //       $ptab[8] : Contenu de l'onglet 8 (champs de gestion)
@@ -1645,6 +1657,8 @@ $serial_bul_form.="</div></h3>
 !!tab14!!
 <hr class='spacer' />
 !!tab8!!
+<hr class='spacer' />
+!!tab999!!
 <hr class='spacer' />
 !!authperso!!
 </div>
@@ -2600,6 +2614,24 @@ $pdeptab[7] = "
 </div>
 ";
 
+
+//	----------------------------------------------------
+//	Champs personalisés
+// 	  $ptab[7] : Contenu de l'onglet 7 (champs personalisés)
+//	----------------------------------------------------
+
+$pdeptab[999] = "
+<!-- onglet 7 -->
+<div id='el999Parent' class='parent'>
+	<h3>
+		<img src='./images/plus.gif' class='img_plus' name='imEx' id='el999Img' onClick=\"expandBase('el999', true); recalc_recept(); return false;\" title='".$msg["notice_champs_convo"]."' border='0' /> ".$msg["notice_champs_convo"]."
+	</h3>
+</div>
+<div id='el999Child' class='child' etirable='yes' title='".$msg["notice_champs_convo"]."'>
+	!!champs_perso!!
+</div>
+";
+
 //    ----------------------------------------------------
 //    Champs de gestion
 //       $ptab[8] : Contenu de l'onglet 8 (champs de gestion)
@@ -2855,6 +2887,8 @@ $analysis_top_form .= "<hr class='spacer' />
 	<hr class='spacer' />
 	!!tab8!!
 	<hr class='spacer' />
+	!!tab999!!
+	<hr class='spacer' />
 	!!authperso!!
 	</div>
 <div class='row'>
@@ -2907,6 +2941,8 @@ $notice_bulletin_form.="<div class='row'>
 	!!tab7!!
 	<hr class='spacer' />
 	!!tab8!!
+	<hr class='spacer' />
+	!!tab999!!
 	<hr class='spacer' />
 	!!authperso!!
 	</div>
