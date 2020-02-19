@@ -18,9 +18,7 @@ UPDATE thesaurus SET libelle_thesaurus= 'Tesauro nº 1', langue_defaut='es_ES' W
 -- Se añade una acción personalizada para renovar usuarios
 
 Insert into procs (name,requete,comment,autorisations, parameters,num_classement,proc_notice_tpl,proc_notice_tpl_field) select 'LLIUREX_RENOV:Canvi de data de finalització de l\'abonament ','Update empr set empr_date_expiration=\'!!date!!\' where empr_date_expiration<curdate()','Acció per a renovar als usuaris que tenen caducat l\'abonament','1','<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<FIELDS>\n <FIELD NAME=\"date\" MANDATORY=\"yes\">\n  <ALIAS><![CDATA[Seleccione la nova data de caducitat:]]></ALIAS>\n  <TYPE>date_box</TYPE>\n<OPTIONS FOR=\"date_box\"></OPTIONS>\n </FIELD>\n</FIELDS>',20,0,'' from dual where NOT EXISTS(Select * from procs where name like 'LLIUREX_RENOV%');
-			$query="Insert into notices_custom (name,titre,type,datatype,options,multiple,obligatoire,ordre)
-			Select'Precio','Precio pagado por ejemplar con IVA','text','float','<OPTIONS FOR=\"text\">\r\n <SIZE>6</SIZE>\r\n <MAXSIZE>6</MAXSIZE>\r\n <REPEATABLE>0</REPEATABLE>\r\n <ISHTML>0</ISHTML>\r\n</OPTIONS> ',0,0,5
-			from dual where not exists (select name from notices_custom where name='Precio')";
+			
 -- Se actualizan parametros para deshabilitar la edicion de los formularios
 
 UPDATE parametres set valeur_param='0' WHERE type_param='pmb' and sstype_param='form_authorities_editables' and valeur_param='1';
