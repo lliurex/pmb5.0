@@ -191,7 +191,7 @@ if ($acces_m==0) {
 							$error_convo=1;
 						}
 						break;
-					case "ISBN267":
+					case "ISBN247":
 						$code_reg = preg_replace('/-|\.| /', '', $bul_cb);
 						if (strlen($code_reg)!==26){
 							error_message_history($msg["notice_champs_perso"],$msg["bul_convo_isbn_error"] ,1);
