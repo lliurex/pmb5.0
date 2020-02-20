@@ -212,7 +212,7 @@ Select (Select idchamp from notices_custom where name='Ubicacion'),'biblioEscola
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='biblioEscolar' and notices_custom_champ=(Select idchamp from notices_custom where name='Ubicacion'));
 		
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
-Select (Select idchamp from notices_custom where name='Ubicacion'),'biblioAula','Biblioteca de l\'Aula / Biblioteca del Aula',2
+Select (Select idchamp from notices_custom where name='Ubicacion'),'biblioAula','Biblioteca de l\'aula / Biblioteca del Aula',2
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='biblioAula' and notices_custom_champ=(Select idchamp from notices_custom where name='Ubicacion'));
 		
 
