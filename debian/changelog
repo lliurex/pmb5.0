@@ -1,3 +1,9 @@
+pmb (5.0.4+lliurex20) bionic; urgency=medium
+
+  * Improved operation of reindexation process
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 26 Feb 2020 09:30:04 +0100
+
 pmb (5.0.4+lliurex19) bionic; urgency=medium
 
   * Fixed function to assign codes automatically when creating a new user
