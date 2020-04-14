@@ -35,6 +35,10 @@ if ($acces_m==0) {
 
 	$retour = "./catalog.php?categ=serials&sub=view&sub=bulletinage&action=view&bul_id=$f_bulletin";
 	$explnum = new explnum($f_explnum_id);
+//--------------------------------------------------LLIUREX 28/01/2019-------------------------------------------------------	
+	$p_perso=new parametres_perso("explnum");
+	$p_perso->rec_fields_perso($f_explnum_id);
+//--------------------------------------------------LLIUREX 28/01/2019----------------------------------------------------------	
 	$explnum->mise_a_jour($f_notice, $f_bulletin, $f_nom, $f_url, $retour, $conservervignette, $f_statut_chk, $f_explnum_statut);	
 }
 ?>

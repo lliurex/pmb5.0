@@ -32,6 +32,14 @@ $edit_menu.= "
 ";	
 }
 
+// ------------------------------- LLIUREX CONVOCATORIA----------------------
+$edit_menu.="
+</ul>
+<h3 onclick='menuHide(this,event)'>$msg[notices_list]</h3>
+<ul>
+<li><a href='./edit.php?categ=books&sub=convocatoria'>".$msg['informe_ayudas']."</a></li>
+";
+//-----------------------------------------------------------------------------------------------
 $edit_menu.= "
 </ul>
 <h3 onclick='menuHide(this,event)'>$msg[350]</h3>

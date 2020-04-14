@@ -18,7 +18,10 @@ print "<?xml version='1.0' encoding='iso-8859-1'?>\n";
 if (!isset($grille_typdoc) || !$grille_typdoc) $grille_typdoc='a' ;
 if (!isset($grille_niveau_biblio) || !$grille_niveau_biblio) $grille_niveau_biblio='m' ;
 
-$requete = "select name from notices_custom order by ordre ";
+//-------------------------------Cambio en la select para excluir los campos personalizados de los registros para la Convocatoria--------------------
+//$requete = "select name from notices_custom order by ordre ";
+$requete = "select name from notices_custom where name not in ['Identificacion','Autoria','Literaria','Ubicacion'] order by ordre ";
+//------------------------------
 $res = pmb_mysql_query($requete, $dbh) or die(pmb_mysql_error()."<br />$requete");
 
 if ($grille_niveau_biblio=='m') {
@@ -39,6 +42,7 @@ if ($grille_niveau_biblio=='m') {
 		  <etirable id='elonglet0Child' visible='yes' order='14' />
 		  <etirable id='el11Child' visible='yes' order='15' />
 		  <etirable id='el10Child' visible='yes' order='16' />
+		 <etirable id='el999Child' visible='yes' order='17'/>
 		  <movable id='el0Child_0' visible='yes' parent='el0Child'/>
 		  <movable id='el0Child_1' visible='yes' parent='el0Child'/>
 		  <movable id='el0Child_2' visible='yes' parent='el0Child'/>
@@ -98,8 +102,9 @@ if ($grille_niveau_biblio=='s') {
 		  (pmb_mysql_num_rows($res)?"<etirable id='el9Child' visible='yes' order='9' />":"")."
 		  <etirable id='elonglet0Child' visible='yes' order='10' />
 		  <etirable id='el11Child' visible='yes' order='11' />
-		  <etirable id='el10Child' visible='yes' order='12' />";
-		  if ($pmb_map_activate) $grille_standard.="<etirable id='el14Child' visible='no' order='13' />";
+		  <etirable id='el10Child' visible='yes' order='12' />
+		  <etirable id='el999Child' visible='yes' order='13'/>";
+		  if ($pmb_map_activate) $grille_standard.="<etirable id='el14Child' visible='no' order='14' />";
 		$grille_standard.="
 		  <movable id='el0Child_0' visible='yes' parent='el0Child'/>
 		  <movable id='el0Child_1' visible='yes' parent='el0Child'/>
@@ -154,7 +159,8 @@ if ($grille_niveau_biblio=='a') {
 		  (pmb_mysql_num_rows($res)?"<etirable id='el9Child' visible='yes' order='10' />":"")."
 		  <etirable id='elonglet0Child' visible='yes' order='11' />		
 		  <etirable id='el11Child' visible='yes' order='12' />
-		  <etirable id='el10Child' visible='yes' order='13' />";
+		  <etirable id='el10Child' visible='yes' order='13' />
+		  <etirable id='el999Child' visible='yes' order='14'/>";
 		$grille_standard.="
 		<movable id='el0Child_0' visible='yes' parent='el0Child'/>
 		<movable id='el0Child_1' visible='yes' parent='el0Child'/>
@@ -198,8 +204,9 @@ if ($grille_niveau_biblio=='b') {
 		  <etirable id='el8Child' visible='yes' order='7' />".
 		  (pmb_mysql_num_rows($res)?"<etirable id='el9Child' visible='yes' order='8' />":"")."
 		  <etirable id='el11Child' visible='yes' order='9' />
-		  <etirable id='el10Child' visible='yes' order='10' />";
-		  if ($pmb_map_activate) $grille_standard.="<etirable id='el14Child' visible='no' order='11' />";
+		  <etirable id='el10Child' visible='yes' order='10' />
+		  <etirable id='el999Child' visible='yes' order='11'/>";
+		  if ($pmb_map_activate) $grille_standard.="<etirable id='el14Child' visible='no' order='12' />";
 		$grille_standard.="
 		<movable id='el5Child_0' visible='yes' parent='el5Child'/>
 		<movable id='el5Child_1' visible='yes' parent='el5Child'/>

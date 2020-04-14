@@ -592,7 +592,7 @@ class serial {
 		
 		$serial_top_form = str_replace('!!tab6!!', $ptab[6], $serial_top_form);
 		
-		//Mise à jour de l'onglet 7
+		//-----------------------Se modifica la pestaña para los campos personalizados para no incluir los campos para la Convocatoria
 		$p_perso=new parametres_perso("notices");
 		
 		if (!$p_perso->no_special_fields) {
@@ -601,13 +601,34 @@ class serial {
 			else $perso_=$p_perso->show_editable_fields($this->serial_id);
 		
 			$perso="";
+			$c1='Identi';
+			$c2='Idioma';
+			$c3='Autori';
+			$c4='Litera';
+			$c5='Precio';
+			$c6='Ubicac';
+			
 			for ($i=0; $i<count($perso_["FIELDS"]); $i++) {
 				$p=$perso_["FIELDS"][$i];
-				$perso.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($p["TITRE"],ENT_QUOTES, $charset)."\">
-						<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$p["TITRE"]."</label>".$p["COMMENT_DISPLAY"]."</div>
-						<div class='row'>".$p["AFF"]."</div>
-						</div>";
+				if (strncmp($p["NAME"], $c1,6)!== 0) {
+					if (strncmp($p["NAME"], $c2,6)!== 0) {
+						if (strncmp($p["NAME"], $c3,6)!== 0) {
+							if (strncmp($p["NAME"], $c4,6)!== 0) {
+								if (strncmp($p["NAME"], $c5,6)!== 0) {
+									if (strncmp($p["NAME"], $c6,6)!== 0) {
+										$perso.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($p["TITRE"],ENT_QUOTES, $charset)."\">
+										<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$p["TITRE"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+										<div class='row'>".$p["AFF"]."</div>
+										</div>";
+									}
+								}		
+							}
+						}
+					}
+				}		
+				
 			}
+			
 			$perso.=$perso_["CHECK_SCRIPTS"];
 			$ptab[7]=str_replace("!!champs_perso!!",$perso,$ptab[7]);
 		} else 
@@ -615,7 +636,74 @@ class serial {
 		
 		$serial_top_form = str_replace('!!tab7!!', $ptab[7], $serial_top_form);
 		
-		//Liens vers d'autres notices
+		
+	//--------------------------------Se añde la pestaña para los datos de la Convocatoria
+		$p_perso1=new parametres_perso("notices");
+			
+		if (!$p_perso1->no_special_fields) {
+			// si on duplique, construire le formulaire avec les donnees de la notice d'origine
+			if ($this->duplicate_from_serial_id) $perso1_=$p_perso1->show_editable_fields($this->duplicate_from_serial_id);
+			else $perso1_=$p_perso1->show_editable_fields($this->serial_id);
+			$perso1="";
+			for ($i=0; $i<count($perso1_["FIELDS"]); $i++) {
+				$p=$perso1_["FIELDS"][$i];
+				$c1='Identi';
+				$c2='Idioma';
+				$c3='Autori';
+				$c4='Litera';
+				$c5='Precio';
+				$c6='Ubicac';
+					
+				if (strncmp($p["NAME"], $c1,6)== 0) {
+					$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_type_id"],ENT_QUOTES, $charset)."\">
+							<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_type_id"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+							<div class='row'>".$p["AFF"]."</div>
+							</div>";
+				}else{
+					if (strncmp($p["NAME"], $c2,6)== 0) {
+						$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_langue"],ENT_QUOTES, $charset)."\">
+								<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_langue"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+								<div class='row'>".$p["AFF"]."</div>
+								</div>";
+					}else{			
+						if (strncmp($p["NAME"], $c3,6)== 0) {
+							$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_authorship"],ENT_QUOTES, $charset)."\">
+									<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_authorship"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+									<div class='row'>".$p["AFF"]."</div>
+									</div>";
+						}else{
+							if (strncmp($p["NAME"], $c4,6)== 0) {
+								$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_literary_work"],ENT_QUOTES, $charset)."\">
+										<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_literary_work"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+										<div class='row'>".$p["AFF"]."</div>
+										</div>";
+							}else{
+								if (strncmp($p["NAME"], $c5,6)== 0) {
+									$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_price"],ENT_QUOTES, $charset)."\">
+											<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_price"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+											<div class='row'>".$p["AFF"]."</div>
+											</div>";
+								}else{		
+									if (strncmp($p["NAME"], $c6,6)== 0) {
+										$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_location"],ENT_QUOTES, $charset)."\">
+												<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_location"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+												<div class='row'>".$p["AFF"]."</div>
+												</div>";
+									}			
+								}		
+							}
+						}			
+					}
+				}				 
+					
+			}
+			$perso1.=$perso1_["CHECK_SCRIPTS"];
+			$ptab[999]=str_replace("!!champs_perso!!",$perso1,$ptab[999]);
+		} else 
+			$ptab[999]="\n<script>function check_form() { return true; }</script>\n";
+		
+		$serial_top_form = str_replace('!!tab999!!', $ptab[999], $serial_top_form);
+		
 		if($this->duplicate_from_serial_id) {
 			$notice_relations = notice_relations_collection::get_object_instance($this->duplicate_from_serial_id);
 		} else {
@@ -2125,19 +2213,37 @@ class bulletinage extends serial {
 		
 		$serial_bul_form = str_replace('!!tab6!!', $ptab[6], $serial_bul_form);
 		
-		//Mise à jour de l'onglet 7
+		//Se modifica la pestaña para los campos personalizados para no incluir los campos para la Convocatoria
 		$p_perso=new parametres_perso("notices");
 		
 		if (!$p_perso->no_special_fields) {
 			$perso_=$p_perso->show_editable_fields($this->bull_num_notice);
 		
 			$perso="";
+			$c1='Identi';
+			$c2='Idioma';
+			$c3='Autori';
+			$c4='Litera';
+			$c5='Precio';
+			$c6='Ubicac';
 			for ($i=0; $i<count($perso_["FIELDS"]); $i++) {
 				$p=$perso_["FIELDS"][$i];
-				$perso.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($p["TITRE"],ENT_QUOTES, $charset)."\">
-						<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$p["TITRE"]."</label>".$p["COMMENT_DISPLAY"]."</div>
-						<div class='row'>".$p["AFF"]."</div>
-						</div>";
+				if (strncmp($p["NAME"], $c1,6)!== 0) {
+					if (strncmp($p["NAME"], $c2,6)!== 0) {
+						if (strncmp($p["NAME"], $c3,6)!== 0) {
+							if (strncmp($p["NAME"], $c4,6)!== 0) {
+								if (strncmp($p["NAME"], $c5,6)!== 0) {
+									if (strncmp($p["NAME"], $c6,6)!== 0) {
+										$perso.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($p["TITRE"],ENT_QUOTES, $charset)."\">
+												<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$p["TITRE"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+												<div class='row'>".$p["AFF"]."</div>
+												</div>";
+									}
+								}		
+							}
+						}
+					}
+				}		
 			}
 			$perso.=$perso_["CHECK_SCRIPTS"];
 			$ptab[7]=str_replace("!!champs_perso!!",$perso,$ptab[7]);
@@ -2145,6 +2251,71 @@ class bulletinage extends serial {
 			$ptab[7]="\n<script>function check_form() { return true; }</script>\n";
 		$serial_bul_form = str_replace('!!tab7!!', $ptab[7], $serial_bul_form);
 
+//Se añade una pestaña para los campos personalizados para la Convocatoria
+		$p_perso1=new parametres_perso("notices");
+			
+		if (!$p_perso1->no_special_fields) {
+			// si on duplique, construire le formulaire avec les donnees de la notice d'origine
+			$perso1_=$p_perso1->show_editable_fields($this->bull_num_notice);
+			$perso1="";
+			for ($i=0; $i<count($perso1_["FIELDS"]); $i++) {
+				$p=$perso1_["FIELDS"][$i];
+				$c1='Identi';
+				$c2='Idioma';
+				$c3='Autori';
+				$c4='Litera';
+				$c5='Precio';
+				$c6='Ubicac';
+				if (strncmp($p["NAME"], $c1,6)== 0) {
+					$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_type_id"],ENT_QUOTES, $charset)."\">
+							<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_type_id"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+							<div class='row'>".$p["AFF"]."</div>
+							</div>";
+				}else{
+					if (strncmp($p["NAME"], $c2,6)== 0) {
+						$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_langue"],ENT_QUOTES, $charset)."\">
+								<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_langue"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+								<div class='row'>".$p["AFF"]."</div>
+								</div>";
+					}else{			
+						if (strncmp($p["NAME"], $c3,6)== 0) {
+							$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_authorship"],ENT_QUOTES, $charset)."\">
+									<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_authorship"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+									<div class='row'>".$p["AFF"]."</div>
+									</div>";
+						}else{
+							if (strncmp($p["NAME"], $c4,6)== 0) {
+								$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_literary_work"],ENT_QUOTES, $charset)."\">
+										<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_literary_work"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+										<div class='row'>".$p["AFF"]."</div>
+										</div>";
+							}else{
+								if (strncmp($p["NAME"], $c5,6)== 0) {
+									$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_price"],ENT_QUOTES, $charset)."\">
+											<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_price"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+											<div class='row'>".$p["AFF"]."</div>
+											</div>";
+								}else{		
+									if (strncmp($p["NAME"], $c6,6)== 0) {
+										$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_location"],ENT_QUOTES, $charset)."\">
+												<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_location"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+												<div class='row'>".$p["AFF"]."</div>
+												</div>";
+									}	
+								}	
+							}		 
+						}
+					}
+				}				 
+			}
+			$perso1.=$perso1_["CHECK_SCRIPTS"];
+			$ptab[999]=str_replace("!!champs_perso!!",$perso1,$ptab[999]);
+		} else 
+			$ptab[999]="\n<script>function check_form() { return true; }</script>\n";
+		$serial_bul_form = str_replace('!!tab999!!', $ptab[999], $serial_bul_form);	
+		//Liens vers d'autres notices
+
+		
 		//Liens vers d'autres notices
 		$notice_relations = notice_relations_collection::get_object_instance($this->bull_num_notice);
 		$serial_bul_form = str_replace('!!tab13!!', $notice_relations->get_form($this->notice_link, 'b'),$serial_bul_form);
@@ -3119,7 +3290,7 @@ class analysis extends bulletinage {
 			$analysis_top_form = str_replace('!!tab230!!', $pdeptab[230], $analysis_top_form);
 		}		
 		
-		//Mise à jour de l'onglet 7
+		//Se modifica la pestaña para los campos personalizados para no incluir los de la Convocatoria
 		$p_perso=new parametres_perso("notices");
 		
 		if (!$p_perso->no_special_fields) {
@@ -3128,19 +3299,108 @@ class analysis extends bulletinage {
 			else $perso_=$p_perso->show_editable_fields($this->analysis_id);
 		
 			$perso="";
+			$c1='Identi';
+			$c2='Idioma';
+			$c3='Autori';
+			$c4='Litera';
+			$c5='Precio';
+			$c6='Ubicac';
 			for ($i=0; $i<count($perso_["FIELDS"]); $i++) {
 				$p=$perso_["FIELDS"][$i];
-				$perso.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($p["TITRE"],ENT_QUOTES, $charset)."\">
-						<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$p["TITRE"]."</label>".$p["COMMENT_DISPLAY"]."</div>
-						<div class='row'>".$p["AFF"]."</div>
-						</div>";
+				if (strncmp($p["NAME"], $c1,6)!== 0) {
+					if (strncmp($p["NAME"], $c2,6)!== 0) {
+						if (strncmp($p["NAME"], $c3,6)!== 0) {
+							if (strncmp($p["NAME"], $c4,6)!== 0) {
+								if (strncmp($p["NAME"], $c5,6)!== 0) {
+									if (strncmp($p["NAME"], $c6,6)!== 0) {
+										$perso.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($p["TITRE"],ENT_QUOTES, $charset)."\">
+												<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$p["TITRE"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+												<div class='row'>".$p["AFF"]."</div>
+												</div>";
+									}
+								}			
+							}
+						}
+					}
+				}		
+						
 			}
 			$perso.=$perso_["CHECK_SCRIPTS"];
 			$pdeptab[7]=str_replace("!!champs_perso!!",$perso,$pdeptab[7]);
 		} else 
 			$pdeptab[7]="\n<script>function check_form() { return true; }</script>\n";
+			
 		$analysis_top_form = str_replace('!!tab7!!', $pdeptab[7], $analysis_top_form);
+		
+	// Se añade una pestaña para los campos personalizados para la Convocatoria	
+		$p_perso1=new parametres_perso("notices");
+			
+		if (!$p_perso1->no_special_fields) {
+			// si on duplique, construire le formulaire avec les donnees de la notice d'origine
+			// si on duplique, construire le formulaire avec les donnees de la notice d'origine
+			if ($this->duplicate_from_id) $perso1_=$p_perso1->show_editable_fields($this->duplicate_from_id);
+			else $perso1_=$p_perso1->show_editable_fields($this->analysis_id);
+		
+			$perso1="";
+			for ($i=0; $i<count($perso1_["FIELDS"]); $i++) {
+				$p=$perso1_["FIELDS"][$i];
+				$c1='Identi';
+				$c2='Idioma';
+				$c3='Autori';
+				$c4='Litera';
+				$c5='Precio';
+				$c6='Ubicac';
 				
+				if (strncmp($p["NAME"], $c1,6)== 0) {
+					$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_type_id"],ENT_QUOTES, $charset)."\">
+							<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msmsg["notice_convo_type_id"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+							<div class='row'>".$p["AFF"]."</div>
+							</div>";
+				}else{
+					if (strncmp($p["NAME"], $c2,6)== 0) {
+						$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_langue"],ENT_QUOTES, $charset)."\">
+								<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_langue"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+								<div class='row'>".$p["AFF"]."</div>
+								</div>";
+					}else{			
+						if (strncmp($p["NAME"], $c3,6)== 0) {
+							$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_authorship"],ENT_QUOTES, $charset)."\">
+									<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_authorship"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+									<div class='row'>".$p["AFF"]."</div>
+									</div>";
+						}else{
+							if (strncmp($p["NAME"], $c4,6)== 0) {
+								$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_literary_work"],ENT_QUOTES, $charset)."\">
+										<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_literary_work"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+										<div class='row'>".$p["AFF"]."</div>
+										</div>";
+							}else{
+								if (strncmp($p["NAME"], $c5,6)== 0) {
+									$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_price"],ENT_QUOTES, $charset)."\">
+										<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_price"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+										<div class='row'>".$p["AFF"]."</div>
+										</div>";
+								}else{		
+									if (strncmp($p["NAME"], $c6,6)== 0) {
+										$perso1.="<div id='move_".$p["NAME"]."' movable='yes' title=\"".htmlentities($msg["notice_convo_location"],ENT_QUOTES, $charset)."\">
+												<div class='row'><label for='".$p["NAME"]."' class='etiquette'>".$msg["notice_convo_location"]."</label>".$p["COMMENT_DISPLAY"]."</div>
+												<div class='row'>".$p["AFF"]."</div>
+												</div>";
+									}	
+								}		
+							}	
+						}			
+					}
+				}				 
+					
+			}
+			$perso1.=$perso1_["CHECK_SCRIPTS"];
+			$pdeptab[999]=str_replace("!!champs_perso!!",$perso1,$pdeptab[999]);
+		} else 
+			$pdeptab[999]="\n<script>function check_form() { return true; }</script>\n";
+			
+		$analysis_top_form = str_replace('!!tab999!!', $pdeptab[999], $analysis_top_form);
+
 		//Liens vers d'autres notices
 		if($this->duplicate_from_id) {
 			$notice_relations = notice_relations_collection::get_object_instance($this->duplicate_from_id);

@@ -708,7 +708,7 @@ $Id: es_ES.xml,v 1.1289.2.39 2018-02-14 11:33:52 dgoron Exp $ -->
 <entry code="939">No hay ningún registro para mostrar</entry>
 <entry code="940">Nº de ejemplar, ISBN O EAN</entry>
 <entry code="1100">Informes</entry>
-<entry code="1110">Ejemplares</entry>
+<entry code="1110">Préstamos</entry>
 <entry code="1111">Préstamos actuales</entry>
 <entry code="1112">Retrasos por usuario</entry>
 <entry code="1113">Ejemplares por propietario</entry>
@@ -9616,7 +9616,7 @@ $Id: es_ES.xml,v 1.1289.2.39 2018-02-14 11:33:52 dgoron Exp $ -->
 <entry code="caddie_fast_access_authorities_no_selected">Vous n'avez sélectionné aucun panier d'autorités en accès rapide.</entry>
 <entry code="param_internal">Interne</entry>
 
-<entry code="isbd_notice_isbn">ISBN</entry>
+<entry code="isbd_notice_isbn">ISBN : </entry>
 <entry code='onto_onto_pmb_datatype_resource_pmb_selector'>Selecteur d'entité PMB</entry>
 <entry code='onto_onto_pmb_datatype_resource_pmb_selector_card_error'>Vous avez atteint le nombre d'élément maximum pour ce champ</entry>
 <!--LLIUREX 28/02/2018-->
@@ -10064,5 +10064,44 @@ $Id: es_ES.xml,v 1.1289.2.39 2018-02-14 11:33:52 dgoron Exp $ -->
 <entry code="indexation_end">La reindexación de la base de datos ha finalizado</entry>
 
 <!-- FIN LLIUREX 26/09/2018 -->
+
+<entry code="id_author">Id</entry>
+<entry code="nom_author">Nombre</entry>
+<entry code="sexo_author">Sexo</entry>
+<entry code="author_expl">Num libros asociados</entry>
+<entry code="expl_title">Título</entry>
+<entry code="exp_type_id">Tipo de indentificación</entry>
+<entry code="expl_id">Id</entry>
+<entry code="expl_lang">Idioma</entry>
+<entry code="expl_female_author">Autoria femenina</entry>
+<entry code="expl_literary_work">Obra literaria</entry>
+<entry code="expl_price">Precio</entry>
+<entry code="expl_num">Num ejemplares</entry>
+<entry code="expl_location">Ubicación</entry>
+<entry code="informe_ayudas">Listado de ayudas</entry>
+<entry code="informe_autores">Listado Autores</entry>
+<entry code="select_grant_period">Selecciona una convocatoria</entry>
+<entry code="grant_period_search">Buscar registros para la convocatoria</entry>
+<entry code="grant_periodo_search_error">No se han encontrado registros para la convocatoria seleccionada</entry>
+<entry code="notice_convo_price">Precio pagado por ejemplar con IVA</entry>
+<entry code="notice_nonisbn">Identificador : </entry>
+<entry code="notice_champs_convo">Datos para la convocatoria</entry>
+<entry code="notice_champs_others">Otros datos</entry>
+<entry code="notice_convo_type_id">Tipo de identificación</entry>
+<entry code="notice_convo_authorship">¿Tiene autoría femenina?</entry>
+<entry code="notice_convo_literary_work">¿Es una obra literaria?</entry>
+<entry code="notice_convo_location">Ubicación</entry>
+<entry code="notice_convo_langue">Idioma</entry>
+<entry code="notices_list">Registros</entry>
+<entry code="expl_convo">Incluir en la convocatoria de ayudas para el curso</entry>
+<entry code="notices_convo_codcentro">Código de centro</entry>
+<entry code="notices_convo_year">Datos para la convocatoria del año</entry>
+<entry code="notices_convo_codcentro_error">Debe indicar un código de centro válido para generar el listado</entry>
+<entry code="notices_convo_price_format_error">El precio indicado para el registro tiene un formato no válido</entry>
+<entry code="notices_convo_price_max_error">El precio indicado para el registro supera el máximo permitido</entry>
+<entry code="notices_convo_isbn_error">El tipo de indentificador indicado no corresponde con el valor introducido en el campo ISBN o EAN</entry>
+<entry code="bul_convo_isbn_error">El tipo de indentificador indicado no corresponde con el valor introducido en el campo Código de barras</entry>
+<entry code="convo_empty_values">Atención: Existen registros (marcados en rojo) con datos incompletos para la justificación de la ayuda.Revíselos antes de generar el fichero xml</entry>
+
 
 </XMLlist>

@@ -179,428 +179,484 @@ if ($acces_m==0) {
 		pmb_mysql_query($req_old, $dbh);
 	}
 	$p_perso=new parametres_perso("notices");
-	$nberrors=$p_perso->check_submited_fields();
-	
-	if(($f_tit1)&&trim($f_tit1)&&(!$nberrors)) {
-	
-		// nettoyage des champs du form
-		$f_tit1		=	clean_string($f_tit1);	
-		$f_tit2		=	clean_string($f_tit2);
-		$f_tit3		=	clean_string($f_tit3);
-		$f_tit4		=	clean_string($f_tit4);
-		$f_tparent	=	clean_string($f_tparent);
-		$f_tnvol	=	clean_string($f_tnvol);
-		$f_ed1		=	clean_string($f_ed1);
-		$f_ed2		=	clean_string($f_ed2);
-		$f_coll		=	clean_string($f_coll);
-		$f_subcoll	=	clean_string($f_subcoll);
-		$f_year		=	clean_string($f_year);
-		$f_nocoll	=	clean_string($f_nocoll);
-		$f_mention_edition	=	clean_string($f_mention_edition);
-		$f_cb		=	clean_string($f_cb);
-		$f_npages	=	clean_string($f_npages);
-		$f_ill		=	clean_string($f_ill);
-		$f_size		=	clean_string($f_size);
-		$f_prix		=	clean_string($f_prix);
-		$f_accomp	=	clean_string($f_accomp);
-		$f_lien		=	clean_string($f_lien);
-		$f_eformat	=	clean_string($f_eformat);
-		
-		// le contenu des champs du form est mis dans un tableau
-		$t_notice['typdoc'] = $typdoc;
-		$t_notice['statut'] = $form_notice_statut;
-		$t_notice['notice_is_new'] = $f_notice_is_new+0;	
-		
-		$t_notice['commentaire_gestion'] = $f_commentaire_gestion;
-		$t_notice['thumbnail_url'] = $f_thumbnail_url;
-		$t_notice['num_notice_usage'] = $form_num_notice_usage;
-		
-		$t_notice['tit1'] = $f_tit1;
-		$t_notice['tit2'] = $f_tit2;
-		$t_notice['tit3'] = $f_tit3;
-		$t_notice['tit4'] = $f_tit4;
-		if ($f_tparent && $f_tparent_id) $t_notice['tparent_id'] = $f_tparent_id ;
-		else $t_notice['tparent_id'] = 0;
-		$t_notice['tnvol'] = $f_tnvol;
-
-		// Titres uniformes
-		global $pmb_use_uniform_title;
-		if ($pmb_use_uniform_title) {
-			for ($i=0; $i<$max_titre_uniforme ; $i++) {
-				$var_tu_id = "f_titre_uniforme_code$i" ;
-				$var_ntu_titre = "ntu_titre$i" ;
-				$var_ntu_date = "ntu_date$i" ;
-				$var_ntu_sous_vedette = "ntu_sous_vedette$i" ;
-				$var_ntu_langue = "ntu_langue$i" ;
-				$var_ntu_version = "ntu_version$i" ;
-				$var_ntu_mention = "ntu_mention$i" ;
+	$perso_=$p_perso->show_editable_fields();
+	$f_cb=clean_string($f_cb);
+	$error_convo=0;
+	for ($i=0; $i<count($perso_["FIELDS"]); $i++) {
+		$p=$perso_["FIELDS"][$i];
+		$value=$p_perso->read_form_fields_perso($p["NAME"]);
+		switch($p["NAME"]){
+			case "Identificacion":
+				switch($value){
+					case "ISBN134":
+						if(!isISBN13($f_cb)) {
+							error_message_history($msg["notice_champs_perso"],$msg["notices_convo_isbn_error"] ,1);
+							$error_convo=1;
+						}
+						break;
+					case "ISBN103":
+						if(!isISBN10($f_cb)) {
+							error_message_history($msg["notice_champs_perso"],$msg["notices_convo_isbn_error"] ,1);
+							$error_convo=1;
+						}
+						break;
+					case "ISBN81":
+						if(!isISSN($f_cb)) {
+							error_message_history($msg["notice_champs_perso"],$msg["notices_convo_isbn_error"] ,1);
+							$error_convo=1;
+						}
+						break;
+					case "ISBN247":
+						$code_reg = preg_replace('/-|\.| /', '', $f_cb);
+						if (strlen($code_reg)!==26){
+							error_message_history($msg["notice_champs_perso"],$msg["notices_convo_isbn_error"] ,1);
+							$error_convo=1;
+						} 
+						break;
+					case "OTROS":
+						break;
+				
+				}
+				break;
+			case "Precio":
 			
-				$titres_uniformes[] = array (
-					'num_tu' => ${$var_tu_id},
-					'ntu_titre' => ${$var_ntu_titre},
-					'ntu_date' => ${$var_ntu_date},
-					'ntu_sous_vedette' => ${$var_ntu_sous_vedette},
-					'ntu_langue' => ${$var_ntu_langue},
-					'ntu_version' => ${$var_ntu_version},
-					'ntu_mention' => ${$var_ntu_mention} )
-				;
-			}
-		}
-	
-		// auteur principal
-		$f_aut[] = array (
-				'id' => $f_aut0_id,
-				'fonction' => $f_f0_code,
-				'type' => '0',
-				'ordre' => 0 );
-		
-		// autres auteurs
-		for ($i=0; $i<$max_aut1; $i++) {
-			$var_autid = "f_aut1_id$i" ;
-			$var_autfonc = "f_f1_code$i" ;
-			$f_aut[] = array (
-					'id' => ${$var_autid},
-					'fonction' => ${$var_autfonc},
-					'type' => '1',
-					'ordre' => $i );
-		}
-		
-		// auteurs secondaires
-		for ($i=0; $i<$max_aut2 ; $i++) {
-			$var_autid = "f_aut2_id$i" ;
-			$var_autfonc = "f_f2_code$i" ;
-			$f_aut[] = array (
-					'id' => ${$var_autid},
-					'fonction' => ${$var_autfonc},
-					'type' => '2',
-					'ordre' => $i );
-		}
-		
-		$f_ed1 ? $t_notice['ed1_id'] = $f_ed1_id : $t_notice['ed1_id'] = 0;
-		$f_ed2 ? $t_notice['ed2_id'] = $f_ed2_id : $t_notice['ed2_id'] = 0;
-		$f_coll && $t_notice['ed1_id'] ? $t_notice['coll_id'] = $f_coll_id : $t_notice['coll_id'] = 0;
-		$f_subcoll && $t_notice['coll_id'] ? $t_notice['subcoll_id'] = $f_subcoll_id : $t_notice['subcoll_id'] = 0;
-		$t_notice['year'] = trim($f_year) ;
-		$f_nocoll && $t_notice['coll_id'] ? $t_notice['nocoll'] = trim($f_nocoll) : $t_notice['nocoll'] = '';
-		$t_notice['mention_edition'] = trim($f_mention_edition) ; 
-		
-		$t_notice['code'] = '';
-		if ($f_cb) {
-			// ce controle redondant est la pour le cas ou l'utilisateur aurait change le code
-			if(isEAN($f_cb)) {
-				// la saisie est un EAN -> on tente de le formater en ISBN
-				$code = EANtoISBN($f_cb);
-				// si echec, on prend l'EAN comme il vient
-				if(!$code) $code = $f_cb;
-			} else {
-				if(isISBN($f_cb)) {
-					// si la saisie est un ISBN
-					$code = formatISBN($f_cb,13);
-					// si echec, ISBN errone on le prend sous cette forme
-					if(!$code) $code = $f_cb;
-				} else {
-					// ce n'est rien de tout ca, on prend la saisie telle quelle
-					$code = $f_cb;
-				}
-			}
-			$t_notice['code'] = $code;
-		}
-	
-		$t_notice['npages'] = $f_npages;
-		$t_notice['ill'] = $f_ill;
-		$t_notice['size'] = $f_size;
-		$t_notice['prix'] = $f_prix;
-		$t_notice['accomp'] = $f_accomp;
-	
-		$t_notice['n_gen'] = $f_n_gen;
-		$t_notice['n_contenu'] = $f_n_contenu;
-		$t_notice['n_resume'] = $f_n_resume;
-	
-		// categories		
-		if($tab_categ_order){
-			$categ_order=explode(",",$tab_categ_order);
-			$order=0;
-			foreach($categ_order as $old_order){
-				$var_categid = "f_categ_id$old_order" ;
-				if($var_categid){
-					$f_categ[] = array (
-							'id' => ${$var_categid},
-							'ordre' => $order );
-					$order++;
-				}	
-			}
-		}else{
-			for ($i=0; $i< $max_categ ; $i++) {
-				$var_categid = "f_categ_id$i" ;
-				$f_categ[] = array (
-						'id' => ${$var_categid},
-						'ordre' => $i );
-			}
-		}	
-		$f_indexint ? $t_notice['indexint'] = $f_indexint_id : $t_notice['indexint']= 0;
-	
-		$f_lien ? $t_notice['lien'] = $f_lien : $t_notice['lien'] = '';
-		$t_notice['lien'] && $f_eformat ? $t_notice['eformat'] = $f_eformat : $t_notice['eformat'] = '';
-	
-		$b_level ? $t_notice['b_level'] = $b_level : $t_notice['b_level'] = 'm';
-		$h_level ? $t_notice['h_level'] = $h_level : $t_notice['h_level'] = '0';
-	
-		$date_parution_notice = notice::get_date_parution($t_notice['year']);
-		
-		//Champ signature
-		$t_notice['signature'] = $signature;
-		$t_notice['indexation_lang'] = $indexation_lang;
-	
-		$requete .= " typdoc='${t_notice['typdoc']}'";
-		$requete .= ", tit1='${t_notice['tit1']}'";
-		$requete .= ", tit2='${t_notice['tit2']}'";
-		$requete .= ", tit3='${t_notice['tit3']}'";
-		$requete .= ", tit4='${t_notice['tit4']}'";
-		$requete .= ", tparent_id=${t_notice['tparent_id']}";
-		$requete .= ", tnvol='${t_notice['tnvol']}'";
-		$requete .= ", ed1_id='${t_notice['ed1_id']}'";
-		$requete .= ", ed2_id='${t_notice['ed2_id']}'";
-		$requete .= ", coll_id='${t_notice['coll_id']}'";
-		$requete .= ", subcoll_id='${t_notice['subcoll_id']}'";
-		$requete .= ", year='${t_notice['year']}'";
-		$requete .= ", nocoll='${t_notice['nocoll']}'";
-		$requete .= ", mention_edition='${t_notice['mention_edition']}'";
-		$requete .= ", code='${t_notice['code']}'";
-		$requete .= ", npages='${t_notice['npages']}'";
-		$requete .= ", ill='${t_notice['ill']}'";
-		$requete .= ", size='${t_notice['size']}'";
-		$requete .= ", prix='${t_notice['prix']}'";
-		$requete .= ", accomp='${t_notice['accomp']}'";
-		$requete .= ", n_gen='${t_notice['n_gen']}'";
-		$requete .= ", n_contenu='${t_notice['n_contenu']}'";
-		$requete .= ", n_resume='$t_notice[n_resume]'";
-		$requete .= ", indexint='${t_notice['indexint']}'";
-		$requete .= ", index_l='".clean_tags($f_indexation)."'";
-		$requete .= ", lien='${t_notice['lien']}'";
-		$requete .= ", eformat='${t_notice['eformat']}'";
-		$requete .= ", niveau_biblio='${t_notice['b_level']}'";
-		$requete .= ", niveau_hierar='${t_notice['h_level']}'";
-		$requete .= ", statut='${t_notice['statut']}'";
-		$requete .= ", commentaire_gestion='${t_notice['commentaire_gestion']}'";
-		$requete .= ", thumbnail_url='${t_notice['thumbnail_url']}'";
-		$requete .= ", signature='${t_notice['signature']}'";
-		$requete .= ", date_parution='$date_parution_notice'";
-		$requete .= ", indexation_lang='${t_notice['indexation_lang']}'";
-		$requete .= ", notice_is_new='${t_notice['notice_is_new']}'";
-		$requete .= ", num_notice_usage='${t_notice['num_notice_usage']}'";
-		$requete .= $req_notice_date_is_new;
-		$requete .= $postrequete;
-		
-		$result = pmb_mysql_query($requete, $dbh);
-		
-		//traitement audit
-		if (!$id) {
-			$sav_id=0;
-			$id=pmb_mysql_insert_id($dbh);
-			audit::insert_creation (AUDIT_NOTICE, $id) ;
-		} else {
-			$sav_id=$id;
-			audit::insert_modif (AUDIT_NOTICE, $id) ;
-		}
-		// autorité personnalisées			
-		$authperso = new authperso_notice($id);
-		$authperso->save_form();			
-		
-		// map		
-		global $pmb_map_activate;
-		if($pmb_map_activate){
-			$map = new map_edition_controler(TYPE_RECORD, $id);
-			$map->save_form();
-			$map_info = new map_info($id);
-			$map_info->save_form();
-		}
-					
-		// vignette de la notice uploadé dans un répertoire
-		$uploaded_thumbnail_url = thumbnail::create($id);
-		if($uploaded_thumbnail_url) {
-  			$query = "update notices set thumbnail_url='".$uploaded_thumbnail_url."' where notice_id ='".$id."'";
-			pmb_mysql_query($query);
-		}
-					
-		// Traitement des titres uniformes
-		if ($pmb_use_uniform_title) {
-			$ntu=new tu_notice($id);
-			$ntu->update($titres_uniformes);
-		}
-		
-		if(!isset($res_prf)) $res_prf = array();
-		if(!isset($prf_rad)) $prf_rad = array();
-		if(!isset($chk_rights)) $chk_rights = array();
-		if(!isset($r_rad)) $r_rad = array();
-		//traitement des droits acces user_notice
-		if ($gestion_acces_active==1 && $gestion_acces_user_notice==1) {
-			if ($sav_id) {		
-				$dom_1->storeUserRights(1, $id, $res_prf, $chk_rights, $prf_rad, $r_rad);
-			} else {
-				$dom_1->storeUserRights(0, $id, $res_prf, $chk_rights, $prf_rad, $r_rad);
-			}
-		}
-		
-		//traitement des droits acces empr_notice
-		if ($gestion_acces_active==1 && $gestion_acces_empr_notice==1) {
-			$dom_2= $ac->setDomain(2);
-			if ($sav_id) {	
-				$dom_2->storeUserRights(1, $id, $res_prf, $chk_rights, $prf_rad, $r_rad);
-			} else {
-				$dom_2->storeUserRights(0, $id, $res_prf, $chk_rights, $prf_rad, $r_rad);
-			}
-		}
-		
-		//Traitement des liens
-		$notice_relations = notice_relations_collection::get_object_instance($id);
-		$notice_relations->set_properties_from_form();
-		$notice_relations->save();
-
-		// nomenclature
-		global $pmb_nomenclature_activate;
-		if($pmb_nomenclature_activate){
-			$nomenclature= new nomenclature_record_ui($id);
-			$nomenclature->save_form();
-		}
-
-		// Clean des vedettes
-		$id_vedettes_links_deleted=notice::delete_vedette_links($id);
-		
-		// traitement des auteurs
-		$rqt_del = "delete from responsability where responsability_notice='$id' ";
-		$res_del = pmb_mysql_query($rqt_del);
-		$rqt_ins = "INSERT INTO responsability (responsability_author, responsability_notice, responsability_fonction, responsability_type, responsability_ordre) VALUES ";
-		
-		$i=0;
-		$var_name='notice_role_composed';
-		$role_composed=${$var_name};
-		$var_name='notice_role_autre_composed';
-		$role_composed_autre=${$var_name};
-		$var_name='notice_role_secondaire_composed';
-		$role_composed_secondaire=${$var_name};
-		$id_vedettes_used=array();
-		while ($i<=count ($f_aut)-1) {
-			$id_aut=$f_aut[$i]['id'];
-			if ($id_aut) {
-				$fonc_aut = $f_aut[$i]['fonction'];
-				$type_aut = $f_aut[$i]['type'];
-				$ordre_aut = $f_aut[$i]['ordre'];
-				$rqt = $rqt_ins . " ('$id_aut','$id','$fonc_aut','$type_aut', $ordre_aut) " ; 
-				$res_ins = @pmb_mysql_query($rqt);
-				$id_responsability=pmb_mysql_insert_id();
-				if($pmb_authors_qualification){
-					$id_vedette=0;
-					switch($type_aut){
-						case 0: 
-							$id_vedette=update_vedette(stripslashes_array($role_composed[$ordre_aut]),$id_responsability,TYPE_NOTICE_RESPONSABILITY_PRINCIPAL);
-						break;
-						case 1:  
-							$id_vedette=update_vedette(stripslashes_array($role_composed_autre[$ordre_aut]),$id_responsability,TYPE_NOTICE_RESPONSABILITY_AUTRE);
-						break;					
-						case 2:
-							$id_vedette=update_vedette(stripslashes_array($role_composed_secondaire[$ordre_aut]),$id_responsability,TYPE_NOTICE_RESPONSABILITY_SECONDAIRE);
-						break;
+				if ($value!=""){
+					if (is_numeric($value)){
+						if ($value>999.99){
+							error_message_history($msg["notice_champs_perso"],$msg["notices_convo_price_max_error"] ,1);
+							$error_convo=1;
+						}
+					}else{
+						error_message_history($msg["notice_champs_perso"],$msg["notices_convo_price_format_error"] ,1);
+						$error_convo=1;
 					}
-					if($id_vedette)$id_vedettes_used[]=$id_vedette; 
-				}
-			}
-			$i++;
-		}
-		foreach ($id_vedettes_links_deleted as $id_vedette){
-			if(!in_array($id_vedette,$id_vedettes_used)){
-				$vedette_composee = new vedette_composee($id_vedette);
-				$vedette_composee->delete();
-			}
-		}	
-		// traitement des categories
-		$rqt_del = "DELETE FROM notices_categories WHERE notcateg_notice='$id' ";
-		$res_del = pmb_mysql_query($rqt_del, $dbh);
-		$rqt_ins = "INSERT INTO notices_categories (notcateg_notice, num_noeud, ordre_categorie) VALUES ";
-		if(!isset($f_categ)) $f_categ = array();
-		while (list ($key, $val) = each ($f_categ)) {
-			$id_categ=$val['id'];
-			if ($id_categ) {
-				$ordre_categ = $val['ordre'];
-				$rqt = $rqt_ins . " ('$id','$id_categ',$ordre_categ) " ; 
-				$res_ins = @pmb_mysql_query($rqt, $dbh);
-			}
-		}
-		
-		// traitement des concepts
-		if($thesaurus_concepts_active == 1){
-			$index_concept = new index_concept($id, TYPE_NOTICE);
-			$index_concept->save();
-		}	
-		// traitement des langues
-		// langues
-		$f_lang_form = array();
-		$f_langorg_form = array() ;
-		for ($i=0; $i< $max_lang ; $i++) {
-			$var_langcode = "f_lang_code$i" ;
-			if (${$var_langcode}) $f_lang_form[] =  array ('code' => ${$var_langcode},'ordre' => $i);
-		}
-		
-		// langues originales
-		for ($i=0; $i< $max_langorg ; $i++) {
-			$var_langorgcode = "f_langorg_code$i" ;
-			if (${$var_langorgcode}) $f_langorg_form[] =  array ('code' => ${$var_langorgcode},'ordre' => $i);
-		}
-	
-		$rqt_del = "delete from notices_langues where num_notice='$id' ";
-		$res_del = pmb_mysql_query($rqt_del, $dbh);
-		$rqt_ins = "insert into notices_langues (num_notice, type_langue, code_langue, ordre_langue) VALUES ";
-		while (list ($key, $val) = each ($f_lang_form)) {
-			$tmpcode_langue=$val['code'];
-			if ($tmpcode_langue) {
-				$tmpordre_langue = $val['ordre'];
-				$rqt = $rqt_ins . " ('$id',0, '$tmpcode_langue',$tmpordre_langue) " ; 
-				$res_ins = pmb_mysql_query($rqt, $dbh);
-			}
-		}
-		
-		// traitement des langues originales
-		$rqt_ins = "insert into notices_langues (num_notice, type_langue, code_langue, ordre_langue) VALUES ";
-		while (list ($key, $val) = each ($f_langorg_form)) {
-			$tmpcode_langue=$val['code'];
-			if ($tmpcode_langue) {
-				$tmpordre_langue = $val['ordre'];
-				$rqt = $rqt_ins . " ('$id',1, '$tmpcode_langue',$tmpordre_langue) " ; 
-				$res_ins = @pmb_mysql_query($rqt, $dbh);
-			}
-		}
-		
-		//Traitement des champs personnalises
-		$p_perso->rec_fields_perso($id);
-		
-		if($result) {
-			include('./catalog/notices/isbd.inc.php');
-		} else {
-			// echec de la requete
-			error_message($libelle, $msg[281], 1, "./catalog.php");
-		}
-		
-		//Recherche du titre uniforme automatique
-		global $opac_enrichment_bnf_sparql;
-		//$opac_enrichment_bnf_sparql=1;
-		
-		$titre_uniforme=notice::getAutomaticTu($id);//ATTENTION si on récupère le titre uniforme ici alors il est bien ajoué à la notice mais pas affiché
-		
-		// Mise à jour de tous les index de la notice
-		notice::majNoticesTotal($id);
-		
-		//synchro_rdf
-		if($pmb_synchro_rdf){
-			$synchro_rdf->addRdf($id,0);
-		}
-	} else {
-		if ($f_tit1=="") {
-			// erreur : le champ tit1 est vide
-			error_message($libelle, $notitle_message, 1, "./catalog.php");
-		} else {
-			error_message_history($msg["notice_champs_perso"],$p_perso->error_message,1);
+				}	
+				break;
 		}
 	}
 
+	if ($error_convo==0){
+		$nberrors=$p_perso->check_submited_fields();
+		if(($f_tit1)&&trim($f_tit1)&&(!$nberrors)) {
+		
+			// nettoyage des champs du form
+			$f_tit1		=	clean_string($f_tit1);	
+			$f_tit2		=	clean_string($f_tit2);
+			$f_tit3		=	clean_string($f_tit3);
+			$f_tit4		=	clean_string($f_tit4);
+			$f_tparent	=	clean_string($f_tparent);
+			$f_tnvol	=	clean_string($f_tnvol);
+			$f_ed1		=	clean_string($f_ed1);
+			$f_ed2		=	clean_string($f_ed2);
+			$f_coll		=	clean_string($f_coll);
+			$f_subcoll	=	clean_string($f_subcoll);
+			$f_year		=	clean_string($f_year);
+			$f_nocoll	=	clean_string($f_nocoll);
+			$f_mention_edition	=	clean_string($f_mention_edition);
+			$f_cb		=	clean_string($f_cb);
+			$f_npages	=	clean_string($f_npages);
+			$f_ill		=	clean_string($f_ill);
+			$f_size		=	clean_string($f_size);
+			$f_prix		=	clean_string($f_prix);
+			$f_accomp	=	clean_string($f_accomp);
+			$f_lien		=	clean_string($f_lien);
+			$f_eformat	=	clean_string($f_eformat);
+			
+			// le contenu des champs du form est mis dans un tableau
+			$t_notice['typdoc'] = $typdoc;
+			$t_notice['statut'] = $form_notice_statut;
+			$t_notice['notice_is_new'] = $f_notice_is_new+0;	
+			
+			$t_notice['commentaire_gestion'] = $f_commentaire_gestion;
+			$t_notice['thumbnail_url'] = $f_thumbnail_url;
+			$t_notice['num_notice_usage'] = $form_num_notice_usage;
+			
+			$t_notice['tit1'] = $f_tit1;
+			$t_notice['tit2'] = $f_tit2;
+			$t_notice['tit3'] = $f_tit3;
+			$t_notice['tit4'] = $f_tit4;
+			if ($f_tparent && $f_tparent_id) $t_notice['tparent_id'] = $f_tparent_id ;
+			else $t_notice['tparent_id'] = 0;
+			$t_notice['tnvol'] = $f_tnvol;
+
+			// Titres uniformes
+			global $pmb_use_uniform_title;
+			if ($pmb_use_uniform_title) {
+				for ($i=0; $i<$max_titre_uniforme ; $i++) {
+					$var_tu_id = "f_titre_uniforme_code$i" ;
+					$var_ntu_titre = "ntu_titre$i" ;
+					$var_ntu_date = "ntu_date$i" ;
+					$var_ntu_sous_vedette = "ntu_sous_vedette$i" ;
+					$var_ntu_langue = "ntu_langue$i" ;
+					$var_ntu_version = "ntu_version$i" ;
+					$var_ntu_mention = "ntu_mention$i" ;
+				
+					$titres_uniformes[] = array (
+						'num_tu' => ${$var_tu_id},
+						'ntu_titre' => ${$var_ntu_titre},
+						'ntu_date' => ${$var_ntu_date},
+						'ntu_sous_vedette' => ${$var_ntu_sous_vedette},
+						'ntu_langue' => ${$var_ntu_langue},
+						'ntu_version' => ${$var_ntu_version},
+						'ntu_mention' => ${$var_ntu_mention} )
+					;
+				}
+			}
+		
+			// auteur principal
+			$f_aut[] = array (
+					'id' => $f_aut0_id,
+					'fonction' => $f_f0_code,
+					'type' => '0',
+					'ordre' => 0 );
+			
+			// autres auteurs
+			for ($i=0; $i<$max_aut1; $i++) {
+				$var_autid = "f_aut1_id$i" ;
+				$var_autfonc = "f_f1_code$i" ;
+				$f_aut[] = array (
+						'id' => ${$var_autid},
+						'fonction' => ${$var_autfonc},
+						'type' => '1',
+						'ordre' => $i );
+			}
+			
+			// auteurs secondaires
+			for ($i=0; $i<$max_aut2 ; $i++) {
+				$var_autid = "f_aut2_id$i" ;
+				$var_autfonc = "f_f2_code$i" ;
+				$f_aut[] = array (
+						'id' => ${$var_autid},
+						'fonction' => ${$var_autfonc},
+						'type' => '2',
+						'ordre' => $i );
+			}
+			
+			$f_ed1 ? $t_notice['ed1_id'] = $f_ed1_id : $t_notice['ed1_id'] = 0;
+			$f_ed2 ? $t_notice['ed2_id'] = $f_ed2_id : $t_notice['ed2_id'] = 0;
+			$f_coll && $t_notice['ed1_id'] ? $t_notice['coll_id'] = $f_coll_id : $t_notice['coll_id'] = 0;
+			$f_subcoll && $t_notice['coll_id'] ? $t_notice['subcoll_id'] = $f_subcoll_id : $t_notice['subcoll_id'] = 0;
+			$t_notice['year'] = trim($f_year) ;
+			$f_nocoll && $t_notice['coll_id'] ? $t_notice['nocoll'] = trim($f_nocoll) : $t_notice['nocoll'] = '';
+			$t_notice['mention_edition'] = trim($f_mention_edition) ; 
+			
+			$t_notice['code'] = '';
+			if ($f_cb) {
+				// ce controle redondant est la pour le cas ou l'utilisateur aurait change le code
+				if(isEAN($f_cb)) {
+					// la saisie est un EAN -> on tente de le formater en ISBN
+					$code = EANtoISBN($f_cb);
+					// si echec, on prend l'EAN comme il vient
+					if(!$code) $code = $f_cb;
+				} else {
+					if(isISBN($f_cb)) {
+						// si la saisie est un ISBN
+						$code = formatISBN($f_cb,13);
+						// si echec, ISBN errone on le prend sous cette forme
+						if(!$code) $code = $f_cb;
+					} else {
+						// ce n'est rien de tout ca, on prend la saisie telle quelle
+						$code = $f_cb;
+					}
+				}
+				$t_notice['code'] = $code;
+			}
+		
+			$t_notice['npages'] = $f_npages;
+			$t_notice['ill'] = $f_ill;
+			$t_notice['size'] = $f_size;
+			$t_notice['prix'] = $f_prix;
+			$t_notice['accomp'] = $f_accomp;
+		
+			$t_notice['n_gen'] = $f_n_gen;
+			$t_notice['n_contenu'] = $f_n_contenu;
+			$t_notice['n_resume'] = $f_n_resume;
+		
+			// categories		
+			if($tab_categ_order){
+				$categ_order=explode(",",$tab_categ_order);
+				$order=0;
+				foreach($categ_order as $old_order){
+					$var_categid = "f_categ_id$old_order" ;
+					if($var_categid){
+						$f_categ[] = array (
+								'id' => ${$var_categid},
+								'ordre' => $order );
+						$order++;
+					}	
+				}
+			}else{
+				for ($i=0; $i< $max_categ ; $i++) {
+					$var_categid = "f_categ_id$i" ;
+					$f_categ[] = array (
+							'id' => ${$var_categid},
+							'ordre' => $i );
+				}
+			}	
+			$f_indexint ? $t_notice['indexint'] = $f_indexint_id : $t_notice['indexint']= 0;
+		
+			$f_lien ? $t_notice['lien'] = $f_lien : $t_notice['lien'] = '';
+			$t_notice['lien'] && $f_eformat ? $t_notice['eformat'] = $f_eformat : $t_notice['eformat'] = '';
+		
+			$b_level ? $t_notice['b_level'] = $b_level : $t_notice['b_level'] = 'm';
+			$h_level ? $t_notice['h_level'] = $h_level : $t_notice['h_level'] = '0';
+		
+			$date_parution_notice = notice::get_date_parution($t_notice['year']);
+			
+			//Champ signature
+			$t_notice['signature'] = $signature;
+			$t_notice['indexation_lang'] = $indexation_lang;
+		
+			$requete .= " typdoc='${t_notice['typdoc']}'";
+			$requete .= ", tit1='${t_notice['tit1']}'";
+			$requete .= ", tit2='${t_notice['tit2']}'";
+			$requete .= ", tit3='${t_notice['tit3']}'";
+			$requete .= ", tit4='${t_notice['tit4']}'";
+			$requete .= ", tparent_id=${t_notice['tparent_id']}";
+			$requete .= ", tnvol='${t_notice['tnvol']}'";
+			$requete .= ", ed1_id='${t_notice['ed1_id']}'";
+			$requete .= ", ed2_id='${t_notice['ed2_id']}'";
+			$requete .= ", coll_id='${t_notice['coll_id']}'";
+			$requete .= ", subcoll_id='${t_notice['subcoll_id']}'";
+			$requete .= ", year='${t_notice['year']}'";
+			$requete .= ", nocoll='${t_notice['nocoll']}'";
+			$requete .= ", mention_edition='${t_notice['mention_edition']}'";
+			$requete .= ", code='${t_notice['code']}'";
+			$requete .= ", npages='${t_notice['npages']}'";
+			$requete .= ", ill='${t_notice['ill']}'";
+			$requete .= ", size='${t_notice['size']}'";
+			$requete .= ", prix='${t_notice['prix']}'";
+			$requete .= ", accomp='${t_notice['accomp']}'";
+			$requete .= ", n_gen='${t_notice['n_gen']}'";
+			$requete .= ", n_contenu='${t_notice['n_contenu']}'";
+			$requete .= ", n_resume='$t_notice[n_resume]'";
+			$requete .= ", indexint='${t_notice['indexint']}'";
+			$requete .= ", index_l='".clean_tags($f_indexation)."'";
+			$requete .= ", lien='${t_notice['lien']}'";
+			$requete .= ", eformat='${t_notice['eformat']}'";
+			$requete .= ", niveau_biblio='${t_notice['b_level']}'";
+			$requete .= ", niveau_hierar='${t_notice['h_level']}'";
+			$requete .= ", statut='${t_notice['statut']}'";
+			$requete .= ", commentaire_gestion='${t_notice['commentaire_gestion']}'";
+			$requete .= ", thumbnail_url='${t_notice['thumbnail_url']}'";
+			$requete .= ", signature='${t_notice['signature']}'";
+			$requete .= ", date_parution='$date_parution_notice'";
+			$requete .= ", indexation_lang='${t_notice['indexation_lang']}'";
+			$requete .= ", notice_is_new='${t_notice['notice_is_new']}'";
+			$requete .= ", num_notice_usage='${t_notice['num_notice_usage']}'";
+			$requete .= $req_notice_date_is_new;
+			$requete .= $postrequete;
+			
+			$result = pmb_mysql_query($requete, $dbh);
+			
+			//traitement audit
+			if (!$id) {
+				$sav_id=0;
+				$id=pmb_mysql_insert_id($dbh);
+				audit::insert_creation (AUDIT_NOTICE, $id) ;
+			} else {
+				$sav_id=$id;
+				audit::insert_modif (AUDIT_NOTICE, $id) ;
+			}
+			// autorité personnalisées			
+			$authperso = new authperso_notice($id);
+			$authperso->save_form();			
+			
+			// map		
+			global $pmb_map_activate;
+			if($pmb_map_activate){
+				$map = new map_edition_controler(TYPE_RECORD, $id);
+				$map->save_form();
+				$map_info = new map_info($id);
+				$map_info->save_form();
+			}
+						
+			// vignette de la notice uploadé dans un répertoire
+			$uploaded_thumbnail_url = thumbnail::create($id);
+			if($uploaded_thumbnail_url) {
+				$query = "update notices set thumbnail_url='".$uploaded_thumbnail_url."' where notice_id ='".$id."'";
+				pmb_mysql_query($query);
+			}
+						
+			// Traitement des titres uniformes
+			if ($pmb_use_uniform_title) {
+				$ntu=new tu_notice($id);
+				$ntu->update($titres_uniformes);
+			}
+			
+			if(!isset($res_prf)) $res_prf = array();
+			if(!isset($prf_rad)) $prf_rad = array();
+			if(!isset($chk_rights)) $chk_rights = array();
+			if(!isset($r_rad)) $r_rad = array();
+			//traitement des droits acces user_notice
+			if ($gestion_acces_active==1 && $gestion_acces_user_notice==1) {
+				if ($sav_id) {		
+					$dom_1->storeUserRights(1, $id, $res_prf, $chk_rights, $prf_rad, $r_rad);
+				} else {
+					$dom_1->storeUserRights(0, $id, $res_prf, $chk_rights, $prf_rad, $r_rad);
+				}
+			}
+			
+			//traitement des droits acces empr_notice
+			if ($gestion_acces_active==1 && $gestion_acces_empr_notice==1) {
+				$dom_2= $ac->setDomain(2);
+				if ($sav_id) {	
+					$dom_2->storeUserRights(1, $id, $res_prf, $chk_rights, $prf_rad, $r_rad);
+				} else {
+					$dom_2->storeUserRights(0, $id, $res_prf, $chk_rights, $prf_rad, $r_rad);
+				}
+			}
+			
+			//Traitement des liens
+			$notice_relations = notice_relations_collection::get_object_instance($id);
+			$notice_relations->set_properties_from_form();
+			$notice_relations->save();
+
+			// nomenclature
+			global $pmb_nomenclature_activate;
+			if($pmb_nomenclature_activate){
+				$nomenclature= new nomenclature_record_ui($id);
+				$nomenclature->save_form();
+			}
+
+			// Clean des vedettes
+			$id_vedettes_links_deleted=notice::delete_vedette_links($id);
+			
+			// traitement des auteurs
+			$rqt_del = "delete from responsability where responsability_notice='$id' ";
+			$res_del = pmb_mysql_query($rqt_del);
+			$rqt_ins = "INSERT INTO responsability (responsability_author, responsability_notice, responsability_fonction, responsability_type, responsability_ordre) VALUES ";
+			
+			$i=0;
+			$var_name='notice_role_composed';
+			$role_composed=${$var_name};
+			$var_name='notice_role_autre_composed';
+			$role_composed_autre=${$var_name};
+			$var_name='notice_role_secondaire_composed';
+			$role_composed_secondaire=${$var_name};
+			$id_vedettes_used=array();
+			while ($i<=count ($f_aut)-1) {
+				$id_aut=$f_aut[$i]['id'];
+				if ($id_aut) {
+					$fonc_aut = $f_aut[$i]['fonction'];
+					$type_aut = $f_aut[$i]['type'];
+					$ordre_aut = $f_aut[$i]['ordre'];
+					$rqt = $rqt_ins . " ('$id_aut','$id','$fonc_aut','$type_aut', $ordre_aut) " ; 
+					$res_ins = @pmb_mysql_query($rqt);
+					$id_responsability=pmb_mysql_insert_id();
+					if($pmb_authors_qualification){
+						$id_vedette=0;
+						switch($type_aut){
+							case 0: 
+								$id_vedette=update_vedette(stripslashes_array($role_composed[$ordre_aut]),$id_responsability,TYPE_NOTICE_RESPONSABILITY_PRINCIPAL);
+							break;
+							case 1:  
+								$id_vedette=update_vedette(stripslashes_array($role_composed_autre[$ordre_aut]),$id_responsability,TYPE_NOTICE_RESPONSABILITY_AUTRE);
+							break;					
+							case 2:
+								$id_vedette=update_vedette(stripslashes_array($role_composed_secondaire[$ordre_aut]),$id_responsability,TYPE_NOTICE_RESPONSABILITY_SECONDAIRE);
+							break;
+						}
+						if($id_vedette)$id_vedettes_used[]=$id_vedette; 
+					}
+				}
+				$i++;
+			}
+			foreach ($id_vedettes_links_deleted as $id_vedette){
+				if(!in_array($id_vedette,$id_vedettes_used)){
+					$vedette_composee = new vedette_composee($id_vedette);
+					$vedette_composee->delete();
+				}
+			}	
+			// traitement des categories
+			$rqt_del = "DELETE FROM notices_categories WHERE notcateg_notice='$id' ";
+			$res_del = pmb_mysql_query($rqt_del, $dbh);
+			$rqt_ins = "INSERT INTO notices_categories (notcateg_notice, num_noeud, ordre_categorie) VALUES ";
+			if(!isset($f_categ)) $f_categ = array();
+			while (list ($key, $val) = each ($f_categ)) {
+				$id_categ=$val['id'];
+				if ($id_categ) {
+					$ordre_categ = $val['ordre'];
+					$rqt = $rqt_ins . " ('$id','$id_categ',$ordre_categ) " ; 
+					$res_ins = @pmb_mysql_query($rqt, $dbh);
+				}
+			}
+			
+			// traitement des concepts
+			if($thesaurus_concepts_active == 1){
+				$index_concept = new index_concept($id, TYPE_NOTICE);
+				$index_concept->save();
+			}	
+			// traitement des langues
+			// langues
+			$f_lang_form = array();
+			$f_langorg_form = array() ;
+			for ($i=0; $i< $max_lang ; $i++) {
+				$var_langcode = "f_lang_code$i" ;
+				if (${$var_langcode}) $f_lang_form[] =  array ('code' => ${$var_langcode},'ordre' => $i);
+			}
+			
+			// langues originales
+			for ($i=0; $i< $max_langorg ; $i++) {
+				$var_langorgcode = "f_langorg_code$i" ;
+				if (${$var_langorgcode}) $f_langorg_form[] =  array ('code' => ${$var_langorgcode},'ordre' => $i);
+			}
+		
+			$rqt_del = "delete from notices_langues where num_notice='$id' ";
+			$res_del = pmb_mysql_query($rqt_del, $dbh);
+			$rqt_ins = "insert into notices_langues (num_notice, type_langue, code_langue, ordre_langue) VALUES ";
+			while (list ($key, $val) = each ($f_lang_form)) {
+				$tmpcode_langue=$val['code'];
+				if ($tmpcode_langue) {
+					$tmpordre_langue = $val['ordre'];
+					$rqt = $rqt_ins . " ('$id',0, '$tmpcode_langue',$tmpordre_langue) " ; 
+					$res_ins = pmb_mysql_query($rqt, $dbh);
+				}
+			}
+			
+			// traitement des langues originales
+			$rqt_ins = "insert into notices_langues (num_notice, type_langue, code_langue, ordre_langue) VALUES ";
+			while (list ($key, $val) = each ($f_langorg_form)) {
+				$tmpcode_langue=$val['code'];
+				if ($tmpcode_langue) {
+					$tmpordre_langue = $val['ordre'];
+					$rqt = $rqt_ins . " ('$id',1, '$tmpcode_langue',$tmpordre_langue) " ; 
+					$res_ins = @pmb_mysql_query($rqt, $dbh);
+				}
+			}
+			
+			//Traitement des champs personnalises
+			$p_perso->rec_fields_perso($id);
+			
+			if($result) {
+				include('./catalog/notices/isbd.inc.php');
+			} else {
+				// echec de la requete
+				error_message($libelle, $msg[281], 1, "./catalog.php");
+			}
+			
+			//Recherche du titre uniforme automatique
+			global $opac_enrichment_bnf_sparql;
+			//$opac_enrichment_bnf_sparql=1;
+			
+			$titre_uniforme=notice::getAutomaticTu($id);//ATTENTION si on récupère le titre uniforme ici alors il est bien ajoué à la notice mais pas affiché
+			
+			// Mise à jour de tous les index de la notice
+			notice::majNoticesTotal($id);
+			
+			//synchro_rdf
+			if($pmb_synchro_rdf){
+				$synchro_rdf->addRdf($id,0);
+			}
+		} else {
+			if ($f_tit1=="") {
+				// erreur : le champ tit1 est vide
+				error_message($libelle, $notitle_message, 1, "./catalog.php");
+			} else {
+				error_message_history($msg["notice_champs_perso"],$p_perso->error_message,1);
+			}
+		}
+	}
 }
 	
 function update_vedette($data,$id,$type){

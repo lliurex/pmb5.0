@@ -1507,6 +1507,26 @@ $ptab[1111] = "
 	</blockquote>
 ";
 
+
+//    ----------------------------------------------------
+//    Campos para la convocatoria
+//       $ptab[999] : Contenido de la pestaña 999 (campos para la convocatoria)
+//    ----------------------------------------------------
+
+$ptab[999] = "
+<!-- onglet 999 -->
+<div id='el999Parent' class='parent'>
+	<h3>
+	    <img src='./images/plus.gif' class='img_plus' name='imEx' id='el999Img' onClick=\"expandBase('el999', true); recalc_recept(); return false;\" title='".$msg["notice_champs_convo"]."' border='0' /> ".$msg["notice_champs_convo"]."
+	</h3>
+</div>
+<div id='el999Child' class='child' etirable='yes' title='".$msg["notice_champs_convo"]."'>
+	
+	!!champs_perso!!
+</div>
+";
+
+
 // 	  $form_notice : formulaire de notice
 // Ajout javascript/ajax.js et ajax_parse_dom() NG72
 global $pmb_catalog_verif_js_integration;
@@ -1614,6 +1634,8 @@ $form_notice .= "<hr class='spacer' />
 !!tab10!!
 <hr class='spacer' />
 !!tab11!!
+<hr class='spacer' />
+!!tab999!!
 <hr class='spacer' />
 </div>
 <div class='row'>

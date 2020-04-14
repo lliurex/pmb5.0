@@ -83,6 +83,15 @@ switch($dest) {
 	}
 
 switch($categ) {
+
+	//------------------------------LLIUREX CONVOCATORIA------------------
+	case "books":
+		case "convocatoria":
+			$titre_page = $msg["notices_list"].": ".$msg["informe_ayudas"];  
+			include("./edit/books_ayudas.inc.php");
+			break;
+		break;	
+	//---------------------------------------------------------------------------	
 	// EDITIONS LIEES AUX NOTICES
 	case "notices":
 		switch($sub) {
@@ -348,7 +357,8 @@ switch($categ) {
 					$titre_page = $msg['overdue_short_loans'];
 					$critere_requete=" and short_loan_flag='1' and pret_retour < curdate() order by pret_retour ";
 					include("./edit/expl.inc.php");
-					break;					
+					break;	
+									
 				default :
 				case "encours" :
 					$sub = "encours" ;
