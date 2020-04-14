@@ -1,3 +1,10 @@
+pmb (5.0.4+lliurex21) bionic; urgency=medium
+
+  * Added support for generating the list for aid calls
+  * Fixed indexation process
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 14 Apr 2020 08:03:58 +0200
+
 pmb (5.0.4+lliurex20) bionic; urgency=medium
 
   * Improved operation of reindexation process
