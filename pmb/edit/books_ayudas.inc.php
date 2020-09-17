@@ -57,12 +57,14 @@ function search_empty_fields($convo){
 	return 0;
 
 }
+
 switch($dest) {
 	case "TABLEAU":
 		$filename = "convo_list.xml";
 		$doc = new DOMDocument('1.0', 'ISO-8859-1');
 		$doc->formatOutput = false;
 		break;
+		
 	case "TABLEAUHTML":
 		echo "<h1>".$titre_page."</h1>" ;  
 		break;
@@ -76,9 +78,16 @@ if ($cod_centro!= ""){
 	$check=check_codcentro($cod_centro);
 	if($check==1){
 		switch($dest) {
+
 			case "TABLEAU":
+				header ("Content-Type: text/html; charset=".$charset);
+				echo "<h1> Error: </h1>";
+				echo "<h2>".$msg['notices_convo_codcentro_error']."</h2>" ;
+				echo "<input class='bouton' type='button' value=' $msg[return_convo] ' onClick=\"document.location='./edit.php?categ=books&sub=$sub'\" />";
 				break;
+							
 			case "TABLEAUHTML":
+				echo "<h2>".$msg['notices_convo_codcentro_error']."</h2>" ;
 				break;
 			default:
 				echo "
@@ -524,10 +533,20 @@ if ($cod_centro!= ""){
 
 	} else {
 		// la requête n'a produit aucun résultat
+		if ($grant_period==0){
+			$message_error=$msg['notices_convo_grantperiod_error'];
+		}else{
+			$message_error=$msg['grant_periodo_search_error'];
+		}
 		switch($dest) {
 			case "TABLEAU":
-				break;
+					header ("Content-Type: text/html; charset=".$charset);
+					echo "<h1> Error: </h1>";
+					echo "<h2>".$message_error."</h2>" ;
+					echo "<input class='bouton' type='button' value=' $msg[return_convo] ' onClick=\"document.location='./edit.php?categ=books&sub=$sub'\" />";
+					break;
 			case "TABLEAUHTML":
+				echo "<h2>".$message_error."</h2>" ;
 				break;
 			default:
 				echo "
@@ -557,15 +576,21 @@ if ($cod_centro!= ""){
 			
 				echo "
 				<div class='row'></div></form>";
-				error_message($msg['grant_period_search'], str_replace('!!form_cb!!', $form_cb, $msg['grant_periodo_search_error']), 1, './edit.php?categ=books&sub='.$sub);
+
+				error_message($msg['grant_period_search'], str_replace('!!form_cb!!', $form_cb, $message_error), 1, './edit.php?categ=books&sub='.$sub);
 		}
 	}
 }else{
 
 	switch($dest) {
 			case "TABLEAU":
+				header ("Content-Type: text/html; charset=".$charset);
+				echo "<h1> Error: </h1>";
+				echo "<h2>".$msg['notices_convo_codcentro_error']."</h2>" ;
+				echo "<input class='bouton' type='button' value=' $msg[return_convo] ' onClick=\"document.location='./edit.php?categ=books&sub=$sub'\" />";
 				break;
 			case "TABLEAUHTML":
+				echo "<h2>".$msg['notices_convo_codcentro_error']."</h2>" ;
 				break;
 			default:
 				echo "

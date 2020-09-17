@@ -7770,12 +7770,13 @@ $Id: va_ES.xml,v 1.747.2.19 2015-01-07 13:29:11 jpermanne Exp $ -->
 <entry code="expl_convo">Inclou-lo en la convocatòria d'ajudes per al curs</entry>
 <entry code="notices_convo_codcentro">Codi de centre</entry>
 <entry code="notices_convo_year">Dades per a la convocatòria de l'any</entry>
-<entry code="notices_convo_codcentro_error">Heu d'indicar el codi de centre per a generar el llistat</entry>
+<entry code="notices_convo_codcentro_error">Heu d'indicar un codi de centre vàlid per a generar el llistat</entry>
 <entry code="notices_convo_price_format_error">El preu indicat per al registre té un format no vàlid</entry>
 <entry code="notices_convo_price_max_error">El preu indicat per al registre supera el màxim permés</entry>
 <entry code="notices_convo_isbn_error">El tipus d'identificador indicat no correspon amb el valor introduït en el camp ISBN o EAN</entry>
 <entry code="bul_convo_isbn_error">El tipus d'identificador indicat no correspon amb el valor introduït en el camp Codi de barres</entry>
 <entry code="convo_empty_values">Atenció: Existeixen registres (marcats en roig) amb dades incompletes per a la justificació de l'ajuda. Reviseu-los abans de generar el fitxer</entry>
-
+<entry code="notices_convo_grantperiod_error">Heu de seleccionar una convocatòria per a  generar el llistat</entry>
+<entry code="return_convo">Torna</entry>
 
 </XMLlist>

@@ -10103,5 +10103,6 @@ $Id: es_ES.xml,v 1.1289.2.39 2018-02-14 11:33:52 dgoron Exp $ -->
 <entry code="bul_convo_isbn_error">El tipo de indentificador indicado no corresponde con el valor introducido en el campo Código de barras</entry>
 <entry code="convo_empty_values">Atención: Existen registros (marcados en rojo) con datos incompletos para la justificación de la ayuda.Revíselos antes de generar el fichero xml</entry>
 
-
+<entry code="notices_convo_grantperiod_error">Debe seleccionar una convocatoria para generar el listado</entry>
+<entry code="return_convo">Volver</entry>
 </XMLlist>
