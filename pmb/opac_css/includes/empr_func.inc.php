@@ -7,6 +7,7 @@
 if (stristr($_SERVER['REQUEST_URI'], ".inc.php")) die("no access");
 
 require_once($class_path."/password.class.php");
+require_once($class_path."/emprunteur.class.php");
 
 function connexion_empr() {
 	global $dbh, $msg, $opac_duration_session_auth;
@@ -36,7 +37,7 @@ function connexion_empr() {
 		}
 		if ($time_expired==0) { // début if ($time_expired==0) 1
 			//Si pas de session en cours, vérification du login
-			$verif_query = "SELECT id_empr, empr_cb, empr_nom, empr_prenom, empr_password, empr_lang, empr_date_expiration<sysdate() as isexp, empr_login, empr_ldap,empr_location, allow_opac 
+			$verif_query = "SELECT id_empr, empr_cb, empr_nom, empr_prenom, empr_password, empr_lang, empr_date_expiration<sysdate() as isexp, empr_login,empr_ldap,empr_location, allow_opac 
 					FROM empr
 					JOIN empr_statut ON empr_statut=idstatut
 					WHERE empr_login='".($emprlogin ? $emprlogin :$p_login)."'";
@@ -65,21 +66,27 @@ function connexion_empr() {
 				$verif_opac = 0;
 				$empr_location = 0;
 			}
-
 			$auth_ok=0;
 			if ($verif_opac) {
-				if (!$encrypted_password) {
-					$encrypted_password = password::gen_hash($password, $verif_id_empr);
-				}
-				$empty_encrypted_password = password::gen_hash('', $verif_id_empr);
+					if (!$encrypted_password) {
+						$encrypted_password = password::gen_hash($password, $verif_id_empr);
+						/* LLIUREX 28/092020---------------------*/
+						if ($password==$verif_empr_password){
+							$verif_empr_password=$encrypted_password;
+						}
+						/* LLIUREX 28/09/2020--------------------------*/
+					}
+					
+					$empty_encrypted_password = password::gen_hash('', $verif_id_empr);
+					
+					if ($ext_auth) $auth_ok=$ext_auth;
+					elseif($code) $auth_ok = connexion_auto();
+					elseif($password_key) $auth_ok = connexion_unique();
+					elseif (($verif_empr_ldap)) $auth_ok=auth_ldap($p_login,$password); // auth by server ldap
+					else $auth_ok=( ($empty_pwd || $verif_empr_password!=$empty_encrypted_password) && ($verif_empr_password==$encrypted_password) && ($verif_empr_login!='')/*&&(!$verif_isexp)*/ ); //auth standard
 				
-				if ($ext_auth) $auth_ok=$ext_auth;
-				elseif($code) $auth_ok = connexion_auto();
-				elseif($password_key) $auth_ok = connexion_unique();
-				elseif (($verif_empr_ldap)) $auth_ok=auth_ldap($p_login,$password); // auth by server ldap
-				else $auth_ok=( ($empty_pwd || $verif_empr_password!=$empty_encrypted_password) && ($verif_empr_password==$encrypted_password) && ($verif_empr_login!='')/*&&(!$verif_isexp)*/ ); //auth standard
 			}
-
+			
 			if ($auth_ok) { // début if ($auth_ok) 1
 				$cart_anonymous = array();
 				if($opac_integrate_anonymous_cart && isset($_SESSION['cart'])) {
