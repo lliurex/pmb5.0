@@ -1,3 +1,9 @@
+pmb (5.0.4+lliurex23) bionic; urgency=medium
+
+  * Fixed login in opac
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 01 Oct 2020 12:32:51 +0200
+
 pmb (5.0.4+lliurex22) bionic; urgency=medium
 
   * Improved feedback in aid calls form
