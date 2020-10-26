@@ -1,3 +1,9 @@
+pmb (5.0.4+lliurex24) bionic; urgency=medium
+
+  * The change in the coding of some fields is forced to avoid errors in the generation of the list of the call for aid
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 26 Oct 2020 13:36:18 +0100
+
 pmb (5.0.4+lliurex23) bionic; urgency=medium
 
   * Fixed login in opac
