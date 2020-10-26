@@ -1,23 +1,23 @@
--- Se actualiza la tabla z_bib con los nuevos datos de conexiÃ³n a Rebeca
+-- Se actualiza la tabla z_bib con los nuevos datos de conexión a Rebeca
 
 UPDATE z_bib SET bib_nom = 'REBECA', url = 'catalogos.mecd.es', port = '220', base = 'ABNET_REBECA', format ='ISO 8859-1' WHERE url = 'rebeca.mcu.es' || url='rebeca_z3950.mcu.es';
 
--- Se actualiza la tabla z_bib con los nuevos datos de conexiÃ³n a Biblioteca Valenciana
+-- Se actualiza la tabla z_bib con los nuevos datos de conexión a Biblioteca Valenciana
 UPDATE z_bib SET bib_nom = 'Biblioteca Valenciana', url = 'bvnpz3950.gva.es', port = '2102', base = 'ABNET_DB', format ='ISO 8859-1' WHERE url = 'bv.gva.es';
 
 -- Se actualiza la tabla z_bib con los nuevos datos de conexion a CSIC
 UPDATE z_bib SET bib_nom = 'Red de Bibliotecas del CSIC', url = 'eu00.alma.exlibrisgroup.com', port = '210', base = '34CSIC_INST', format ='MARC21' WHERE url = 'aleph.csic.es';
 
--- Se cambia la versiÃ³n de base de datos de v5.19 a vLlxXenial para actualizar a PMB 5.0.4
+-- Se cambia la versión de base de datos de v5.19 a vLlxXenial para actualizar a PMB 5.0.4
 UPDATE parametres SET valeur_param='vLlxXenial' WHERE type_param='pmb' and sstype_param='bdd_version' and valeur_param='v5.19';
 
--- Se cambia el idioma por defecto del tesauro a es_ES para que la creaciÃ³n de nuevas categorias funcione correctamente
+-- Se cambia el idioma por defecto del tesauro a es_ES para que la creación de nuevas categorias funcione correctamente
 
-UPDATE thesaurus SET libelle_thesaurus= 'Tesauro nÂº 1', langue_defaut='es_ES' WHERE libelle_thesaurus='Agneaux' and langue_defaut='fr_FR' and id_thesaurus='1';
+UPDATE thesaurus SET libelle_thesaurus= 'Tesauro nº 1', langue_defaut='es_ES' WHERE libelle_thesaurus='Agneaux' and langue_defaut='fr_FR' and id_thesaurus='1';
 
--- Se aÃ±ade una acciÃ³n personalizada para renovar usuarios
+-- Se añade una acción personalizada para renovar usuarios
 
-Insert into procs (name,requete,comment,autorisations, parameters,num_classement,proc_notice_tpl,proc_notice_tpl_field) select 'LLIUREX_RENOV:Canvi de data de finalitzaciÃ³ de l\'abonament ','Update empr set empr_date_expiration=\'!!date!!\' where empr_date_expiration<curdate()','AcciÃ³ per a renovar als usuaris que tenen caducat l\'abonament','1','<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<FIELDS>\n <FIELD NAME=\"date\" MANDATORY=\"yes\">\n  <ALIAS><![CDATA[Seleccione la nova data de caducitat:]]></ALIAS>\n  <TYPE>date_box</TYPE>\n<OPTIONS FOR=\"date_box\"></OPTIONS>\n </FIELD>\n</FIELDS>',20,0,'' from dual where NOT EXISTS(Select * from procs where name like 'LLIUREX_RENOV%');
+Insert into procs (name,requete,comment,autorisations, parameters,num_classement,proc_notice_tpl,proc_notice_tpl_field) select 'LLIUREX_RENOV:Canvi de data de finalització de l\'abonament ','Update empr set empr_date_expiration=\'!!date!!\' where empr_date_expiration<curdate()','Acció per a renovar als usuaris que tenen caducat l\'abonament','1','<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<FIELDS>\n <FIELD NAME=\"date\" MANDATORY=\"yes\">\n  <ALIAS><![CDATA[Seleccione la nova data de caducitat:]]></ALIAS>\n  <TYPE>date_box</TYPE>\n<OPTIONS FOR=\"date_box\"></OPTIONS>\n </FIELD>\n</FIELDS>',20,0,'' from dual where NOT EXISTS(Select * from procs where name like 'LLIUREX_RENOV%');
 			
 -- Se actualizan parametros para deshabilitar la edicion de los formularios
 
@@ -100,9 +100,9 @@ Select (select idchamp from explnum_custom where name='Convocatoria'),'2025','20
 (select explnum_custom_list_value from explnum_custom_lists where explnum_custom_list_value='2025' and explnum_custom_champ=(select idchamp from explnum_custom where name='Convocatoria'));
 
 
--- Campo personalizado para indicar el tipo de indentificación del registro-------------------------------------
+-- Campo personalizado para indicar el tipo de indentificaci�n del registro-------------------------------------
 Insert into notices_custom (name,titre,type,datatype,options,multiple,obligatoire,ordre)
-Select 'Identificacion','Tipo de indentificaciÃ³n','list','small_text','<OPTIONS FOR=\"list\">\r\n <MULTIPLE>no</MULTIPLE>\r\n <AUTORITE>no</AUTORITE>\r\n <CHECKBOX>no</CHECKBOX>\r\n <NUM_AUTO>no</NUM_AUTO>\r\n <UNSELECT_ITEM VALUE=\"N/A\"><![CDATA[]]></UNSELECT_ITEM>\r\n <DEFAULT_VALUE>N/A</DEFAULT_VALUE>\r\n <CHECKBOX_NB_ON_LINE></CHECKBOX_NB_ON_LINE>\r\n</OPTIONS>',0,0,1
+Select 'Identificacion','Tipo de indentificación','list','small_text','<OPTIONS FOR=\"list\">\r\n <MULTIPLE>no</MULTIPLE>\r\n <AUTORITE>no</AUTORITE>\r\n <CHECKBOX>no</CHECKBOX>\r\n <NUM_AUTO>no</NUM_AUTO>\r\n <UNSELECT_ITEM VALUE=\"N/A\"><![CDATA[]]></UNSELECT_ITEM>\r\n <DEFAULT_VALUE>N/A</DEFAULT_VALUE>\r\n <CHECKBOX_NB_ON_LINE></CHECKBOX_NB_ON_LINE>\r\n</OPTIONS>',0,0,1
 from dual where not exists (select name from notices_custom where name='Identificacion');
 			
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
@@ -131,35 +131,35 @@ Select 'Idioma','Idioma','list','small_text','<OPTIONS FOR=\"list\">\r\n <MULTIP
 from dual where not exists (select name from notices_custom where name='Idioma');
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
-Select (Select idchamp from notices_custom where name='Idioma'),'valenciano','ValenciÃ  / Valenciano',1
+Select (Select idchamp from notices_custom where name='Idioma'),'valenciano','Valencià / Valenciano',1
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='valenciano' and notices_custom_champ=(Select idchamp from notices_custom where name='Idioma'));
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
-Select (Select idchamp from notices_custom where name='Idioma'),'castellano','CastellÃ  / Castellano',2
+Select (Select idchamp from notices_custom where name='Idioma'),'castellano','Castellà / Castellano',2
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='castellano' and notices_custom_champ=(Select idchamp from notices_custom where name='Idioma'));
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
-Select (Select idchamp from notices_custom where name='Idioma'),'ingles','AnglÃ©s / InglÃ©s',3
+Select (Select idchamp from notices_custom where name='Idioma'),'ingles','Anglés / Inglés',3
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='ingles' and notices_custom_champ=(Select idchamp from notices_custom where name='Idioma'));
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
-Select (Select idchamp from notices_custom where name='Idioma'),'frances','FrancÃ©s / FrancÃ©s',4
+Select (Select idchamp from notices_custom where name='Idioma'),'frances','Francés / Francés',4
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='frances' and notices_custom_champ=(Select idchamp from notices_custom where name='Idioma'));
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
-Select (Select idchamp from notices_custom where name='Idioma'),'aleman','Alemany / AlemÃ¡n',5
+Select (Select idchamp from notices_custom where name='Idioma'),'aleman','Alemany / Alemán',5
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='aleman' and notices_custom_champ=(Select idchamp from notices_custom where name='Idioma'));
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
-Select (Select idchamp from notices_custom where name='Idioma'),'portugues','PortuguÃ©s / PortuguÃ©s',6
+Select (Select idchamp from notices_custom where name='Idioma'),'portugues','Portugués / Portugués',6
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='portugues' and notices_custom_champ=(Select idchamp from notices_custom where name='Idioma'));
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
-Select (Select idchamp from notices_custom where name='Idioma'),'italiano','ItaliÃ  / Italiano',7
+Select (Select idchamp from notices_custom where name='Idioma'),'italiano','Italià / Italiano',7
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='italiano' and notices_custom_champ=(Select idchamp from notices_custom where name='Idioma'));
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
-Select (Select idchamp from notices_custom where name='Idioma'),'arabe','Ã€rab / Ãrabe',8
+Select (Select idchamp from notices_custom where name='Idioma'),'arabe','Àrab / Árabe',8
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='arabe' and notices_custom_champ=(Select idchamp from notices_custom where name='Idioma'));
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
@@ -185,7 +185,7 @@ from dual where not exists (select notices_custom_list_value from notices_custom
 
 -- Campo personalizado para indicar si el registro es una obra literaria------------------------
 Insert into notices_custom (name,titre,type,datatype,options,multiple,obligatoire,ordre)
-Select 'Literaria','Â¿Es una obra literarÃ¡ria?','list','small_text','<OPTIONS FOR=\"list\">\r\n <MULTIPLE>no</MULTIPLE>\r\n <AUTORITE>no</AUTORITE>\r\n <CHECKBOX>no</CHECKBOX>\r\n <NUM_AUTO>no</NUM_AUTO>\r\n <UNSELECT_ITEM VALUE=\"N/A\"><![CDATA[]]></UNSELECT_ITEM>\r\n <DEFAULT_VALUE>N/A</DEFAULT_VALUE>\r\n <CHECKBOX_NB_ON_LINE></CHECKBOX_NB_ON_LINE>\r\n</OPTIONS>',0,0,4
+Select 'Literaria','¿Es una obra literarária?','list','small_text','<OPTIONS FOR=\"list\">\r\n <MULTIPLE>no</MULTIPLE>\r\n <AUTORITE>no</AUTORITE>\r\n <CHECKBOX>no</CHECKBOX>\r\n <NUM_AUTO>no</NUM_AUTO>\r\n <UNSELECT_ITEM VALUE=\"N/A\"><![CDATA[]]></UNSELECT_ITEM>\r\n <DEFAULT_VALUE>N/A</DEFAULT_VALUE>\r\n <CHECKBOX_NB_ON_LINE></CHECKBOX_NB_ON_LINE>\r\n</OPTIONS>',0,0,4
 from dual where not exists (select name from notices_custom where name='Literaria');
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
@@ -202,9 +202,9 @@ Select'Precio','Precio pagado por ejemplar con IVA','text','float','<OPTIONS FOR
 from dual where not exists (select name from notices_custom where name='Precio');
 
 
--- Campo personalizao para indicar la ubicación del registro-----------------------------------
+-- Campo personalizao para indicar la ubicaci�n del registro-----------------------------------
 Insert into notices_custom (name,titre,type,datatype,options,multiple,obligatoire,ordre)
-Select 'Ubicacion','UbicaciÃ³n','list','small_text','<OPTIONS FOR=\"list\">\r\n <MULTIPLE>no</MULTIPLE>\r\n <AUTORITE>no</AUTORITE>\r\n <CHECKBOX>no</CHECKBOX>\r\n <NUM_AUTO>no</NUM_AUTO>\r\n <UNSELECT_ITEM VALUE=\"N/A\"><![CDATA[]]></UNSELECT_ITEM>\r\n <DEFAULT_VALUE>N/A</DEFAULT_VALUE>\r\n <CHECKBOX_NB_ON_LINE></CHECKBOX_NB_ON_LINE>\r\n</OPTIONS>',0,0,6
+Select 'Ubicacion','Ubicación','list','small_text','<OPTIONS FOR=\"list\">\r\n <MULTIPLE>no</MULTIPLE>\r\n <AUTORITE>no</AUTORITE>\r\n <CHECKBOX>no</CHECKBOX>\r\n <NUM_AUTO>no</NUM_AUTO>\r\n <UNSELECT_ITEM VALUE=\"N/A\"><![CDATA[]]></UNSELECT_ITEM>\r\n <DEFAULT_VALUE>N/A</DEFAULT_VALUE>\r\n <CHECKBOX_NB_ON_LINE></CHECKBOX_NB_ON_LINE>\r\n</OPTIONS>',0,0,6
 from dual where not exists (select name from notices_custom where name='Ubicacion');
 
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
@@ -214,13 +214,13 @@ from dual where not exists (select notices_custom_list_value from notices_custom
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
 Select (Select idchamp from notices_custom where name='Ubicacion'),'biblioAula','Biblioteca de l\'aula / Biblioteca del Aula',2
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='biblioAula' and notices_custom_champ=(Select idchamp from notices_custom where name='Ubicacion'));
+
 		
 -- Cambio de codificación en campos personalziados------------------------------
 Alter table expl_custom_values MODIFY expl_custom_small_text varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL;
 Alter table expl_custom_values MODIFY expl_custom_text text CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 Alter table explnum_custom_values MODIFY explnum_custom_small_text varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL;
 Alter table explnum_custom_values MODIFY explnum_custom_text text CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
 
 DELIMITER $$
 
