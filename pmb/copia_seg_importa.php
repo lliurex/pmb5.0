@@ -274,12 +274,12 @@ switch($categor){ // Selección de opciones.
 			
 			$query="Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
 					Select (Select idchamp from notices_custom where name='Autoria'),'SI','Si',1
-					from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='S' and notices_custom_champ=(Select idchamp from notices_custom where name='Autoria'))";
+					from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='SI' and notices_custom_champ=(Select idchamp from notices_custom where name='Autoria'))";
 			$result = pmb_mysql_query($query, $dbh);
 			
 			$query="Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
 					Select (Select idchamp from notices_custom where name='Autoria'),'NO','No',2
-					from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='N' and notices_custom_champ=(Select idchamp from notices_custom where name='Autoria'))";
+					from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='NO' and notices_custom_champ=(Select idchamp from notices_custom where name='Autoria'))";
 			$result = pmb_mysql_query($query, $dbh);
 			
 			//-------------------------Campo personalizado para indicar si el registro es una obra literaria------------------------
@@ -290,12 +290,12 @@ switch($categor){ // Selección de opciones.
 		
 			$query="Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
 					Select (Select idchamp from notices_custom where name='Literaria'),'SI','Si',1
-					from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='S' and notices_custom_champ=(Select idchamp from notices_custom where name='Literaria'))";
+					from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='SI' and notices_custom_champ=(Select idchamp from notices_custom where name='Literaria'))";
 			$result = pmb_mysql_query($query, $dbh);
 			
 			$query="Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
 					Select (Select idchamp from notices_custom where name='Literaria'),'NO','No',2
-					from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='N' and notices_custom_champ=(Select idchamp from notices_custom where name='Literaria'))";
+					from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='NO' and notices_custom_champ=(Select idchamp from notices_custom where name='Literaria'))";
 			$result = pmb_mysql_query($query, $dbh);
 			
 			//------------------------Campo personalizado para indicar el precio del registro ----------------------------------------
