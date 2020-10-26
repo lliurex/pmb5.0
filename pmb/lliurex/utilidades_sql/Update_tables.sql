@@ -214,7 +214,13 @@ from dual where not exists (select notices_custom_list_value from notices_custom
 Insert into notices_custom_lists (notices_custom_champ,notices_custom_list_value,notices_custom_list_lib,ordre)
 Select (Select idchamp from notices_custom where name='Ubicacion'),'biblioAula','Biblioteca de l\'aula / Biblioteca del Aula',2
 from dual where not exists (select notices_custom_list_value from notices_custom_lists where notices_custom_list_value='biblioAula' and notices_custom_champ=(Select idchamp from notices_custom where name='Ubicacion'));
+
 		
+-- Cambio de codificación en campos personalziados------------------------------
+Alter table expl_custom_values MODIFY expl_custom_small_text varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL;
+Alter table expl_custom_values MODIFY expl_custom_text text CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+Alter table explnum_custom_values MODIFY explnum_custom_small_text varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL;
+Alter table explnum_custom_values MODIFY explnum_custom_text text CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 DELIMITER $$
 
