@@ -8,7 +8,7 @@ Homepage: http://www.sigb.net/
 
 Package: pmb
 Architecture: any
-Depends: ${misc:Depends}, mysql-server, mysql-client
+Depends: ${misc:Depends}, apache2, mysql-server, mysql-client
 Description: Integrated Library Management System
  PMB (4.2.6) is an entirely free ILS (Integrated Library management System).
  PMB is based on web technology. It requires an HTTP server (such as Apache,
