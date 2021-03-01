@@ -32,12 +32,15 @@ class marc_list {
 		global $charset;
 		global $include_path;
 		
-	//---------------------LLIUREX 25/02/2019-----------------------
+	//---------------------LLIUREX 01/03/2021-----------------------
 	//-- Se añade chequeo de la variable $lang para garantizar que es un idioma
 	//----------------------------------------------------------------	
+
+		$lang_available = array("ar", "it_IT", "hu_HU", "fr_FR","es_ES","en_US","en_UK","de_DE","ca_ES","br_FR","va_ES","tr_TR","ro_RO","pt_PT","pt_BR","oc_FR","nl_NL","la_LA","ja_JP");
+
 		switch($type) {
 			case 'country':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/country.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
@@ -54,7 +57,7 @@ class marc_list {
 				$this->table = $parser->table;
 				break;
 			case 'lang':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/lang.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
@@ -62,21 +65,21 @@ class marc_list {
 				}
 				break;
 			case 'doctype':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/doctype.xml", 0);
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;
 			case 'recordtype':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/recordtype.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;
 			case 'function':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/function.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
@@ -84,21 +87,21 @@ class marc_list {
 				}
 				break;
 			case 'section_995':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/section_995.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;
 			case 'typdoc_995':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/typdoc_995.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;			
 			case 'codstatdoc_995':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/codstat_995.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
@@ -111,14 +114,14 @@ class marc_list {
 				$this->table = $parser->table;
 				break;
 			case 'nivbiblio':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/nivbiblio.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;	
 			case 'relationtypeup':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/relationtypeup.xml");
 					$parser->setAttributesToParse(array(array('name' => "REVERSE_CODE"),array('name' => "REVERSE_CODE_DEFAULT_CHECKED", 'default_value' => 'yes')));
 					$parser->analyser();
@@ -127,7 +130,7 @@ class marc_list {
 				}
 				break;		
 			case 'relationtypedown':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/relationtypedown.xml");
 					$parser->setAttributesToParse(array(array('name' => "REVERSE_CODE"),array('name' => "REVERSE_CODE_DEFAULT_CHECKED", 'default_value' => 'yes')));
 					$parser->analyser();
@@ -136,28 +139,28 @@ class marc_list {
 				}
 				break;
 			case 'relationtype_aut':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/relationtype_aut.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;
 			case 'relationtype_autup':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/relationtype_autup.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;
 			case 'relationtypedown_unimarc':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/relationtypedown_unimarc.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;
 			case 'relationtypeup_unimarc':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/relationtypeup_unimarc.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
@@ -169,28 +172,28 @@ class marc_list {
 				$this->table = $parser->table;
 				break;
 			case 'music_key':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/music_key.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;	
 			case 'music_form':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/music_form.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;	
 			case 'oeuvre_type':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/oeuvre_type.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;
 			case 'oeuvre_nature':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/oeuvre_nature.xml");
 					$parser->setAttributesToParse(array(array('name' => "NATURE")));				
 					$parser->analyser();
@@ -199,7 +202,7 @@ class marc_list {
 				}
 				break;
 			case 'oeuvre_link':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist_links("$include_path/marc_tables/$lang/oeuvre_link.xml");
 					$parser->setAttributesToParse(array(array('name' => 'EXPRESSION', 'default_value' => 'no'), array('name' => 'OTHER_LINK', 'default_value' => 'yes'), array('name' => 'GROUP', 'default_value' => '')));
 					$parser->analyser();
@@ -209,21 +212,21 @@ class marc_list {
 				}
 				break;
 			case 'rent_account_type':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/rent_account_type.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;
 			case 'rent_request_type':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/rent_request_type.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
 				}
 				break;
 			case 'rent_destination':
-				if (($lang!=" ") && (!is_numeric($lang)) && (strlen($lang)>1) && (strlen($lang)<6)){
+				if (in_array($lang, $lang_available)){ 
 					$parser = new XMLlist("$include_path/marc_tables/$lang/rent_destination.xml");
 					$parser->analyser();
 					$this->table = $parser->table;
