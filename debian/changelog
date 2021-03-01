@@ -1,3 +1,9 @@
+pmb (5.0.4+lliurex27) bionic; urgency=medium
+
+  * Fixed bug in reindexation process
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 01 Mar 2021 08:38:31 +0100
+
 pmb (5.0.4+lliurex26) bionic; urgency=medium
 
   * Added apache2 as depend in control file
