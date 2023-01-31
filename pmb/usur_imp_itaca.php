@@ -1,7 +1,42 @@
 <?php
 //-------------------------------------> L L I U R E X <--------------------------------------//
 // Modulo de importación/exportacion de usuarios de pmb, a partir de un fichero de texto plano
-		
+
+//-----------------INI LLIUREX 31/01/2023-------------------------
+//Funcion para comprobar si las categorias de usuario por defecto existen en la base de datos
+function check_user_category($link2,$tipo_user){
+
+	if ($tipo_user=='A'){
+		$emprCateg=5;
+		$categDescriptionRef="Estud";
+		$categDescriptionValue="Alumnos de secundaria/Estudiantes";
+	}else{
+		$emprCateg=7;
+		$categDescriptionRef="Adul";
+		$categDescriptionValue="Adultos";
+	}
+	
+	$sql_comp= "SELECT `empr_categ`.`id_categ_empr` FROM `empr_categ` WHERE `empr_categ`.`libelle` like '%".$categDescriptionRef."%'";
+	$resul_comp= @mysql_query($sql_comp, $link2);
+	if (@mysql_num_rows($resul_comp) == 0){
+		$sql_insert= "INSERT INTO empr_categ (libelle,duree_adhesion) VALUES ('" . $categDescriptionValue . "','365')";
+		$resul_insert= @mysql_query($sql_insert, $link2);
+		$resul_comp= @mysql_query($sql_comp, $link2);
+		if (@pmb_mysql_num_rows($resul_comp) == 1){
+			$currentValue =mysql_fetch_array($resul_comp);
+			$emprCateg=intval($currentValue['id_categ_empr']);
+		}
+	}else{
+		if (@pmb_mysql_num_rows($resul_comp) == 1){
+			$currentValue =mysql_fetch_array($resul_comp);
+			$emprCateg=intval($currentValue['id_categ_empr']);
+		}
+	}
+	
+	return $emprCateg;
+}
+//-----------------FIN LLIUREX 31/01/2023-------------------------
+
 function string_to_array($string) {
    $largo = strlen($string); //Largo de cadena
    $final_array = array();
@@ -224,7 +259,7 @@ function sacaCamposItacaProf($archivo) {
 }
 
 //Funcion para insertar los datos en la base de datos
-function inserta_datos($vacia,$referencia,$tot,$campos,$link2,$idused,$lang,$tipo_user){
+function inserta_datos($vacia,$referencia,$tot,$campos,$link2,$idused,$lang,$tipo_user,$empr_categ){
     
     $resul_comp=array();
 	$correctorNIA=0;
@@ -233,13 +268,16 @@ function inserta_datos($vacia,$referencia,$tot,$campos,$link2,$idused,$lang,$tip
 	$cont=0;
 	$contAct=0;
 	$categ=0;
-        
+	//------------------INI LLIUREX 31/01/2023-----------
+        $categ=$empr_categ;
+	/*
    	if ($tipo_user=='A'){
 		$categ=5; 
     }else{
         $categ=7;
     }	
-
+	*/
+   //---------------FIN LLIUREX 31/01/2023-------------------------
     if (!$vacia==0){
 		
 	 	if ($idused=="Exp" && $tipo_user=="A"){
@@ -643,13 +681,18 @@ switch($categor){ // Selección de opciones.
 				$tipo_user="A";
 		    }			
 			//Importamos datos alumnos
-			$resul_comp=inserta_datos($vacia,$referencia,$totAlu,$camposAlu,$link2,$idused,$lang,$tipo_user);
-				
+			//--------------INI LLIUREX 31/01/2023-----------------------------
+			$empr_categ=check_user_category($link2,$tipo_user);
+			$resul_comp=inserta_datos($vacia,$referencia,$totAlu,$camposAlu,$link2,$idused,$lang,$tipo_user,$empr_categ);
+			//--------------FIN LLIUREX 31/01/2023-----------------------------------
 			//Importamos datos profesores;
 
 			$camposProf=(count($totProf))-1;
 			$tipo_user="P";
-			$resul_prof=inserta_datos($vacia,24,$totProf,$camposProf,$link2,$idused,$lang,$tipo_user);			 		
+			//--------------INI LLIUREX 31/01/2023-----------------------------
+			$empr_categ=check_user_category($link2,$tipo_user);
+			$resul_prof=inserta_datos($vacia,24,$totProf,$camposProf,$link2,$idused,$lang,$tipo_user,$empr_categ);			 		
+			//--------------FIN LLIUREX 31/01/2023-----------------------------
 			$contR=$resul_comp[1]+$resul_prof[1];
 			$contAct=$resul_comp[2]+$resul_prof[2];
 							   
